@@ -4,5 +4,12 @@
 
 [node name="Main" type="Node2D"]
 
+[node name="Label" type="Label" parent="."]
+offset_left = 133.0
+offset_top = 124.0
+offset_right = 187.0
+offset_bottom = 147.0
+text = "Wololo"
+
 [node name="Player" parent="." instance=ExtResource("1_6bdi6")]
 position = Vector2(82, 55)
