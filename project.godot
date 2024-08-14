@@ -11,5 +11,19 @@ config_version=5
 [application]
 
 config/name="GMTK Jam 2024"
+config/version="0.0.1"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
+
+[display]
+
+window/size/viewport_width=1800
+window/size/viewport_height=1000
+
+[layer_names]
+
+2d_physics/layer_1="Player"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
