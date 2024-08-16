@@ -15,9 +15,14 @@ TBD: How to play the game.
 - Godot Engine 4.2.2
 - GDScript
 
-## License
+## Licensing
 
-TBD: Discuss the licensing of the game.
+This project uses dual licensing:
+
+- All source code is licensed under the [GNU General Public License v3.0 (GPL-3.0)](CODE_LICENSE.txt).
+- All assets are licensed under the [Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)](ASSET_LICENSE.txt) license.
+
+Please see the respective license files for more details.
 
 ## Folder structure
 
