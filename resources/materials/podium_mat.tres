@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://d0yy5rxcxqwxn"]
+
+[ext_resource type="Texture2D" uid="uid://qu2tvut3xhpt" path="res://assets/textures/podium_tex.png" id="1_7cv13"]
+
+[resource]
+albedo_texture = ExtResource("1_7cv13")
+roughness = 0.7
+texture_filter = 0
