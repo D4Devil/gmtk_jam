@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://fgpto6xwiehx"]
+
+[ext_resource type="Script" path="res://scripts/characters/player.gd" id="1_yijt0"]
+
+[node name="Plant" type="Node3D"]
+script = ExtResource("1_yijt0")
