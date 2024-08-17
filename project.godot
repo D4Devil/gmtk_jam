@@ -18,12 +18,22 @@ config/icon="res://icon.svg"
 
 [autoload]
 
+PointerSelector="*res://scripts/global/pointer_selector.gd"
 PlantStats="*res://scripts/global/plant_stats.gd"
+GrowthTimer="*res://scripts/global/growth_timer.gd"
 
 [display]
 
 window/size/viewport_width=1800
 window/size/viewport_height=1000
+
+[input]
+
+in_game_select={
+"deadzone": 0.5,
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":1,"position":Vector2(149, 18),"global_position":Vector2(158, 64),"factor":1.0,"button_index":1,"canceled":false,"pressed":true,"double_click":false,"script":null)
+]
+}
 
 [layer_names]
 
