@@ -1,11 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://3jbkb6afp78t"]
+[gd_scene load_steps=5 format=3 uid="uid://3jbkb6afp78t"]
 
 [ext_resource type="PackedScene" uid="uid://la0lgyyjggxx" path="res://scenes/ui/main_menu.tscn" id="1_1vrmx"]
 [ext_resource type="Script" path="res://scripts/ui/ui.gd" id="1_nv2cv"]
 [ext_resource type="PackedScene" uid="uid://dax5ifovufqyo" path="res://scenes/ui/plant_stats_ui.tscn" id="3_fd46x"]
+[ext_resource type="PackedScene" uid="uid://caml3oiyt3p00" path="res://scenes/ui/timer_ui.tscn" id="4_oax01"]
 
 [node name="UI" type="CanvasLayer"]
 script = ExtResource("1_nv2cv")
+
+[node name="PlantStatsUi" parent="." instance=ExtResource("3_fd46x")]
+
+[node name="TimerUI" parent="." instance=ExtResource("4_oax01")]
 
 [node name="MainMenu" parent="." instance=ExtResource("1_1vrmx")]
 

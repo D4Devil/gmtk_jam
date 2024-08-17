@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 
 PointerSelector="*res://scripts/global/pointer_selector.gd"
 PlantStats="*res://scripts/global/plant_stats.gd"
+GrowthTimer="*res://scripts/global/growth_timer.gd"
 
 [display]
 
