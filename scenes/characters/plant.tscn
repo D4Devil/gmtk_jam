@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://fgpto6xwiehx"]
+
+[ext_resource type="Script" path="res://scripts/characters/plant.gd" id="1_yijt0"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bvwsm"]
+albedo_color = Color(0.47725, 0.69, 0.345, 1)
+roughness = 0.85
+
+[sub_resource type="SphereMesh" id="SphereMesh_qb5dw"]
+material = SubResource("StandardMaterial3D_bvwsm")
+
+[node name="Plant" type="Node3D"]
+script = ExtResource("1_yijt0")
+
+[node name="Mesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0544745, 0)
+mesh = SubResource("SphereMesh_qb5dw")
+
+[node name="Camera" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.973291, 0.229574, 0, -0.229574, 0.973291, 0, 0.716124, 2.39201)
+fov = 60.0
