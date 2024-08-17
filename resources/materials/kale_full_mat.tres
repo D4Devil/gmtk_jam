@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dqeren4emyqi6"]
+
+[ext_resource type="Texture2D" uid="uid://dm81c28g16x1e" path="res://assets/textures/kale_full_tex.png" id="1_41cyk"]
+
+[resource]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+albedo_texture = ExtResource("1_41cyk")
+roughness = 0.8
+texture_filter = 0

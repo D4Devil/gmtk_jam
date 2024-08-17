@@ -31,7 +31,18 @@ animation/trimming=true
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
-_subresources={}
+_subresources={
+"materials": {
+"texture": {
+"use_external/enabled": true,
+"use_external/path": "res://resources/materials/kale_seedling_mat.tres"
+},
+"texture_1": {
+"use_external/enabled": true,
+"use_external/path": "res://resources/materials/kale_seedling_mat.tres"
+}
+}
+}
 fbx/importer=0
 fbx/allow_geometry_helper_nodes=false
 fbx/embedded_image_handling=1
