@@ -15,7 +15,7 @@ visible = false
 [node name="TimerUI" parent="." instance=ExtResource("4_oax01")]
 visible = false
 
-[node name="MainMenu" parent="." instance=ExtResource("1_1vrmx")]
-
 [node name="PlantStatChangesUI" parent="." instance=ExtResource("5_3kt1e")]
 visible = false
+
+[node name="MainMenu" parent="." instance=ExtResource("1_1vrmx")]
