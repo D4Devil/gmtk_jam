@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://dax5ifovufqyo"]
+[gd_scene load_steps=3 format=3 uid="uid://dt6nb73oq0wcj"]
 
 [ext_resource type="PackedScene" uid="uid://cp7t4w6nul8eo" path="res://scenes/ui/components/progress_bar.tscn" id="1_ivcwd"]
 [ext_resource type="Script" path="res://scripts/ui/plant_stats_ui.gd" id="1_uf0k4"]

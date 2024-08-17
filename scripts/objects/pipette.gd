@@ -2,12 +2,13 @@ class_name Pipette
 extends CharacterBody3D
 
 
-@export var watering_power: float = 10
+@export var watering_power: float = 1
 @onready var origin := transform.origin
 
 
 func on_clickable_selected(collision: Dictionary) -> void:
     print('Pipette selected')
+
 
 func on_clickable_dropped() -> void:
     print('Pipette Dropped')

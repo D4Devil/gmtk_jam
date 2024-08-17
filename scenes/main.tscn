@@ -14,6 +14,6 @@ script = ExtResource("1_y3gh7")
 [node name="Plant" parent="." instance=ExtResource("3_wsulr")]
 
 [node name="Pipette" parent="." instance=ExtResource("4_cepmv")]
-transform = Transform3D(0.855888, -0.370997, 0.360301, 0.275216, 0.916591, 0.290031, -0.437849, -0.149074, 0.886603, 0.122473, 0.10486, 0.147407)
+transform = Transform3D(-0.82996, 0.0742675, 0.552856, 0.275216, 0.916591, 0.290031, -0.485203, 0.392869, -0.781174, 0.121775, 0.206578, -0.165372)
 
 [node name="UI" parent="." instance=ExtResource("4_c2oqb")]
