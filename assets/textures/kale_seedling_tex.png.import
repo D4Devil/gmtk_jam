@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cwql1uviaps6i"
-path.s3tc="res://.godot/imported/kale_seedling_tex.png-00037897d0649ab9bc30bfdace814845.s3tc.ctex"
+path="res://.godot/imported/kale_seedling_tex.png-00037897d0649ab9bc30bfdace814845.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://assets/textures/kale_seedling_tex.png"
-dest_files=["res://.godot/imported/kale_seedling_tex.png-00037897d0649ab9bc30bfdace814845.s3tc.ctex"]
+dest_files=["res://.godot/imported/kale_seedling_tex.png-00037897d0649ab9bc30bfdace814845.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=3
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

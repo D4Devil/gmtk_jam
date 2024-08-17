@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://kabexf52a3d1"
-path.s3tc="res://.godot/imported/watering_can_tex.png-7771eeb9c6ac8413efe73a151cabb9fc.s3tc.ctex"
+path="res://.godot/imported/watering_can_tex.png-7771eeb9c6ac8413efe73a151cabb9fc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://assets/textures/watering_can_tex.png"
-dest_files=["res://.godot/imported/watering_can_tex.png-7771eeb9c6ac8413efe73a151cabb9fc.s3tc.ctex"]
+dest_files=["res://.godot/imported/watering_can_tex.png-7771eeb9c6ac8413efe73a151cabb9fc.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=3
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
