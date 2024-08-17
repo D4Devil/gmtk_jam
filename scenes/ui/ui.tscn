@@ -9,7 +9,9 @@
 script = ExtResource("1_nv2cv")
 
 [node name="PlantStatsUi" parent="." instance=ExtResource("3_fd46x")]
+visible = false
 
 [node name="TimerUI" parent="." instance=ExtResource("4_oax01")]
+visible = false
 
 [node name="MainMenu" parent="." instance=ExtResource("1_1vrmx")]
