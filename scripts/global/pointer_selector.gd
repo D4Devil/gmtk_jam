@@ -62,13 +62,13 @@ func get_clickable() -> void:
 
 func wire_clickable():
 	if last_object_clicked.has_method(ON_CLICKABLE_SELECTED):
-		object_clicked.connect(last_object_clicked.on_object_clicked)
+		object_clicked.connect(last_object_clicked.on_clickable_selected)
 		
 	if last_object_clicked.has_method(ON_USING_CLICKABLE):
 		clickable_use.connect(last_object_clicked.on_clickable_use)
 
 	if last_object_clicked.has_method(ON_CLICKABLE_DROPPED):
-		object_dropped.connect(last_object_clicked.on_object_dropped)
+		object_dropped.connect(last_object_clicked.on_clickable_dropped)
 
 
 func drop_clickable() -> void:
@@ -83,13 +83,13 @@ func drop_clickable() -> void:
 
 func unwire_clickable():
 	if last_object_clicked.has_method(ON_CLICKABLE_SELECTED):
-		object_clicked.disconnect(last_object_clicked.on_object_clicked)
+		object_clicked.disconnect(last_object_clicked.on_clickable_selected)
 
 	if last_object_clicked.has_method(ON_USING_CLICKABLE):
 		clickable_use.disconnect(last_object_clicked.on_clickable_use)
 
 	if last_object_clicked.has_method(ON_CLICKABLE_DROPPED):
-		object_dropped.disconnect(last_object_clicked.on_object_dropped)
+		object_dropped.disconnect(last_object_clicked.on_clickable_dropped)
 
 
 func start_using_clickable():
