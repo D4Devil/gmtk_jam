@@ -1,0 +1,79 @@
+[gd_scene load_steps=3 format=3 uid="uid://dax5ifovufqyo"]
+
+[ext_resource type="PackedScene" uid="uid://cp7t4w6nul8eo" path="res://scenes/ui/components/progress_bar.tscn" id="1_ivcwd"]
+[ext_resource type="Script" path="res://scripts/ui/plant_stats_ui.gd" id="1_uf0k4"]
+
+[node name="PlantStatsUi" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_uf0k4")
+
+[node name="HealthBar" parent="." instance=ExtResource("1_ivcwd")]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.0
+offset_left = -807.0
+offset_top = 17.0
+offset_right = -607.0
+offset_bottom = 47.0
+grow_vertical = 1
+background_color = Color(0.278057, 0.322124, 0.205929, 1)
+fill_color = Color(0.395677, 0.554103, 0.234205, 1)
+
+[node name="HealthLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 37.0
+offset_top = 20.0
+offset_right = 89.0
+offset_bottom = 43.0
+text = "Health"
+
+[node name="GrowthBar" parent="." instance=ExtResource("1_ivcwd")]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.0
+offset_left = -498.0
+offset_top = 17.0
+offset_right = -298.0
+offset_bottom = 47.0
+grow_vertical = 1
+background_color = Color(0.435887, 0.218833, 0.335224, 1)
+fill_color = Color(0.784723, 0.292953, 0.511226, 1)
+
+[node name="GrowthLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 337.0
+offset_top = 19.0
+offset_right = 395.0
+offset_bottom = 42.0
+text = "Growth"
+
+[node name="WaterBar" parent="." instance=ExtResource("1_ivcwd")]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.0
+offset_left = -186.0
+offset_top = 17.0
+offset_right = 14.0
+offset_bottom = 47.0
+grow_vertical = 1
+background_color = Color(0.210978, 0.307667, 0.437038, 1)
+fill_color = Color(0.220355, 0.48622, 0.885639, 1)
+
+[node name="WaterLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 658.0
+offset_top = 20.0
+offset_right = 710.0
+offset_bottom = 43.0
+text = "Water"
