@@ -43,6 +43,7 @@ in_game_drop={
 [layer_names]
 
 2d_physics/layer_1="Player"
+3d_physics/layer_2="clickable"
 
 [rendering]
 
