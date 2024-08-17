@@ -1,3 +1,43 @@
-[gd_scene format=3 uid="uid://bg7g48sbn5na8"]
+[gd_scene load_steps=5 format=3 uid="uid://bg7g48sbn5na8"]
 
-[node name="World" type="Node2D"]
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ngwyh"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_ibb7l"]
+sky_material = SubResource("ProceduralSkyMaterial_ngwyh")
+
+[sub_resource type="Environment" id="Environment_6fdjw"]
+background_mode = 2
+sky = SubResource("Sky_ibb7l")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_y8u7v"]
+size = Vector2(200, 200)
+subdivide_width = 10
+subdivide_depth = 10
+
+[node name="World" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.638496, 0.666516, -0.384811, -1.49013e-08, 0.499998, 0.866027, 0.769625, -0.552955, 0.319247, 0, 32.2932, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_6fdjw")
+
+[node name="Ground" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_y8u7v")
+
+[node name="House" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.7069, 4.79618, 0)
+size = Vector3(15, 10, 15)
+
+[node name="House" type="CSGBox3D" parent="House"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.38676, -0.20736, -42.742)
+size = Vector3(15, 10, 15)
+
+[node name="House2" type="CSGBox3D" parent="House"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.38676, -0.20736, -80.4701)
+size = Vector3(15, 10, 15)

@@ -16,6 +16,10 @@ run/main_scene="res://scenes/main.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+PlantStats="*res://scripts/global/plant_stats.gd"
+
 [display]
 
 window/size/viewport_width=1800
