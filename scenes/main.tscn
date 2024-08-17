@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://b0giiswj4cgxj"]
+[gd_scene load_steps=6 format=3 uid="uid://b0giiswj4cgxj"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_y3gh7"]
 [ext_resource type="PackedScene" uid="uid://fgpto6xwiehx" path="res://scenes/characters/plant.tscn" id="3_wsulr"]
 [ext_resource type="PackedScene" uid="uid://bg7g48sbn5na8" path="res://scenes/levels/world.tscn" id="3_wuwph"]
 [ext_resource type="PackedScene" uid="uid://3jbkb6afp78t" path="res://scenes/ui/ui.tscn" id="4_c2oqb"]
+[ext_resource type="PackedScene" uid="uid://wolhcr7alfel" path="res://scenes/objects/pipette.tscn" id="4_cepmv"]
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_y3gh7")
@@ -11,5 +12,8 @@ script = ExtResource("1_y3gh7")
 [node name="World" parent="." instance=ExtResource("3_wuwph")]
 
 [node name="Plant" parent="." instance=ExtResource("3_wsulr")]
+
+[node name="Pipette" parent="." instance=ExtResource("4_cepmv")]
+transform = Transform3D(-0.82996, 0.0742675, 0.552856, 0.275216, 0.916591, 0.290031, -0.485203, 0.392869, -0.781174, 0.121775, 0.206578, -0.165372)
 
 [node name="UI" parent="." instance=ExtResource("4_c2oqb")]

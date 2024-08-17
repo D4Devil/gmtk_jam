@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://wolhcr7alfel"]
+
+[ext_resource type="Script" path="res://scripts/objects/pipette.gd" id="1_r02k7"]
+[ext_resource type="PackedScene" uid="uid://bd2xfdlbakbmy" path="res://assets/models/Pipette.fbx" id="2_4757i"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ns23a"]
+size = Vector3(0.296753, 0.305908, 1.23558)
+
+[node name="Pipette" type="CharacterBody3D"]
+collision_layer = 3
+script = ExtResource("1_r02k7")
+
+[node name="Pipette" parent="." instance=ExtResource("2_4757i")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, -0.4)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00152588, 0.00012207, 0.459251)
+shape = SubResource("BoxShape3D_ns23a")
