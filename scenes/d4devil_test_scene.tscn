@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cqdfbw6s07gvg"]
+[gd_scene load_steps=8 format=3 uid="uid://cqdfbw6s07gvg"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_hugxm"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -16,30 +16,24 @@ glow_enabled = true
 [sub_resource type="GDScript" id="GDScript_17fn6"]
 script/source = "extends StaticBody3D
 
-func on_object_clicked(collision: Dictionary) -> void:
-	print(\"[%s] Object clicked\" % name)
+func on_clickable_selected(collision: Dictionary) -> void:
+	print(\"[%s] Object selected\" % name)
+
+
+func on_clickable_dropped() -> void:
+	print(\"[%s] Object dropped\" % name)
+
+
+func on_clickable_use(using: bool = false) -> void:
+	if using:
+		print(\"[%s] Using Object\" % name)
+	else:
+		print(\"[%s] Un-Using Object\" % name)
 "
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_7y4xp"]
 
-[sub_resource type="GDScript" id="GDScript_wgo2g"]
-resource_name = "ClickTest"
-script/source = "extends CollisionShape3D
-
-
-func on_object_clicked(collision: Dictionary) -> void:
-	print(\"[%s] Object clicked\" % name)
-"
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_eimm5"]
-
-[sub_resource type="GDScript" id="GDScript_lvyrv"]
-script/source = "extends CollisionShape3D
-
-
-func on_object_clicked(collision: Dictionary) -> void:
-	print(\"[%s] Object clicked\" % name)
-"
 
 [sub_resource type="BoxMesh" id="BoxMesh_fmf0y"]
 
@@ -58,7 +52,6 @@ script = SubResource("GDScript_17fn6")
 
 [node name="Floor" type="CollisionShape3D" parent="Floor"]
 shape = SubResource("WorldBoundaryShape3D_7y4xp")
-script = SubResource("GDScript_wgo2g")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.956233, 0.292605, 0, -0.292605, 0.956233, 0, 2.45991, 3.93214)
@@ -68,7 +61,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.790486, 0)
 
 [node name="Box" type="CollisionShape3D" parent="StaticBody3D"]
 shape = SubResource("BoxShape3D_eimm5")
-script = SubResource("GDScript_lvyrv")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
 mesh = SubResource("BoxMesh_fmf0y")
