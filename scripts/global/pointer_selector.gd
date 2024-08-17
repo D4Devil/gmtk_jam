@@ -17,7 +17,7 @@ func _init() -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	## Guard against anything but the mouse buttons 
-	if not event is InputEventMouseButton:
+	if event is not InputEventMouseButton:
 		return
 
 	if event.is_action_pressed("in_game_select"):
