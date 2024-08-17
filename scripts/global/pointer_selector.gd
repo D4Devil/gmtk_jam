@@ -1,4 +1,3 @@
-class_name Pointer
 extends Node3D
 
 const ON_OBJECT_CLICKED := "on_object_clicked"
