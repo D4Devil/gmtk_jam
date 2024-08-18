@@ -7,8 +7,8 @@
 radius = 0.02
 
 [sub_resource type="SphereMesh" id="SphereMesh_tphmf"]
-radius = 0.2
-height = 0.2
+radius = 0.02
+height = 0.06
 
 [node name="Droplet" type="RigidBody3D"]
 collision_layer = 0
