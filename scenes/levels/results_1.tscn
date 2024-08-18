@@ -1,0 +1,53 @@
+[gd_scene load_steps=10 format=3 uid="uid://r32fqmgx0nvx"]
+
+[ext_resource type="PackedScene" uid="uid://p35r8bqu4l61" path="res://assets/models/arrow/Arrow.fbx" id="1_1habp"]
+[ext_resource type="Material" uid="uid://d4b23b4qt34dk" path="res://assets/textures/grass_mat_1.tres" id="1_1sjgn"]
+[ext_resource type="PackedScene" uid="uid://btktphuya43md" path="res://assets/models/player/Player.glb" id="1_evmma"]
+[ext_resource type="PackedScene" uid="uid://sobcjanvyu2b" path="res://assets/models/podium/Podium.fbx" id="2_0bxyi"]
+[ext_resource type="PackedScene" uid="uid://bmu15rhp8esn7" path="res://assets/models/kale/Kale Grown.glb" id="5_e2e2g"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_b6gpl"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_44q06"]
+sky_material = SubResource("ProceduralSkyMaterial_b6gpl")
+
+[sub_resource type="Environment" id="Environment_s2inj"]
+background_mode = 2
+sky = SubResource("Sky_44q06")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_splwm"]
+material = ExtResource("1_1sjgn")
+size = Vector2(200, 200)
+subdivide_width = 10
+subdivide_depth = 10
+
+[node name="Node3D" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 4.41302, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_s2inj")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_splwm")
+
+[node name="Podium" parent="." instance=ExtResource("2_0bxyi")]
+transform = Transform3D(-0.221617, 0, -0.975134, 0, 1, 0, 0.975134, 0, -0.221617, -1.71712, 4.76837e-07, 2.16065)
+
+[node name="Player" parent="." instance=ExtResource("1_evmma")]
+transform = Transform3D(-0.254585, 0, -0.96705, 0, 1, 0, 0.96705, 0, -0.254585, -1.7714, 0.727203, 2.13182)
+
+[node name="Arrow" parent="." instance=ExtResource("1_1habp")]
+transform = Transform3D(0.42797, 0, 1.95367, 0, 2, 0, -1.95367, 0, 0.42797, -1.73641, 1.60533, 2.13199)
+
+[node name="KaleFull" parent="." instance=ExtResource("5_e2e2g")]
+transform = Transform3D(1.8732, 0, 0, 0, 1.8732, 0, 0, 0, 1.8732, -2.51194, 0, 0.320507)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-0.613969, -0.0261015, 0.788899, 0, 0.999453, 0.033068, -0.789331, 0.0203027, -0.613633, -0.0390449, 0.992321, -0.145313)

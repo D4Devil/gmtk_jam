@@ -1,0 +1,27 @@
+[gd_scene load_steps=2 format=3 uid="uid://dnei8a1w75lap"]
+
+[ext_resource type="Script" path="res://scripts/ui/results_ui.gd" id="1_54tcd"]
+
+[node name="ResultsUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_54tcd")
+
+[node name="RestartButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -215.0
+offset_top = 22.0
+offset_right = -19.0
+offset_bottom = 85.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 40
+text = "Try again!"
+
+[connection signal="pressed" from="RestartButton" to="." method="_on_restart_button_pressed"]

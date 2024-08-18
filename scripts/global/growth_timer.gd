@@ -4,11 +4,13 @@ extends Node
 @export var total_time: float = 5.0 * 60
 
 var time_left: float = total_time
+var is_running: bool = false
 
 signal timeout()
 
 
 func _ready():
+	print("In growth_timer _ready")
 	time_left = total_time
 	GameStateMachine.state_changed.connect(on_game_state_changed)
 
@@ -26,6 +28,9 @@ func reset():
 	time_left = total_time
 
 
-func on_game_state_changed(_old_state: GameStateMachine.GameState, new_state: GameStateMachine.GameState):
-	if new_state == GameStateMachine.GameState.GROWTH:
+func on_game_state_changed(old_state: GameStateMachine.GameState, new_state: GameStateMachine.GameState):
+	if old_state == GameStateMachine.GameState.GROWTH:
+		is_running = false
+	elif new_state == GameStateMachine.GameState.GROWTH:
 		reset()
+		is_running = true
