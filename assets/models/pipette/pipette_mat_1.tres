@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://d0ncnogga8tc"]
+
+[ext_resource type="Texture2D" uid="uid://yhdijkuluw60" path="res://assets/models/pipette/Pipette_1.png" id="1_njsd0"]
+
+[resource]
+albedo_texture = ExtResource("1_njsd0")
+roughness = 0.4
+texture_filter = 0

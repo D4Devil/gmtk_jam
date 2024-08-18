@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dw6l38pm850p1"]
+
+[ext_resource type="Texture2D" uid="uid://vwby7ti85xxd" path="res://assets/models/watering_can/Watering can_0.png" id="1_564ek"]
+
+[resource]
+albedo_texture = ExtResource("1_564ek")
+roughness = 0.5
+texture_filter = 0

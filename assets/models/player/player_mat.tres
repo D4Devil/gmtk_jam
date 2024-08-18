@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://wwx5u8t7fukp"]
+
+[ext_resource type="Texture2D" uid="uid://blysq42tiv7vu" path="res://assets/models/player/Player_0.png" id="1_hwobc"]
+
+[resource]
+albedo_texture = ExtResource("1_hwobc")
+roughness = 0.85
+texture_filter = 0
