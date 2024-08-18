@@ -1,7 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://bg7g48sbn5na8"]
 
-[ext_resource type="PackedScene" uid="uid://fgpto6xwiehx" path="res://scenes/characters/plant.tscn" id="1_hy1fl"]
-[ext_resource type="PackedScene" uid="uid://wolhcr7alfel" path="res://scenes/objects/pipette.tscn" id="2_wqysx"]
+[ext_resource type="PackedScene" uid="uid://fgpto6xwiehx" path="res://scenes/characters/plant.tscn" id="1_2hdm4"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ngwyh"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -24,6 +23,8 @@ subdivide_depth = 10
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_ltv7h"]
 
 [node name="World" type="Node3D"]
+
+[node name="Plant" parent="." instance=ExtResource("1_2hdm4")]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.638496, 0.666516, -0.384811, -1.49013e-08, 0.499998, 0.866027, 0.769625, -0.552955, 0.319247, 0, 32.2932, 0)
