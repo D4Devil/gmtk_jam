@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://scripts/ui/ui.gd" id="1_nv2cv"]
 [ext_resource type="PackedScene" uid="uid://dt6nb73oq0wcj" path="res://scenes/ui/plant_stats_ui.tscn" id="3_fd46x"]
 [ext_resource type="PackedScene" uid="uid://caml3oiyt3p00" path="res://scenes/ui/timer_ui.tscn" id="4_oax01"]
-[ext_resource type="PackedScene" path="res://scenes/ui/plant_stat_changes_ui.tscn" id="5_3kt1e"]
+[ext_resource type="PackedScene" uid="uid://d4t0ax0eb8va" path="res://scenes/ui/plant_stat_changes_ui.tscn" id="5_3kt1e"]
 
 [node name="UI" type="CanvasLayer"]
 script = ExtResource("1_nv2cv")
@@ -14,7 +14,6 @@ visible = false
 
 [node name="TimerUI" parent="." instance=ExtResource("4_oax01")]
 visible = false
-mouse_filter = 2
 
 [node name="PlantStatChangesUI" parent="." instance=ExtResource("5_3kt1e")]
 visible = false
