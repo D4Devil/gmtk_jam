@@ -10,6 +10,7 @@ signal timeout()
 
 
 func _ready():
+	print("In growth_timer _ready")
 	time_left = total_time
 	GameStateMachine.state_changed.connect(on_game_state_changed)
 

@@ -43,9 +43,16 @@ extends Node
 @onready var water_perc_loss_per_size: Curve = ResourceLoader.load("resources/balance/water_perc_loss_per_size.tres")
 
 func _ready():
+	print("In plant_stats _ready")
 	reset_plant()
+	GameStateMachine.state_changed.connect(on_game_state_changed)
+
 
 func _process(delta):
+	# Don't process plant stats when not in the GROWTH phase!
+	if not GameStateMachine.state == GameStateMachine.GameState.GROWTH:
+		return
+
 	var size_sample_value = remap(size, 0, max_size_expected, 0, 1)
 
 	# Apply water changes
@@ -78,3 +85,9 @@ func reset_plant():
 
 func add_water_volume(volume: float):
 	current_water_volume = clampf(current_water_volume + volume, 0, max_water_capacity)
+
+func on_game_state_changed(
+		_old_state: GameStateMachine.GameState,
+		new_state: GameStateMachine.GameState):
+	if new_state == GameStateMachine.GameState.GROWTH:
+		reset_plant()
