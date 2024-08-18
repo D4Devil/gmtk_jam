@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://3jbkb6afp78t"]
+[gd_scene load_steps=12 format=3 uid="uid://3jbkb6afp78t"]
 
 [ext_resource type="PackedScene" uid="uid://la0lgyyjggxx" path="res://scenes/ui/main_menu.tscn" id="1_1vrmx"]
 [ext_resource type="Script" path="res://scripts/ui/ui.gd" id="1_nv2cv"]
@@ -6,6 +6,27 @@
 [ext_resource type="PackedScene" uid="uid://caml3oiyt3p00" path="res://scenes/ui/timer_ui.tscn" id="4_oax01"]
 [ext_resource type="PackedScene" uid="uid://d4t0ax0eb8va" path="res://scenes/ui/plant_stat_changes_ui.tscn" id="5_3kt1e"]
 [ext_resource type="PackedScene" uid="uid://dnei8a1w75lap" path="res://scenes/ui/results_ui.tscn" id="6_0uat1"]
+[ext_resource type="Script" path="res://scripts/resources/grading_category.gd" id="7_jnb54"]
+
+[sub_resource type="Resource" id="Resource_l7dn0"]
+script = ExtResource("7_jnb54")
+label = "C"
+min_size = 1.0
+
+[sub_resource type="Resource" id="Resource_m1hlf"]
+script = ExtResource("7_jnb54")
+label = "B"
+min_size = 8.0
+
+[sub_resource type="Resource" id="Resource_pe6w5"]
+script = ExtResource("7_jnb54")
+label = "A"
+min_size = 40.0
+
+[sub_resource type="Resource" id="Resource_bg2wo"]
+script = ExtResource("7_jnb54")
+label = "S"
+min_size = 100.0
 
 [node name="UI" type="CanvasLayer"]
 script = ExtResource("1_nv2cv")
@@ -23,3 +44,4 @@ visible = false
 
 [node name="ResultsUI" parent="." instance=ExtResource("6_0uat1")]
 visible = false
+categories = Array[ExtResource("7_jnb54")]([SubResource("Resource_l7dn0"), SubResource("Resource_m1hlf"), SubResource("Resource_pe6w5"), SubResource("Resource_bg2wo")])
