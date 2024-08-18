@@ -1,0 +1,2 @@
+class_name WateringCan
+extends RigidBody3D

@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://mf23eoalcrmj"]
+
+[ext_resource type="Script" path="res://scripts/objects/watering_can.gd" id="1_7cbux"]
+[ext_resource type="PackedScene" uid="uid://b2svj8ij24uoa" path="res://assets/models/watering_can/Watering can.glb" id="1_qd12v"]
+[ext_resource type="Script" path="res://scripts/objects/components/drag_agent.gd" id="3_v1nwi"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xx583"]
+size = Vector3(0.358765, 0.401367, 0.642456)
+
+[node name="WateringCan" type="RigidBody3D"]
+script = ExtResource("1_7cbux")
+
+[node name="WaterStreamAnchor" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.524957, -0.664496)
+
+[node name="WateringCan" parent="." instance=ExtResource("1_qd12v")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, -1.77636e-15, 1, -6.77695e-16, 0, -6.77695e-16, 1, -6.10352e-05, 0.22517, 0.0205908)
+shape = SubResource("BoxShape3D_xx583")
+
+[node name="DragAgent" type="Node3D" parent="."]
+script = ExtResource("3_v1nwi")
