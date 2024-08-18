@@ -1,14 +1,19 @@
 class_name Nutrient
-extends Node
+extends Resource
 
 @export var nutrient_type: Nutrients
-var nutrient_volume: float
+@export var volume: float
 
 enum Nutrients {Water, Minerals, Fertilizer}
 
-func apply():
+func _init(nt := Nutrients.Water, vol := 0.2) -> void:
+    nutrient_type = nt
+    volume = vol
+
+
+func on_applyed():
     if nutrient_type == Nutrients.Water:
-        PlantStats.add_water_volume(nutrient_volume)
+        PlantStats.add_water_volume(volume)
 
     elif nutrient_type == Nutrients.Fertilizer:
         pass

@@ -1,32 +1,40 @@
 class_name Droplet
 extends RigidBody3D
 
-@export var nutrient_value: float
-@onready var nutrient := $KaleNutrient
-var initial_speed : Vector3
-var initial_flag := true
+@export var nutrient : Nutrient
+@onready var nut_source := preload("res://scripts/resources/nutrient.gd")
 
-func _init(nut_val: float = 0.2) -> void:
-	## So its not detected by anyone
-	collision_layer = 0
-	input_ray_pickable = false
-	max_contacts_reported = 1
-	nutrient_value = nut_val
+var _initial_speed : Vector3
+var _initial_flag := true
+
+
+signal landed_on_kale()
+
+func _init() -> void:
 	contact_monitor = true
+	max_contacts_reported = 1
 
 
-func _ready():
-	nutrient.nutrient_volume = nutrient_value
+func configure(initial_speed: Vector3, origin: Node3D, nutrient_value = 0.2, nutrient_type := Nutrient.Nutrients.Water):
+	if not nutrient:
+		nutrient = nut_source.new(nutrient_type, nutrient_value)
+
+	_initial_speed = initial_speed
+	add_collision_exception_with(origin)
+	global_position = origin.global_position
 
 
 func _physics_process(_delta):
-	if initial_flag:
-		apply_central_impulse(initial_speed)
-		initial_flag = false
+	if _initial_flag:
+		apply_central_impulse(_initial_speed)
+		_initial_flag = false
 
 
 func _on_body_entered(body: Node):
+	if get_collision_exceptions().has(body):
+		return
+
 	if body.get_groups().has("Kale"):
-		nutrient.apply()
-	
+		nutrient.on_applyed()
+		landed_on_kale.emit()
 	queue_free()
