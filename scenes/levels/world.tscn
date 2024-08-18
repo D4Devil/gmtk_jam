@@ -2,13 +2,13 @@
 
 [ext_resource type="PackedScene" uid="uid://fgpto6xwiehx" path="res://scenes/characters/plant.tscn" id="1_hy1fl"]
 [ext_resource type="PackedScene" uid="uid://doxb2jr5d8xrf" path="res://assets/models/planter/Planter.fbx" id="2_mneh1"]
-[ext_resource type="PackedScene" uid="uid://wolhcr7alfel" path="res://scenes/objects/pipette.tscn" id="2_wqysx"]
 [ext_resource type="PackedScene" uid="uid://btktphuya43md" path="res://assets/models/player/Player.glb" id="3_luqft"]
 [ext_resource type="Texture2D" uid="uid://d1k1wk6onhyr2" path="res://assets/textures/grass_tex_2.png" id="3_wmrg2"]
 [ext_resource type="PackedScene" uid="uid://dd4yukw5u334c" path="res://assets/models/haybale/Haybale.glb" id="6_toguh"]
 [ext_resource type="PackedScene" uid="uid://4ekvtha4idrc" path="res://assets/models/flower/Flower Grey.glb" id="6_yg2ud"]
 [ext_resource type="PackedScene" uid="uid://bejjyy00sjqbf" path="res://assets/models/flower/Flower.glb" id="7_nhous"]
 [ext_resource type="PackedScene" uid="uid://b2svj8ij24uoa" path="res://assets/models/watering_can/Watering can.glb" id="7_wqnau"]
+[ext_resource type="PackedScene" uid="uid://cmivs4uykcqrc" path="res://scenes/objects/pipette_v2.tscn" id="9_r1hjq"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ngwyh"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -100,9 +100,6 @@ transform = Transform3D(1.22666, 0, 0.427842, 0, 1.29914, 0, -0.427842, 0, 1.226
 [node name="WateringCan" parent="Decor" instance=ExtResource("7_wqnau")]
 transform = Transform3D(0.916279, 0, 0.400541, 0, 1, 0, -0.400541, 0, 0.916279, -4.47437, -0.00129449, -0.881144)
 
-[node name="Pipette" parent="." instance=ExtResource("2_wqysx")]
-transform = Transform3D(-0.82996, 0.0742675, 0.552856, 0.275216, 0.916591, 0.290031, -0.485203, 0.392869, -0.781174, 0.121775, 0.206578, -0.165372)
-
 [node name="ObjectPlanes" type="Node" parent="."]
 
 [node name="Ground" type="StaticBody3D" parent="ObjectPlanes"]
@@ -120,3 +117,6 @@ collision_layer = 16
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ObjectPlanes/PipettePlane"]
 shape = SubResource("WorldBoundaryShape3D_0qxft")
+
+[node name="PipetteV2" parent="." instance=ExtResource("9_r1hjq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.169628, -0.164855, -0.474034)
