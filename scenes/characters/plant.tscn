@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://fgpto6xwiehx"]
 
 [ext_resource type="Script" path="res://scripts/characters/plant.gd" id="1_yijt0"]
-[ext_resource type="PackedScene" uid="uid://dbewmsf7ex4f" path="res://assets/models/Kale.fbx" id="2_s2665"]
-[ext_resource type="PackedScene" uid="uid://wwsij8ua0dap" path="res://assets/models/Kale seedling.fbx" id="3_5rkq7"]
+[ext_resource type="PackedScene" uid="uid://bmu15rhp8esn7" path="res://assets/models/kale/Kale Grown.glb" id="2_s2665"]
+[ext_resource type="PackedScene" uid="uid://derhlw54njww0" path="res://assets/models/kale/Kale Seedling.glb" id="3_5rkq7"]
 
 [sub_resource type="Animation" id="Animation_8lcoq"]
 length = 0.001
