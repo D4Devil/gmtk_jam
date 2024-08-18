@@ -22,7 +22,6 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00152588, 0.00012207, 0.589656)
 shape = SubResource("BoxShape3D_ns23a")
 
-[node name="DragAgent" type="Node3D" parent="." node_paths=PackedStringArray("physics_node")]
+[node name="DragAgent" type="Node3D" parent="."]
 script = ExtResource("3_uye0m")
 plane_mask = 16
-physics_node = NodePath("..")
