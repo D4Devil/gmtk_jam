@@ -2,7 +2,7 @@ class_name Pipette
 extends RigidBody3D
 
 @export var watering_power: float = 1
-@export var drag_collision_layer := 16
+@export_flags("Pipette:16") var drag_collision_layer := 16
 
 @onready var draggable := $DragAgent
 

@@ -20,5 +20,6 @@ shape = SubResource("BoxShape3D_ns23a")
 
 [node name="DragAgent" type="Node3D" parent="." node_paths=PackedStringArray("physics_node")]
 script = ExtResource("3_uye0m")
+enable = null
 plane_mask = 16
 physics_node = NodePath("..")

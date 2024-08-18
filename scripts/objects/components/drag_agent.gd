@@ -2,23 +2,25 @@ class_name DragAgent
 extends Node3D
 
 ## Turn the behavior on and off
-@export var enable = false:
+var enable = false:
 	set(value):
 		if value:
-			_clamp_to_plane()
+			look_at_objective()
 		enable = value
 
 
 ## Collision mask
-@export var plane_mask := 0
+@export_flags("Pipette:16") var plane_mask := 0
 
 ## Draggable physic object
 @export var physics_node: PhysicsBody3D
 
+## New position for the object
 var move_to := Vector3.ZERO
 
 
-func _clamp_to_plane():
+## TODO
+func look_at_objective():
 	pass
 
 
@@ -38,5 +40,6 @@ func _unhandled_input(event: InputEvent) -> void:
 func _process(delta: float) -> void:
 	if not enable:
 		return
-    ## snapp to the plane
+
+    ## Snapp to the plane
 	physics_node.transform.origin = move_to
