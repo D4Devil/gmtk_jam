@@ -1,14 +1,15 @@
 class_name Droplet
 extends RigidBody3D
 
-@export var nutrient_value := 0.2
+@export var nutrient_value: float
 @onready var nutrient := $KaleNutrient
 
-func _init() -> void:
+func _init(nut_val: float = 0.2) -> void:
 	## So its not detected by anyone
 	collision_layer = 0
 	input_ray_pickable = false
 	max_contacts_reported = 1
+	nutrient_value = nut_val
 	contact_monitor = true
 
 

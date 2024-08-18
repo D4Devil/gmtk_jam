@@ -3,6 +3,7 @@ extends RigidBody3D
 
 @export var watering_power: float = 1
 @export_flags("Pipette:16") var drag_collision_layer := 16
+@onready var droplet := preload("res://scenes/objects/droplet.tscn")
 
 @onready var draggable := $DragAgent
 
@@ -22,7 +23,6 @@ func on_game_state_changed(_previous: GameStateMachine.GameState, next: GameStat
 func on_clickable_selected(_collision: Dictionary) -> void:
     freeze = true
     draggable.enable = true
-    
 
 
 func on_clickable_dropped() -> void:
@@ -32,4 +32,7 @@ func on_clickable_dropped() -> void:
 
 func on_clickable_use(using: bool) -> void:
     if using:
-        PlantStats.add_water_volume(watering_power)
+        var d := droplet.instantiate() as Node3D
+        (d as PhysicsBody3D).add_collision_exception_with(self)
+        d.global_position = global_position
+        get_parent().add_child(d)
