@@ -1,0 +1,12 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://b3lo4r0fxyr8r"]
+
+[ext_resource type="Texture2D" uid="uid://cu5tfv5cwqp84" path="res://assets/models/people/Woman4_2.png" id="1_y0oix"]
+
+[resource]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+albedo_color = Color(1.3, 1.3, 1.3, 1)
+albedo_texture = ExtResource("1_y0oix")
+roughness = 0.8
+texture_filter = 0

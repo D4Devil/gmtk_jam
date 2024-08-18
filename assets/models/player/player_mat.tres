@@ -3,6 +3,9 @@
 [ext_resource type="Texture2D" uid="uid://blysq42tiv7vu" path="res://assets/models/player/Player_0.png" id="1_hwobc"]
 
 [resource]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
 albedo_texture = ExtResource("1_hwobc")
 roughness = 0.85
 texture_filter = 0
