@@ -1,7 +1,14 @@
-[gd_scene load_steps=9 format=3 uid="uid://bg7g48sbn5na8"]
+[gd_scene load_steps=17 format=3 uid="uid://bg7g48sbn5na8"]
 
 [ext_resource type="PackedScene" uid="uid://fgpto6xwiehx" path="res://scenes/characters/plant.tscn" id="1_hy1fl"]
+[ext_resource type="PackedScene" uid="uid://doxb2jr5d8xrf" path="res://assets/models/planter/Planter.fbx" id="2_mneh1"]
 [ext_resource type="PackedScene" uid="uid://wolhcr7alfel" path="res://scenes/objects/pipette.tscn" id="2_wqysx"]
+[ext_resource type="PackedScene" uid="uid://btktphuya43md" path="res://assets/models/player/Player.glb" id="3_luqft"]
+[ext_resource type="Texture2D" uid="uid://d1k1wk6onhyr2" path="res://assets/textures/grass_tex_2.png" id="3_wmrg2"]
+[ext_resource type="PackedScene" uid="uid://dd4yukw5u334c" path="res://assets/models/haybale/Haybale.glb" id="6_toguh"]
+[ext_resource type="PackedScene" uid="uid://4ekvtha4idrc" path="res://assets/models/flower/Flower Grey.glb" id="6_yg2ud"]
+[ext_resource type="PackedScene" uid="uid://bejjyy00sjqbf" path="res://assets/models/flower/Flower.glb" id="7_nhous"]
+[ext_resource type="PackedScene" uid="uid://b2svj8ij24uoa" path="res://assets/models/watering_can/Watering can.glb" id="7_wqnau"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ngwyh"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -19,7 +26,13 @@ glow_enabled = true
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_7opij"]
 resource_local_to_scene = true
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sn4yl"]
+albedo_texture = ExtResource("3_wmrg2")
+uv1_scale = Vector3(300, 300, 300)
+texture_filter = 0
+
 [sub_resource type="PlaneMesh" id="PlaneMesh_y8u7v"]
+material = SubResource("StandardMaterial3D_sn4yl")
 size = Vector2(200, 200)
 subdivide_width = 10
 subdivide_depth = 10
@@ -37,19 +50,55 @@ shadow_enabled = true
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_6fdjw")
 
-[node name="House" type="CSGBox3D" parent="."]
+[node name="Plant" parent="." instance=ExtResource("1_hy1fl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.061172, 0)
+
+[node name="Decor" type="Node3D" parent="."]
+
+[node name="House" type="CSGBox3D" parent="Decor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.7069, 4.79618, 0)
 size = Vector3(15, 10, 15)
 
-[node name="House" type="CSGBox3D" parent="House"]
+[node name="House" type="CSGBox3D" parent="Decor/House"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.38676, -0.20736, -42.742)
 size = Vector3(15, 10, 15)
 
-[node name="House2" type="CSGBox3D" parent="House"]
+[node name="House2" type="CSGBox3D" parent="Decor/House"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.38676, -0.20736, -80.4701)
 size = Vector3(15, 10, 15)
 
-[node name="Plant" parent="." instance=ExtResource("1_hy1fl")]
+[node name="Planter" parent="Decor" instance=ExtResource("2_mneh1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.19209e-07, 0)
+
+[node name="Player" parent="Decor" instance=ExtResource("3_luqft")]
+transform = Transform3D(0.759124, 0, 0.650946, 0, 1, 0, -0.650946, 0, 0.759124, 1.8516, 0, -1.56323)
+
+[node name="blockbench_export" parent="Decor" instance=ExtResource("6_yg2ud")]
+transform = Transform3D(0.512073, 0, -0.858942, 0, 1, 0, 0.858942, 0, 0.512073, -1.45496, 0, -2.0455)
+
+[node name="blockbench_export2" parent="Decor" instance=ExtResource("6_yg2ud")]
+transform = Transform3D(-0.750053, 0, -0.661377, 0, 1, 0, 0.661377, 0, -0.750053, 1.66938, 0, 1.78004)
+
+[node name="blockbench_export3" parent="Decor" instance=ExtResource("7_nhous")]
+transform = Transform3D(1.23488, 0, 0.930922, 0, 1.54646, 0, -0.930922, 0, 1.23488, -0.354015, 0, 1.7795)
+
+[node name="blockbench_export4" parent="Decor" instance=ExtResource("7_nhous")]
+transform = Transform3D(1.16524, 0, 0, 0, 1.16524, 0, 0, 0, 1.16524, 1.51751, 0, -1.87109)
+
+[node name="blockbench_export5" parent="Decor" instance=ExtResource("7_nhous")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.13502, 0, -1.77639)
+
+[node name="blockbench_export6" parent="Decor" instance=ExtResource("6_toguh")]
+transform = Transform3D(1.19615, 0, 0.506924, 0, 1.29914, 0, -0.506924, 0, 1.19615, 7.13102, -0.00972188, -1.39856)
+
+[node name="blockbench_export7" parent="Decor" instance=ExtResource("6_toguh")]
+transform = Transform3D(1.19615, 0, 0.506924, 0, 1.29914, 0, -0.506924, 0, 1.19615, 7.88077, -0.00972188, -1.7163)
+
+[node name="blockbench_export8" parent="Decor" instance=ExtResource("6_toguh")]
+transform = Transform3D(1.22666, 0, 0.427842, 0, 1.29914, 0, -0.427842, 0, 1.22666, 7.4947, 0.73288, -1.57022)
+
+[node name="WateringCan" parent="Decor" instance=ExtResource("7_wqnau")]
+transform = Transform3D(0.916279, 0, 0.400541, 0, 1, 0, -0.400541, 0, 0.916279, -4.47437, -0.00129449, -0.881144)
 
 [node name="Pipette" parent="." instance=ExtResource("2_wqysx")]
 transform = Transform3D(-0.82996, 0.0742675, 0.552856, 0.275216, 0.916591, 0.290031, -0.485203, 0.392869, -0.781174, 0.121775, 0.206578, -0.165372)
