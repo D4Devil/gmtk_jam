@@ -1,7 +1,7 @@
 extends Node
 
 ## Total time available for growth (in seconds)
-@export var total_time: float = 15 #5.0 * 60
+@export var total_time: float = 5.0 * 60
 
 var time_left: float = total_time
 var is_running: bool = false
