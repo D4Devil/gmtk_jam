@@ -28,6 +28,10 @@ PointerSelector="*res://scripts/global/pointer_selector.gd"
 window/size/viewport_width=1800
 window/size/viewport_height=1000
 
+[global_group]
+
+Kale="A simple way to check for kale"
+
 [input]
 
 in_game_select={
@@ -44,7 +48,11 @@ in_game_drop={
 [layer_names]
 
 2d_physics/layer_1="Player"
+3d_physics/layer_1="world object"
 3d_physics/layer_2="clickable"
+3d_physics/layer_3="kale"
+3d_physics/layer_5="pipette limits"
+3d_physics/layer_6="watering can limits"
 
 [rendering]
 

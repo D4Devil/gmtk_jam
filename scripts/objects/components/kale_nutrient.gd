@@ -1,11 +1,12 @@
-class_name KaleNutrient
+class_name Nutrient
 extends Node
 
 @export var nutrient_type: Nutrients
+var nutrient_volume: float
 
 enum Nutrients {Water, Minerals, Fertilizer}
 
-func on_apply_nutrient(nutrient_volume: float):
+func apply():
     if nutrient_type == Nutrients.Water:
         PlantStats.add_water_volume(nutrient_volume)
 
