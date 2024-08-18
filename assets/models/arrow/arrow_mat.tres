@@ -1,9 +1,13 @@
-[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://ch4u5xn2h48tf"]
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://bh6bosookkh3u"]
 
-[ext_resource type="Texture2D" uid="uid://cnwd6hkcut8yu" path="res://assets/models/arrow/arrow_tex.png" id="1_dkt60"]
+[ext_resource type="Texture2D" uid="uid://flq3du3vyeiy" path="res://assets/models/arrow/Arrow_0.png" id="1_bxskd"]
 
 [resource]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
 albedo_color = Color(1.3, 1.3, 1.3, 1)
-albedo_texture = ExtResource("1_dkt60")
-roughness = 0.7
+albedo_texture = ExtResource("1_bxskd")
+metallic = 0.5
+roughness = 0.4
 texture_filter = 0

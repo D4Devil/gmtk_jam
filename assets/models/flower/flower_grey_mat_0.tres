@@ -1,0 +1,12 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://berf5ua5osfkr"]
+
+[ext_resource type="Texture2D" uid="uid://dg2q5qjq7mq4s" path="res://assets/models/flower/Flower Grey_0.png" id="1_umdme"]
+
+[resource]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+albedo_color = Color(1.3, 1.3, 1.3, 1)
+albedo_texture = ExtResource("1_umdme")
+roughness = 0.85
+texture_filter = 0

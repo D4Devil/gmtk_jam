@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://26hy3e68slsl"]
+
+[ext_resource type="Texture2D" uid="uid://cix0hisphw0e" path="res://assets/models/people/Man1_0.png" id="1_05jgh"]
+
+[resource]
+albedo_color = Color(1.3, 1.3, 1.3, 1)
+albedo_texture = ExtResource("1_05jgh")
+roughness = 0.8
+texture_filter = 0

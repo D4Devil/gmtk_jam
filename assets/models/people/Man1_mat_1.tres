@@ -1,0 +1,12 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://buxwftqdgu4qg"]
+
+[ext_resource type="Texture2D" uid="uid://k464k3ioajor" path="res://assets/models/people/Man1_1.png" id="1_bctpi"]
+
+[resource]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+albedo_color = Color(1.3, 1.3, 1.3, 1)
+albedo_texture = ExtResource("1_bctpi")
+roughness = 0.8
+texture_filter = 0

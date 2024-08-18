@@ -1,0 +1,12 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dpyki31alyeei"]
+
+[ext_resource type="Texture2D" uid="uid://cfev4vuoefntm" path="res://assets/models/pennants/Pennants_0.png" id="1_sa120"]
+
+[resource]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+albedo_color = Color(1.3, 1.3, 1.3, 1)
+albedo_texture = ExtResource("1_sa120")
+roughness = 0.8
+texture_filter = 0
