@@ -39,7 +39,7 @@ subdivide_depth = 10
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_0qxft"]
 resource_local_to_scene = true
-plane = Plane(0, 0, 1, -0.2)
+plane = Plane(0, 0, 1, 0)
 
 [node name="World" type="Node3D"]
 
@@ -116,7 +116,7 @@ mesh = SubResource("PlaneMesh_y8u7v")
 skeleton = NodePath("../../..")
 
 [node name="PipettePlane" type="StaticBody3D" parent="ObjectPlanes"]
-collision_layer = 17
+collision_layer = 16
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ObjectPlanes/PipettePlane"]
 shape = SubResource("WorldBoundaryShape3D_0qxft")

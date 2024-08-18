@@ -1,66 +1,72 @@
-[gd_scene load_steps=8 format=3 uid="uid://cqdfbw6s07gvg"]
+[gd_scene load_steps=10 format=3 uid="uid://cqdfbw6s07gvg"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_hugxm"]
+[ext_resource type="PackedScene" uid="uid://wolhcr7alfel" path="res://scenes/objects/pipette.tscn" id="1_33cpt"]
+[ext_resource type="PackedScene" uid="uid://b54q5xk3084ih" path="res://scenes/objects/droplet.tscn" id="1_pjdpw"]
+
+[sub_resource type="GDScript" id="GDScript_k8240"]
+script/source = "extends Node3D
+
+func _ready() -> void:
+	GameStateMachine.on_new_game_started()
+"
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_dsebq"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
 ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
 
-[sub_resource type="Sky" id="Sky_74hva"]
-sky_material = SubResource("ProceduralSkyMaterial_hugxm")
+[sub_resource type="Sky" id="Sky_qfng3"]
+sky_material = SubResource("ProceduralSkyMaterial_dsebq")
 
-[sub_resource type="Environment" id="Environment_o436i"]
+[sub_resource type="Environment" id="Environment_lkxic"]
 background_mode = 2
-sky = SubResource("Sky_74hva")
+sky = SubResource("Sky_qfng3")
 tonemap_mode = 2
 glow_enabled = true
 
-[sub_resource type="GDScript" id="GDScript_17fn6"]
-script/source = "extends StaticBody3D
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_sukhb"]
+height = 0.344032
+radius = 3.13732
 
-func on_clickable_selected(collision: Dictionary) -> void:
-	print(\"[%s] Object selected\" % name)
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_cum53"]
 
-
-func on_clickable_dropped() -> void:
-	print(\"[%s] Object dropped\" % name)
-
-
-func on_clickable_use(using: bool = false) -> void:
-	if using:
-		print(\"[%s] Using Object\" % name)
-	else:
-		print(\"[%s] Un-Using Object\" % name)
-"
-
-[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_7y4xp"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_eimm5"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_fmf0y"]
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_gil3o"]
+plane = Plane(0, 0, 1, 0)
 
 [node name="D4DevilTestScene" type="Node3D"]
+script = SubResource("GDScript_k8240")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_o436i")
+environment = SubResource("Environment_lkxic")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
 shadow_enabled = true
 
-[node name="Floor" type="StaticBody3D" parent="."]
-collision_layer = 3
-script = SubResource("GDScript_17fn6")
+[node name="Pipette" parent="." instance=ExtResource("1_33cpt")]
+transform = Transform3D(-0.999724, 0, 0.0234901, 0, 1, 0, -0.0234901, 0, -0.999724, 0, 1.21889, -0.382556)
 
-[node name="Floor" type="CollisionShape3D" parent="Floor"]
-shape = SubResource("WorldBoundaryShape3D_7y4xp")
+[node name="StaticBody3D" type="StaticBody3D" parent="." groups=["Kale"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.193369, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.583046, 0)
+shape = SubResource("CylinderShape3D_sukhb")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.956233, 0.292605, 0, -0.292605, 0.956233, 0, 2.45991, 3.93214)
+transform = Transform3D(1, 0, 0, 0, 0.95879, 0.284116, 0, -0.284116, 0.95879, 0, 1.72316, 1.82309)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.790486, 0)
+[node name="StaticBody3D2" type="StaticBody3D" parent="."]
+collision_layer = 16
 
-[node name="Box" type="CollisionShape3D" parent="StaticBody3D"]
-shape = SubResource("BoxShape3D_eimm5")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2"]
+shape = SubResource("WorldBoundaryShape3D_cum53")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
-mesh = SubResource("BoxMesh_fmf0y")
+[node name="StaticBody3D3" type="StaticBody3D" parent="."]
+collision_layer = 16
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.41639)
+shape = SubResource("WorldBoundaryShape3D_gil3o")
+
+[node name="Droplet" parent="." instance=ExtResource("1_pjdpw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.244103, 1.74843, -0.0835538)
