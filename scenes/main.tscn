@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://b0giiswj4cgxj"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_y3gh7"]
-[ext_resource type="PackedScene" uid="uid://fgpto6xwiehx" path="res://scenes/characters/plant.tscn" id="3_wsulr"]
+[ext_resource type="PackedScene" uid="uid://r32fqmgx0nvx" path="res://scenes/levels/results_1.tscn" id="3_rdji2"]
 [ext_resource type="PackedScene" uid="uid://bg7g48sbn5na8" path="res://scenes/levels/world.tscn" id="3_wuwph"]
 [ext_resource type="PackedScene" uid="uid://3jbkb6afp78t" path="res://scenes/ui/ui.tscn" id="4_c2oqb"]
 [ext_resource type="PackedScene" uid="uid://wolhcr7alfel" path="res://scenes/objects/pipette.tscn" id="4_cepmv"]
@@ -11,10 +11,10 @@ plane = Plane(0, 0, 1, 0)
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_y3gh7")
+growth_scene = ExtResource("3_wuwph")
+results_scene = ExtResource("3_rdji2")
 
-[node name="World" parent="." instance=ExtResource("3_wuwph")]
-
-[node name="Plant" parent="." instance=ExtResource("3_wsulr")]
+[node name="Levels" type="Node3D" parent="."]
 
 [node name="Pipette" parent="." instance=ExtResource("4_cepmv")]
 transform = Transform3D(1, 0, 0, 0, 0.634919, -0.772579, 0, 0.772578, 0.63492, -0.649926, 1.35244, -0.697674)

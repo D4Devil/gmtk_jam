@@ -1,4 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://bg7g48sbn5na8"]
+[gd_scene load_steps=7 format=3 uid="uid://bg7g48sbn5na8"]
+
+[ext_resource type="PackedScene" uid="uid://fgpto6xwiehx" path="res://scenes/characters/plant.tscn" id="1_hy1fl"]
+[ext_resource type="PackedScene" uid="uid://wolhcr7alfel" path="res://scenes/objects/pipette.tscn" id="2_wqysx"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ngwyh"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
