@@ -3,8 +3,6 @@
 [ext_resource type="Script" path="res://scripts/objects/pipette.gd" id="1_r02k7"]
 [ext_resource type="PackedScene" uid="uid://bjefaui16mvf6" path="res://assets/models/pipette/Pipette.glb" id="2_4757i"]
 [ext_resource type="Script" path="res://scripts/objects/shared/drag_agent.gd" id="3_elyli"]
-[gd_scene load_steps=4 format=3 uid="uid://wolhcr7alfel"]
-
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ns23a"]
 size = Vector3(0.296753, 0.305908, 1.23558)
