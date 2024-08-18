@@ -14,7 +14,6 @@ visible = false
 
 [node name="TimerUI" parent="." instance=ExtResource("4_oax01")]
 visible = false
-mouse_filter = 2
 
 [node name="PlantStatChangesUI" parent="." instance=ExtResource("5_3kt1e")]
 visible = false

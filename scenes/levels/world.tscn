@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://bg7g48sbn5na8"]
+[gd_scene load_steps=6 format=3 uid="uid://bg7g48sbn5na8"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ngwyh"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -18,6 +18,8 @@ size = Vector2(200, 200)
 subdivide_width = 10
 subdivide_depth = 10
 
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_ltv7h"]
+
 [node name="World" type="Node3D"]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
@@ -26,9 +28,6 @@ shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_6fdjw")
-
-[node name="Ground" type="MeshInstance3D" parent="."]
-mesh = SubResource("PlaneMesh_y8u7v")
 
 [node name="House" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.7069, 4.79618, 0)
@@ -41,3 +40,13 @@ size = Vector3(15, 10, 15)
 [node name="House2" type="CSGBox3D" parent="House"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.38676, -0.20736, -80.4701)
 size = Vector3(15, 10, 15)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+collision_layer = 17
+
+[node name="Ground" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = SubResource("PlaneMesh_y8u7v")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("WorldBoundaryShape3D_ltv7h")
