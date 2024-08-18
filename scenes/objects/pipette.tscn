@@ -5,17 +5,21 @@
 [ext_resource type="Script" path="res://scripts/objects/components/drag_agent.gd" id="3_uye0m"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ns23a"]
-size = Vector3(0.296753, 0.305908, 1.23558)
+size = Vector3(0.23999, 0.21875, 1.0896)
 
 [node name="Pipette" type="RigidBody3D"]
 collision_layer = 2
+mass = 0.2
+center_of_mass_mode = 1
+center_of_mass = Vector3(0, 0, 0.5)
 script = ExtResource("1_r02k7")
+watering_power = 0.5
 
 [node name="Pipette" parent="." instance=ExtResource("2_4757i")]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, -0.4)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, -0.277304)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00152588, 0.00012207, 0.459251)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00152588, 0.00012207, 0.589656)
 shape = SubResource("BoxShape3D_ns23a")
 
 [node name="DragAgent" type="Node3D" parent="." node_paths=PackedStringArray("physics_node")]
