@@ -14,6 +14,10 @@ func _ready() -> void:
 	super._ready()
 	drag_agent.plane_mask = drag_collision_layer
 	drag_agent.enable = false
+	animator.current_animation = "use"
+	animator.animation_finished.connect(_on_animation_finished)
+	var use : Animation = animator.get_animation("use")
+	use.loop_mode = Animation.LoopMode.LOOP_NONE
 
 
 func on_clickable_selected(_collision: Dictionary) -> void:
@@ -25,16 +29,26 @@ func on_clickable_dropped() -> void:
 	super.on_clickable_dropped()
 	drag_agent.enable = false
 	apply_impulse(drag_agent.velocity)
+	pouring_water = false
 
 
 func on_clickable_use(using: bool) -> void:
 	pouring_water = using
 
+
 func _process(_delta: float) -> void:
 	if pouring_water:
-		if not animator.is_playing():
-			animator.play("use")
+		animator.play("use")
 		print("using the watering can")
 	else:
 		print("Not using the watering can")
 		animator.play_backwards("use")
+
+
+func _on_animation_finished(_anim: String):
+	await _spawn_water()
+		
+
+func _spawn_water():
+	while pouring_water:
+		print("Spawn water")

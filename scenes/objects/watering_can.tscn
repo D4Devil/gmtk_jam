@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://mf23eoalcrmj"]
+[gd_scene load_steps=5 format=3 uid="uid://4akpa10jnofk"]
 
 [ext_resource type="Script" path="res://scripts/objects/watering_can.gd" id="1_7cbux"]
 [ext_resource type="PackedScene" uid="uid://b2svj8ij24uoa" path="res://assets/models/watering_can/Watering can.glb" id="1_qd12v"]
