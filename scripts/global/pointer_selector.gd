@@ -42,6 +42,13 @@ func _unhandled_input(event: InputEvent) -> void:
 func get_clickable() -> void:
 	var collision_result : Dictionary = Utils.screen_to_3d_object(self, CLICKABLE_COLLISION_MASK)
 
+	## TODO: If there is a parent ClickableObject, call the `on_clicked` on that parent.
+	var bodyClicked: Node
+	var parent_node = bodyClicked.get_parent()
+	if parent_node is ClickableObject:
+		# Don't select anything. Simply call parent_node.
+		return
+
 	## Unload last object from signal
 	if last_object_clicked && last_object_clicked.has_method(ON_CLICKABLE_SELECTED):
 		object_clicked.disconnect(last_object_clicked.on_object_clicked)
