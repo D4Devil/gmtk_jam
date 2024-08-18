@@ -1,7 +1,7 @@
 class_name Pickable
 extends Node
 
-@export var use_action := "in_game_action"
+@export var use_action := "in_game_select"
 @export var drop_action := "in_game_drop"
 
 var enabled := false
