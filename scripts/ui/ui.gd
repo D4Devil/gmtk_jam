@@ -12,7 +12,7 @@ func _ready():
 
 func on_game_state_changed(old_state: GameStateMachine.GameState, new_state: GameStateMachine.GameState):
 	# MAIN MENU
-	
+
 	if old_state == GameStateMachine.GameState.MAIN_MENU:
 		main_menu.visible = false
 
@@ -25,10 +25,12 @@ func on_game_state_changed(old_state: GameStateMachine.GameState, new_state: Gam
 		plant_stats_ui.visible = false
 		timer_ui.visible = false
 		plant_stat_changes_ui.visible = false
+		plant_stat_changes_ui.stop()
 
 	if new_state == GameStateMachine.GameState.GROWTH:
 		plant_stats_ui.visible = true
 		timer_ui.visible = true
+		plant_stat_changes_ui.reset()
 		plant_stat_changes_ui.visible = true
 
 	# RESULTS
