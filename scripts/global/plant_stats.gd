@@ -74,6 +74,9 @@ func _process(delta):
 	size_increase_per_second = growth_rate * growth_mult_per_size.sample(size_sample_value) * global_growth_multiplier
 	size += size_increase_per_second * delta
 
+	if health <= 0.0:
+		on_plant_killed()
+
 
 func reset_plant():
 	var size_sample_value = remap(size, 0, max_size_expected, 0, 1)
@@ -81,6 +84,10 @@ func reset_plant():
 	current_water_volume = max_water_capacity / 2
 	health = 1.0
 	size = 0.1
+
+
+func on_plant_killed():
+	GameStateMachine.on_growth_finished()
 
 
 func add_water_volume(volume: float):
