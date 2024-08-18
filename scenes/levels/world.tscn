@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bg7g48sbn5na8"]
+[gd_scene load_steps=9 format=3 uid="uid://bg7g48sbn5na8"]
 
 [ext_resource type="PackedScene" uid="uid://fgpto6xwiehx" path="res://scenes/characters/plant.tscn" id="1_hy1fl"]
 [ext_resource type="PackedScene" uid="uid://wolhcr7alfel" path="res://scenes/objects/pipette.tscn" id="2_wqysx"]
@@ -16,10 +16,17 @@ sky = SubResource("Sky_ibb7l")
 tonemap_mode = 2
 glow_enabled = true
 
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_7opij"]
+resource_local_to_scene = true
+
 [sub_resource type="PlaneMesh" id="PlaneMesh_y8u7v"]
 size = Vector2(200, 200)
 subdivide_width = 10
 subdivide_depth = 10
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_0qxft"]
+resource_local_to_scene = true
+plane = Plane(0, 0, 1, -0.2)
 
 [node name="World" type="Node3D"]
 
@@ -29,9 +36,6 @@ shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_6fdjw")
-
-[node name="Ground" type="MeshInstance3D" parent="."]
-mesh = SubResource("PlaneMesh_y8u7v")
 
 [node name="House" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.7069, 4.79618, 0)
@@ -49,3 +53,21 @@ size = Vector3(15, 10, 15)
 
 [node name="Pipette" parent="." instance=ExtResource("2_wqysx")]
 transform = Transform3D(-0.82996, 0.0742675, 0.552856, 0.275216, 0.916591, 0.290031, -0.485203, 0.392869, -0.781174, 0.121775, 0.206578, -0.165372)
+
+[node name="ObjectPlanes" type="Node" parent="."]
+
+[node name="Ground" type="StaticBody3D" parent="ObjectPlanes"]
+collision_layer = 17
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ObjectPlanes/Ground"]
+shape = SubResource("WorldBoundaryShape3D_7opij")
+
+[node name="Ground" type="MeshInstance3D" parent="ObjectPlanes/Ground"]
+mesh = SubResource("PlaneMesh_y8u7v")
+skeleton = NodePath("../../..")
+
+[node name="PipettePlane" type="StaticBody3D" parent="ObjectPlanes"]
+collision_layer = 17
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ObjectPlanes/PipettePlane"]
+shape = SubResource("WorldBoundaryShape3D_0qxft")
