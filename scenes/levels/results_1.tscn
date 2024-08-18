@@ -1,13 +1,64 @@
-[gd_scene load_steps=13 format=3 uid="uid://r32fqmgx0nvx"]
+[gd_scene load_steps=24 format=3 uid="uid://r32fqmgx0nvx"]
 
 [ext_resource type="Material" uid="uid://d4b23b4qt34dk" path="res://assets/textures/grass_mat_1.tres" id="1_1sjgn"]
 [ext_resource type="Script" path="res://scripts/levels/results_1.gd" id="1_86xhe"]
 [ext_resource type="PackedScene" uid="uid://sobcjanvyu2b" path="res://assets/models/podium/Podium.fbx" id="2_0bxyi"]
+[ext_resource type="PackedScene" uid="uid://kveib2gy0s6v" path="res://scenes/objects/kale_spawner.tscn" id="4_jpgso"]
+[ext_resource type="Script" path="res://scripts/resources/kale_result_spawn_point.gd" id="4_xr4yi"]
 [ext_resource type="PackedScene" uid="uid://b53i3xkth0g1f" path="res://scenes/characters/npc.tscn" id="7_06s6r"]
 [ext_resource type="PackedScene" uid="uid://6vath2r217yu" path="res://scenes/characters/player.tscn" id="8_cdjlk"]
+[ext_resource type="PackedScene" uid="uid://dfej06ad36vdr" path="res://assets/models/fence/Fence Straight.glb" id="11_v2arq"]
 [ext_resource type="PackedScene" uid="uid://cahy0hyu5th0u" path="res://assets/models/pennants/Pennants.glb" id="15_ayqrn"]
 [ext_resource type="PackedScene" uid="uid://bejjyy00sjqbf" path="res://assets/models/flower/Flower.glb" id="16_ai853"]
 [ext_resource type="PackedScene" uid="uid://4ekvtha4idrc" path="res://assets/models/flower/Flower Grey.glb" id="18_0mibq"]
+
+[sub_resource type="Resource" id="Resource_xee1v"]
+script = ExtResource("4_xr4yi")
+node_name = "Small1"
+min_size = 1.0
+max_size = 2.0
+
+[sub_resource type="Resource" id="Resource_xtak8"]
+script = ExtResource("4_xr4yi")
+node_name = "Small2"
+min_size = 2.0
+max_size = 3.0
+
+[sub_resource type="Resource" id="Resource_8hkwn"]
+script = ExtResource("4_xr4yi")
+node_name = "Small3"
+min_size = 3.0
+max_size = 4.0
+
+[sub_resource type="Resource" id="Resource_i8bc2"]
+script = ExtResource("4_xr4yi")
+node_name = "Shmedium"
+min_size = 4.0
+max_size = 5.5
+
+[sub_resource type="Resource" id="Resource_vakw2"]
+script = ExtResource("4_xr4yi")
+node_name = "Medium1"
+min_size = 5.5
+max_size = 8.0
+
+[sub_resource type="Resource" id="Resource_gwp6e"]
+script = ExtResource("4_xr4yi")
+node_name = "Medium2"
+min_size = 8.0
+max_size = 12.0
+
+[sub_resource type="Resource" id="Resource_lxtka"]
+script = ExtResource("4_xr4yi")
+node_name = "Large1"
+min_size = 12.0
+max_size = 70.0
+
+[sub_resource type="Resource" id="Resource_ynn1x"]
+script = ExtResource("4_xr4yi")
+node_name = "Large2"
+min_size = 70.0
+max_size = 1e+09
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_b6gpl"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -28,10 +79,12 @@ size = Vector2(200, 200)
 subdivide_width = 10
 subdivide_depth = 10
 
-[node name="Node3D" type="Node3D"]
+[node name="ResultsScene" type="Node3D"]
 script = ExtResource("1_86xhe")
 npc_spawner = ExtResource("7_06s6r")
 player_spawner = ExtResource("8_cdjlk")
+kale_spawner = ExtResource("4_jpgso")
+kale_spots = Array[ExtResource("4_xr4yi")]([SubResource("Resource_xee1v"), SubResource("Resource_xtak8"), SubResource("Resource_8hkwn"), SubResource("Resource_i8bc2"), SubResource("Resource_vakw2"), SubResource("Resource_gwp6e"), SubResource("Resource_lxtka"), SubResource("Resource_ynn1x")])
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 4.41302, 0)
@@ -61,6 +114,87 @@ transform = Transform3D(-0.509415, 0, 2.24147, 0, 2.29863, 0, -2.24147, 0, -0.50
 
 [node name="Flowers" parent="Decor/Podium" instance=ExtResource("18_0mibq")]
 transform = Transform3D(-0.880882, 0, 0.473334, 0, 1, 0, -0.473334, 0, -0.880882, 0.00858068, -4.76837e-07, -2.11939)
+
+[node name="FenceStraight" parent="Decor" instance=ExtResource("11_v2arq")]
+transform = Transform3D(-8.74228e-08, 0, -2, 0, 2, 0, 2, 0, -8.74228e-08, -4.96325, 0, 11.546)
+
+[node name="FenceStraight2" parent="Decor" instance=ExtResource("11_v2arq")]
+transform = Transform3D(-8.74228e-08, 0, -2, 0, 2, 0, 2, 0, -8.74228e-08, -6.96975, 0, 11.546)
+
+[node name="FenceStraight3" parent="Decor" instance=ExtResource("11_v2arq")]
+transform = Transform3D(-8.74228e-08, 0, -2, 0, 2, 0, 2, 0, -8.74228e-08, -8.87152, 0, 11.546)
+
+[node name="FenceStraight4" parent="Decor" instance=ExtResource("11_v2arq")]
+transform = Transform3D(-8.74228e-08, 0, -2, 0, 2, 0, 2, 0, -8.74228e-08, 0.776917, 0, 11.546)
+
+[node name="FenceStraight5" parent="Decor" instance=ExtResource("11_v2arq")]
+transform = Transform3D(-8.74228e-08, 0, -2, 0, 2, 0, 2, 0, -8.74228e-08, -1.22959, 0, 11.546)
+
+[node name="FenceStraight6" parent="Decor" instance=ExtResource("11_v2arq")]
+transform = Transform3D(-8.74228e-08, 0, -2, 0, 2, 0, 2, 0, -8.74228e-08, -3.13136, 0, 11.546)
+
+[node name="FenceStraight7" parent="Decor" instance=ExtResource("11_v2arq")]
+transform = Transform3D(-8.74228e-08, 0, -2, 0, 2, 0, 2, 0, -8.74228e-08, -10.8051, 0, 11.546)
+
+[node name="FenceStraight8" parent="Decor" instance=ExtResource("11_v2arq")]
+transform = Transform3D(-8.74228e-08, 0, -2, 0, 2, 0, 2, 0, -8.74228e-08, -12.8116, 0, 11.546)
+
+[node name="FenceStraight9" parent="Decor" instance=ExtResource("11_v2arq")]
+transform = Transform3D(-8.74228e-08, 0, -2, 0, 2, 0, 2, 0, -8.74228e-08, -14.7134, 0, 11.546)
+
+[node name="FenceStraight10" parent="Decor" instance=ExtResource("11_v2arq")]
+transform = Transform3D(-8.74228e-08, 0, -2, 0, 2, 0, 2, 0, -8.74228e-08, -16.6728, 0, 11.546)
+
+[node name="FenceStraight11" parent="Decor" instance=ExtResource("11_v2arq")]
+transform = Transform3D(-8.74228e-08, 0, -2, 0, 2, 0, 2, 0, -8.74228e-08, -18.6793, 0, 11.546)
+
+[node name="FenceStraight12" parent="Decor" instance=ExtResource("11_v2arq")]
+transform = Transform3D(-8.74228e-08, 0, -2, 0, 2, 0, 2, 0, -8.74228e-08, -20.5811, 0, 11.546)
+
+[node name="FenceStraight16" parent="Decor" instance=ExtResource("11_v2arq")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -21.3727, 0, 0.672231)
+
+[node name="FenceStraight17" parent="Decor" instance=ExtResource("11_v2arq")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -21.3727, 0, 2.67874)
+
+[node name="FenceStraight18" parent="Decor" instance=ExtResource("11_v2arq")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -21.3727, 0, 4.58051)
+
+[node name="FenceStraight19" parent="Decor" instance=ExtResource("11_v2arq")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -21.3727, 0, 6.53997)
+
+[node name="FenceStraight20" parent="Decor" instance=ExtResource("11_v2arq")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -21.3727, 0, 8.54647)
+
+[node name="FenceStraight21" parent="Decor" instance=ExtResource("11_v2arq")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -21.3727, 0, 10.4482)
+
+[node name="FenceStraight22" parent="Decor" instance=ExtResource("11_v2arq")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -21.3727, 0, -11.0642)
+
+[node name="FenceStraight23" parent="Decor" instance=ExtResource("11_v2arq")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -21.3727, 0, -9.05774)
+
+[node name="FenceStraight24" parent="Decor" instance=ExtResource("11_v2arq")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -21.3727, 0, -7.15596)
+
+[node name="FenceStraight25" parent="Decor" instance=ExtResource("11_v2arq")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -21.3727, 0, -5.19651)
+
+[node name="FenceStraight26" parent="Decor" instance=ExtResource("11_v2arq")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -21.3727, 0, -3.19)
+
+[node name="FenceStraight27" parent="Decor" instance=ExtResource("11_v2arq")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -21.3727, 0, -1.28823)
+
+[node name="FenceStraight13" parent="Decor" instance=ExtResource("11_v2arq")]
+transform = Transform3D(-8.74228e-08, 0, -2, 0, 2, 0, 2, 0, -8.74228e-08, 6.68034, 0, 11.546)
+
+[node name="FenceStraight14" parent="Decor" instance=ExtResource("11_v2arq")]
+transform = Transform3D(-8.74228e-08, 0, -2, 0, 2, 0, 2, 0, -8.74228e-08, 4.67383, 0, 11.546)
+
+[node name="FenceStraight15" parent="Decor" instance=ExtResource("11_v2arq")]
+transform = Transform3D(-8.74228e-08, 0, -2, 0, 2, 0, 2, 0, -8.74228e-08, 2.77206, 0, 11.546)
 
 [node name="ParticipantSlots" type="Node3D" parent="."]
 
@@ -146,3 +280,29 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3.741
 
 [node name="Character21" type="Marker3D" parent="CrowdSlots"]
 transform = Transform3D(-0.136649, 0, 0.990619, 0, 1, 0, -0.990619, 0, -0.136649, -4.47956, 0.00747585, -2.6986)
+
+[node name="KaleSlots" type="Node3D" parent="."]
+
+[node name="Small1" type="Marker3D" parent="KaleSlots"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.943569, 0.00747585, 1.74907)
+
+[node name="Small2" type="Marker3D" parent="KaleSlots"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.39923, 0.00747585, 1.99481)
+
+[node name="Small3" type="Marker3D" parent="KaleSlots"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.89606, 0.00747585, 2.04191)
+
+[node name="Shmedium" type="Marker3D" parent="KaleSlots"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.51436, 0.00747585, 5.47564)
+
+[node name="Medium1" type="Marker3D" parent="KaleSlots"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.51436, 0.00747585, 6.89443)
+
+[node name="Medium2" type="Marker3D" parent="KaleSlots"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.51435, 0.00747585, 9.06745)
+
+[node name="Large1" type="Marker3D" parent="KaleSlots"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5.73403, 0.00747585, 14.3992)
+
+[node name="Large2" type="Marker3D" parent="KaleSlots"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -6.26884, 0.00747585, 26.8436)
