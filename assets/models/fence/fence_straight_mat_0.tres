@@ -1,0 +1,12 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://bondxyg6vnif2"]
+
+[ext_resource type="Texture2D" uid="uid://dw4ogcpikpifd" path="res://assets/models/fence/Fence Straight_0.png" id="1_inu8l"]
+
+[resource]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+albedo_color = Color(1.3, 1.3, 1.3, 1)
+albedo_texture = ExtResource("1_inu8l")
+roughness = 0.75
+texture_filter = 0

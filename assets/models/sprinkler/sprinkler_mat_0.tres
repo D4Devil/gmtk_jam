@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://crathppdt4vwv"]
+
+[ext_resource type="Texture2D" uid="uid://cnpbmdyf2ulmw" path="res://assets/models/sprinkler/Small Sprinkler_0.png" id="1_hc0vq"]
+
+[resource]
+albedo_color = Color(1.3, 1.3, 1.3, 1)
+albedo_texture = ExtResource("1_hc0vq")
+metallic = 1.0
+roughness = 0.4
+texture_filter = 0

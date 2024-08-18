@@ -1,0 +1,12 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://c4xqj44kb0d5t"]
+
+[ext_resource type="Texture2D" uid="uid://d4diqjmx43kbf" path="res://assets/models/fertilizer/Fertilizer_0.png" id="1_gsmkv"]
+
+[resource]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+albedo_color = Color(1.3, 1.3, 1.3, 1)
+albedo_texture = ExtResource("1_gsmkv")
+roughness = 0.85
+texture_filter = 0
