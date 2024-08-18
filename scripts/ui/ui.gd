@@ -4,6 +4,7 @@ extends CanvasLayer
 @onready var plant_stats_ui: Control = $PlantStatsUi
 @onready var timer_ui: Control = $TimerUI
 @onready var plant_stat_changes_ui: Control = $PlantStatChangesUI
+@onready var results_ui: Control = $ResultsUI
 
 func _ready():
 	GameStateMachine.state_changed.connect(on_game_state_changed)
@@ -11,6 +12,7 @@ func _ready():
 
 func on_game_state_changed(old_state: GameStateMachine.GameState, new_state: GameStateMachine.GameState):
 	# MAIN MENU
+	
 	if old_state == GameStateMachine.GameState.MAIN_MENU:
 		main_menu.visible = false
 
@@ -18,6 +20,7 @@ func on_game_state_changed(old_state: GameStateMachine.GameState, new_state: Gam
 		main_menu.visible = true
 
 	# GROWTH
+
 	if old_state == GameStateMachine.GameState.GROWTH:
 		plant_stats_ui.visible = false
 		timer_ui.visible = false
@@ -29,3 +32,10 @@ func on_game_state_changed(old_state: GameStateMachine.GameState, new_state: Gam
 		plant_stat_changes_ui.visible = true
 
 	# RESULTS
+
+	if old_state == GameStateMachine.GameState.RESULTS:
+		results_ui.visible = false
+
+	
+	if new_state == GameStateMachine.GameState.RESULTS:
+		results_ui.visible = true
