@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://cs2evkqm48qxk"]
+
+[ext_resource type="Texture2D" uid="uid://dn6v2raee1weu" path="res://assets/models/sewer/Manhole_0.png" id="1_kk6uu"]
+
+[resource]
+albedo_color = Color(1.3, 1.3, 1.3, 1)
+albedo_texture = ExtResource("1_kk6uu")
+roughness = 0.7
+texture_filter = 0
