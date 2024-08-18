@@ -1,0 +1,12 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dj6o1j8vtfsfh"]
+
+[ext_resource type="Texture2D" uid="uid://2f221e3r5c32" path="res://assets/models/haybale/Haybale_0.png" id="1_1hypy"]
+
+[resource]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+albedo_color = Color(1.3, 1.3, 1.3, 1)
+albedo_texture = ExtResource("1_1hypy")
+roughness = 0.85
+texture_filter = 0
