@@ -52,7 +52,8 @@ in_game_drop={
 3d_physics/layer_1="world object"
 3d_physics/layer_2="clickable"
 3d_physics/layer_3="kale"
-3d_physics/layer_5="pipette limits"
+3d_physics/layer_4="floor"
+3d_physics/layer_5="closest limits"
 3d_physics/layer_6="watering can limits"
 
 [rendering]
