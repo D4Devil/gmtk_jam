@@ -45,3 +45,4 @@ visible = false
 [node name="ResultsUI" parent="." instance=ExtResource("6_0uat1")]
 visible = false
 categories = Array[ExtResource("7_jnb54")]([SubResource("Resource_l7dn0"), SubResource("Resource_m1hlf"), SubResource("Resource_pe6w5"), SubResource("Resource_bg2wo")])
+participants_per_category = 6

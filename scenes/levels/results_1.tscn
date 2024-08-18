@@ -1,6 +1,7 @@
-[gd_scene load_steps=31 format=4 uid="uid://r32fqmgx0nvx"]
+[gd_scene load_steps=32 format=4 uid="uid://r32fqmgx0nvx"]
 
 [ext_resource type="Material" uid="uid://d4b23b4qt34dk" path="res://assets/textures/grass_mat_1.tres" id="1_1sjgn"]
+[ext_resource type="Script" path="res://scripts/levels/results_1.gd" id="1_86xhe"]
 [ext_resource type="PackedScene" uid="uid://btktphuya43md" path="res://assets/models/player/Player.glb" id="1_evmma"]
 [ext_resource type="PackedScene" uid="uid://sobcjanvyu2b" path="res://assets/models/podium/Podium.fbx" id="2_0bxyi"]
 [ext_resource type="PackedScene" uid="uid://bmu15rhp8esn7" path="res://assets/models/kale/Kale Grown.glb" id="5_e2e2g"]
@@ -158,6 +159,7 @@ _data = {
 }
 
 [node name="Node3D" type="Node3D"]
+script = ExtResource("1_86xhe")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 4.41302, 0)
