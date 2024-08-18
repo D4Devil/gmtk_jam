@@ -1,7 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://cqdfbw6s07gvg"]
+[gd_scene load_steps=9 format=3 uid="uid://cqdfbw6s07gvg"]
 
-[ext_resource type="PackedScene" uid="uid://wolhcr7alfel" path="res://scenes/objects/pipette.tscn" id="1_33cpt"]
-[ext_resource type="PackedScene" uid="uid://b54q5xk3084ih" path="res://scenes/objects/droplet.tscn" id="1_pjdpw"]
+[ext_resource type="PackedScene" uid="uid://mf23eoalcrmj" path="res://scenes/objects/watering_can.tscn" id="1_qjr5q"]
 
 [sub_resource type="GDScript" id="GDScript_k8240"]
 script/source = "extends Node3D
@@ -42,11 +41,9 @@ environment = SubResource("Environment_lkxic")
 transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
 shadow_enabled = true
 
-[node name="Pipette" parent="." instance=ExtResource("1_33cpt")]
-transform = Transform3D(-0.999724, 0, 0.0234901, 0, 1, 0, -0.0234901, 0, -0.999724, 0, 1.21889, -0.382556)
-
 [node name="StaticBody3D" type="StaticBody3D" parent="." groups=["Kale"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.193369, 0)
+visible = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.583046, 0)
@@ -68,5 +65,7 @@ collision_layer = 16
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.41639)
 shape = SubResource("WorldBoundaryShape3D_gil3o")
 
-[node name="Droplet" parent="." instance=ExtResource("1_pjdpw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.244103, 1.74843, -0.0835538)
+[node name="WateringCan" parent="." instance=ExtResource("1_qjr5q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.703637, 0)
+collision_layer = 3
+freeze_mode = 1
