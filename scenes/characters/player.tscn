@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://6vath2r217yu"]
+
+[ext_resource type="Script" path="res://scripts/objects/player_spawner.gd" id="1_gy5jb"]
+[ext_resource type="PackedScene" uid="uid://btktphuya43md" path="res://assets/models/player/Player.glb" id="1_j6f73"]
+[ext_resource type="PackedScene" uid="uid://b808b25cnjcmn" path="res://assets/models/arrow/Arrow.glb" id="2_8hs2v"]
+
+[node name="Player" type="Node3D"]
+script = ExtResource("1_gy5jb")
+
+[node name="PlayerModel" parent="." instance=ExtResource("1_j6f73")]
+
+[node name="Arrow" parent="PlayerModel" instance=ExtResource("2_8hs2v")]
+transform = Transform3D(-2, 0, -1.74846e-07, 0, 2, 0, 1.74846e-07, 0, -2, -0.0624343, 0.620768, 0)

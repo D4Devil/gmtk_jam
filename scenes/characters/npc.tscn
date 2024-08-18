@@ -1,0 +1,16 @@
+[gd_scene load_steps=11 format=3 uid="uid://b53i3xkth0g1f"]
+
+[ext_resource type="Script" path="res://scripts/objects/npc.gd" id="1_hikf5"]
+[ext_resource type="PackedScene" uid="uid://cy64uefdhddvx" path="res://assets/models/people/Man1.glb" id="2_fe2ya"]
+[ext_resource type="PackedScene" uid="uid://cyx05ldlbpuq2" path="res://assets/models/people/Man2.glb" id="3_ouryb"]
+[ext_resource type="PackedScene" uid="uid://dc5kfqxn42664" path="res://assets/models/people/Man3.glb" id="4_cxu63"]
+[ext_resource type="PackedScene" uid="uid://cfrxcdepe7ua7" path="res://assets/models/people/Man4.glb" id="5_m7brg"]
+[ext_resource type="PackedScene" uid="uid://wulueh4awpvv" path="res://assets/models/people/Woman1.glb" id="6_gi0hw"]
+[ext_resource type="PackedScene" uid="uid://b4lxtdlqd667f" path="res://assets/models/people/Woman2.glb" id="7_65qhw"]
+[ext_resource type="PackedScene" uid="uid://dixkw4wd3olfm" path="res://assets/models/people/Woman3.glb" id="8_5l7l8"]
+[ext_resource type="PackedScene" uid="uid://dqqjsspccq3bb" path="res://assets/models/people/Woman4.glb" id="9_c2jdj"]
+[ext_resource type="PackedScene" uid="uid://dw541mqd238gf" path="res://assets/models/people/Woman5.glb" id="10_u1ep4"]
+
+[node name="NPC" type="Node3D"]
+script = ExtResource("1_hikf5")
+character_scenes = Array[PackedScene]([ExtResource("2_fe2ya"), ExtResource("3_ouryb"), ExtResource("4_cxu63"), ExtResource("5_m7brg"), ExtResource("6_gi0hw"), ExtResource("7_65qhw"), ExtResource("8_5l7l8"), ExtResource("9_c2jdj"), ExtResource("10_u1ep4")])
