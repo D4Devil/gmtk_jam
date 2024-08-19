@@ -1,0 +1,32 @@
+[gd_scene load_steps=7 format=3 uid="uid://djgadgaoeoss8"]
+
+[ext_resource type="Script" path="res://scripts/objects/components/nutrient_particle.gd" id="1_510ek"]
+[ext_resource type="Script" path="res://scripts/resources/nutrient.gd" id="2_6d4nn"]
+
+[sub_resource type="Resource" id="Resource_36ut0"]
+script = ExtResource("2_6d4nn")
+nutrient_type = 2
+volume = 0.2
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_d0fx2"]
+size = Vector3(0.06, 0.06, 0.06)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5ab6e"]
+albedo_color = Color(0.468521, 0.268026, 0.212554, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_duyqo"]
+material = SubResource("StandardMaterial3D_5ab6e")
+size = Vector3(0.06, 0.06, 0.06)
+
+[node name="FertilizerParticle" type="RigidBody3D" groups=["Particle"]]
+collision_mask = 157
+script = ExtResource("1_510ek")
+nutrient = SubResource("Resource_36ut0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_d0fx2")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_duyqo")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
