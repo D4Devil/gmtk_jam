@@ -38,6 +38,10 @@ folder_colors={
 "res://scripts/": "pink"
 }
 
+[filesystem]
+
+import/blender/enabled=false
+
 [global_group]
 
 Kale="A simple way to check for kale"

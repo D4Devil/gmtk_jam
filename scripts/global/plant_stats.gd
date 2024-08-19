@@ -9,6 +9,9 @@ extends Node
 ## How fast the plant is growing at the moment
 @export var growth_rate: float = growth_rate_base
 
+## [SETTING] How much to add to growth rate when the growth ray is enabled
+@export var growth_ray_add_amount: float = 0.2
+
 ## How much size increases per second - just for previewing / debugging
 @export var size_increase_per_second = 0.0
 
@@ -54,7 +57,7 @@ extends Node
 @onready var water_loss_mult_per_fert: Curve = ResourceLoader.load("resources/balance/water_loss_mult_per_fert.tres")
 @onready var fert_perc_loss_per_size: Curve = ResourceLoader.load("resources/balance/fert_perc_loss_per_size.tres")
 
-
+var is_growth_ray_enabled = false
 
 func _ready():
 	print("In plant_stats _ready")
@@ -90,7 +93,8 @@ func _process(delta):
 	# Apply growth rate changes
 	var water_growth_mult = growth_mult_per_water.sample(water_level)
 	var fert_growth_mult = growth_mult_per_fert.sample(fert_level)
-	growth_rate = growth_rate_base * water_growth_mult * fert_growth_mult
+	var growth_ray_bonus = growth_ray_add_amount if is_growth_ray_enabled else 0.0
+	growth_rate = (growth_rate_base * water_growth_mult * fert_growth_mult) + growth_ray_bonus
 	growth_rate = clampf(growth_rate, 0.0, 1.0)
 
 	# Apply growth to size
@@ -108,7 +112,7 @@ func reset_plant():
 	max_fert_volume = size * fert_cap_per_size.sample(size_sample_value)
 	current_fert_volume = 0.0
 	health = 1.0
-	size = 0.1
+	size = 6.1
 
 
 func on_plant_killed():
