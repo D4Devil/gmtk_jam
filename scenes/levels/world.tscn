@@ -57,7 +57,54 @@ environment = SubResource("Environment_6fdjw")
 [node name="Plant" parent="." instance=ExtResource("1_hy1fl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.061172, 0)
 
-[node name="Decor" type="Node3D" parent="."]
+[node name="Interactable" type="Node" parent="."]
+
+[node name="PipetteV2" parent="Interactable" instance=ExtResource("9_r1hjq")]
+transform = Transform3D(-0.987675, 0, 0.156521, 0, 1, 0, -0.156521, 0, -0.987675, 0.581766, 0.236194, -1.1054)
+collision_layer = 1
+
+[node name="WateringCan" parent="Interactable" instance=ExtResource("10_y5i48")]
+transform = Transform3D(-0.751966, 0, 0.659201, 0, 1, 0, -0.659201, 0, -0.751966, 1.79877, 0.118958, -0.286781)
+collision_layer = 1
+
+[node name="Manhole" parent="Interactable" instance=ExtResource("7_cfvaw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.7519, 0.128385, 6.74314)
+
+[node name="Ladybug2" parent="Interactable" instance=ExtResource("11_nn7mv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.68269, 0.209344, -0.240311)
+
+[node name="WateringCan2" parent="Interactable" instance=ExtResource("10_y5i48")]
+transform = Transform3D(-0.770825, 0, -0.637047, 0, 1, 0, 0.637047, 0, -0.770825, -1.19792, 0.153082, -3.13461)
+
+[node name="ObjectPlanes" type="Node" parent="."]
+
+[node name="Ground" type="StaticBody3D" parent="ObjectPlanes"]
+collision_layer = 9
+input_ray_pickable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ObjectPlanes/Ground"]
+shape = SubResource("WorldBoundaryShape3D_7opij")
+
+[node name="Ground" type="MeshInstance3D" parent="ObjectPlanes/Ground"]
+mesh = SubResource("PlaneMesh_y8u7v")
+skeleton = NodePath("../../..")
+
+[node name="FirstClosestPlane" type="StaticBody3D" parent="ObjectPlanes"]
+collision_layer = 16
+input_ray_pickable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ObjectPlanes/FirstClosestPlane"]
+shape = SubResource("WorldBoundaryShape3D_0qxft")
+
+[node name="Killzone" type="StaticBody3D" parent="ObjectPlanes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.788956, 0)
+collision_layer = 128
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ObjectPlanes/Killzone"]
+shape = SubResource("WorldBoundaryShape3D_m3dr5")
+
+[node name="Decor" type="Node" parent="."]
 
 [node name="House" type="CSGBox3D" parent="Decor"]
 transform = Transform3D(0.646427, 0, 0, 0, 0.646427, 0, 0, 0, 0.646427, 15.6351, 3.22218, 0)
@@ -101,51 +148,8 @@ transform = Transform3D(1.19615, 0, 0.506924, 0, 1.29914, 0, -0.506924, 0, 1.196
 [node name="blockbench_export8" parent="Decor" instance=ExtResource("6_toguh")]
 transform = Transform3D(1.22666, 0, 0.427842, 0, 1.29914, 0, -0.427842, 0, 1.22666, 7.4947, 0.73288, -1.57022)
 
-[node name="ObjectPlanes" type="Node" parent="."]
-
-[node name="Ground" type="StaticBody3D" parent="ObjectPlanes"]
-collision_layer = 25
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="ObjectPlanes/Ground"]
-shape = SubResource("WorldBoundaryShape3D_7opij")
-
-[node name="Ground" type="MeshInstance3D" parent="ObjectPlanes/Ground"]
-mesh = SubResource("PlaneMesh_y8u7v")
-skeleton = NodePath("../../..")
-
-[node name="PipettePlane" type="StaticBody3D" parent="ObjectPlanes"]
-collision_layer = 16
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="ObjectPlanes/PipettePlane"]
-shape = SubResource("WorldBoundaryShape3D_0qxft")
-
-[node name="Interactable" type="Node3D" parent="."]
-
-[node name="PipetteV2" parent="Interactable" instance=ExtResource("9_r1hjq")]
-transform = Transform3D(-0.987675, 0, 0.156521, 0, 1, 0, -0.156521, 0, -0.987675, 0.581766, 0.236194, -1.1054)
-
-[node name="WateringCan" parent="Interactable" instance=ExtResource("10_y5i48")]
-transform = Transform3D(-0.751966, 0, 0.659201, 0, 1, 0, -0.659201, 0, -0.751966, 1.79877, 0.118958, -0.286781)
-
-[node name="WateringCan2" parent="Interactable" instance=ExtResource("10_y5i48")]
-transform = Transform3D(-0.666129, 0, -0.745836, 0, 1, 0, 0.745836, 0, -0.666129, -2.29801, 0.224026, -2.40271)
-
-[node name="Manhole" parent="Interactable" instance=ExtResource("7_cfvaw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.7519, 0.128385, 6.74314)
-
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.788956, 0)
-collision_layer = 128
-collision_mask = 0
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-shape = SubResource("WorldBoundaryShape3D_m3dr5")
-
-[node name="Ladybug2" parent="." instance=ExtResource("11_nn7mv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.515731, 0.209344, 0.12833)
-
 [node name="Ladybug3" parent="." instance=ExtResource("11_nn7mv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.79712, 0.129633, 0.904169)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.6422, 0.129633, -0.302493)
 
 [node name="Ladybug4" parent="." instance=ExtResource("11_nn7mv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.63949, 0.104774, 4.00672)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.5552, 0.104774, 0.592718)

@@ -13,6 +13,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	## Guard against anything but the mouse action being clicked
 	if not event.is_action_pressed(CLICKABLE_ACTION) or not enabled:
 		return
+	return
 
 	var collision_result : Dictionary = Utils.screen_to_3d_object(self, CLICKABLE_COLLISION_MASK)
 	var bodyClicked: Node = collision_result.get("collider")

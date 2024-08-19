@@ -5,17 +5,19 @@
 [ext_resource type="PackedScene" uid="uid://gbqtm8qmvtfn" path="res://assets/models/ladybug/Ladybug.glb" id="2_nkn75"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_548pj"]
+size = Vector3(0.167664, 0.090332, 0.108582)
 
 [node name="Ladybug2" type="Node3D"]
 script = ExtResource("1_t016c")
 
 [node name="ClickableObject" parent="." instance=ExtResource("1_i61qe")]
 
-[node name="Ladybug" parent="ClickableObject" instance=ExtResource("2_nkn75")]
-
 [node name="StaticBody3D" type="StaticBody3D" parent="ClickableObject"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ClickableObject/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.028595, 0.0490723, 0.000762939)
 shape = SubResource("BoxShape3D_548pj")
+
+[node name="Ladybug" parent="ClickableObject" instance=ExtResource("2_nkn75")]
 
 [connection signal="clicked" from="ClickableObject" to="." method="on_click"]
