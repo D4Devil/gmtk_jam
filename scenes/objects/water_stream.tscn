@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://c52scekv4ff3l"]
+
+[ext_resource type="Script" path="res://scripts/objects/components/water_stream.gd" id="1_15x1l"]
+[ext_resource type="PackedScene" uid="uid://b808b25cnjcmn" path="res://assets/models/arrow/Arrow.glb" id="2_ychl8"]
+
+[node name="WaterStream" type="Node3D" node_paths=PackedStringArray("water_origin", "stream_target")]
+transform = Transform3D(1, 0, 0, 0, 0.852613, 0.522543, 0, -0.522543, 0.852613, 0, 0.217115, 0.0761312)
+script = ExtResource("1_15x1l")
+water_origin = NodePath(".")
+stream_target = NodePath("Target")
+launch_force = Vector2(1, 1.2)
+arch_in_degrees = 45.0
+arch_deviation = 2.0
+tilt_deviation = 2.0
+firing_rate = 0.03
+firing_deviation = 0.02
+
+[node name="Target" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.2)
+
+[node name="blockbench_export" parent="." instance=ExtResource("2_ychl8")]
+transform = Transform3D(7.45058e-09, 0, -0.422937, 0.422937, -1.84872e-08, 7.45058e-09, -1.84872e-08, -0.422937, -1.77636e-15, -2.95033e-10, -0.0167477, 0.379191)

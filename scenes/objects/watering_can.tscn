@@ -17,9 +17,9 @@ script/source = "extends Node3D
 @export var physics_body : PhysicsBody3D
 @export var _holes : Array[Node]
 
-@export var drops_per_second := 6
+#@export var drops_per_second := 6
 @export var another_magic_number := 10
-var _cooldown := 0.0
+#var _cooldown := 0.0
 var _velocity = Vector3.ZERO
 var _watering = false: set = _set_watering
 
