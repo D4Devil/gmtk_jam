@@ -3,10 +3,9 @@
 [ext_resource type="Script" path="res://scripts/objects/components/water_stream.gd" id="1_15x1l"]
 [ext_resource type="PackedScene" uid="uid://b808b25cnjcmn" path="res://assets/models/arrow/Arrow.glb" id="2_ychl8"]
 
-[node name="WaterStream" type="Node3D" node_paths=PackedStringArray("water_origin", "stream_target")]
+[node name="WaterStream" type="Node3D" node_paths=PackedStringArray("stream_target")]
 transform = Transform3D(1, 0, 0, 0, 0.852613, 0.522543, 0, -0.522543, 0.852613, 0, 0.217115, 0.0761312)
 script = ExtResource("1_15x1l")
-water_origin = NodePath(".")
 stream_target = NodePath("Target")
 launch_force = Vector2(1, 1.2)
 arch_in_degrees = 45.0

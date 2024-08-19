@@ -30,7 +30,7 @@ func _process(_delta: float) -> void:
 		return
 	
 	var hole = _holes[randi_range(0, _holes.size()-1)]
-	var droplet = droplet_scene.instantiate() as Droplet
+	var droplet = droplet_scene.instantiate() as NutrientParticle
 	physics_body.get_parent().add_child(droplet)
 	droplet.configure(_velocity * another_magic_number, hole, physics_body, 6)
 

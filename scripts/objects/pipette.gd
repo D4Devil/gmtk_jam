@@ -14,7 +14,7 @@ var _velocity := Vector3.ZERO
 
 func on_used(using: bool) -> void:
 	if using:
-		var droplet := droplet_scene.instantiate() as Droplet
+		var droplet := droplet_scene.instantiate() as NutrientParticle
 		assert(physic_body != null)
 		physic_body.get_parent().add_child(droplet)
 		droplet.configure(_velocity * magic_speed_number, physic_body)

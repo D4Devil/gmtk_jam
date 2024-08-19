@@ -1,0 +1,56 @@
+[gd_scene load_steps=8 format=3 uid="uid://dg4tr1ty2e8f4"]
+
+[ext_resource type="Script" path="res://scripts/objects/components/shakable.gd" id="1_bikd7"]
+[ext_resource type="PackedScene" uid="uid://casbh5jmkt5d0" path="res://assets/models/fertilizer/Fertilizer.glb" id="1_fpg6p"]
+[ext_resource type="Script" path="res://scripts/objects/components/clickable.gd" id="2_1bfvt"]
+[ext_resource type="Script" path="res://scripts/objects/components/drag_agent.gd" id="3_gpg6d"]
+[ext_resource type="Script" path="res://scripts/objects/components/pickable.gd" id="4_1sbta"]
+[ext_resource type="PackedScene" uid="uid://djgadgaoeoss8" path="res://scenes/objects/fertilizer_particle.tscn" id="6_mwqe2"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_e3edf"]
+size = Vector3(0.469727, 0.662354, 0.243408)
+
+[node name="Fertilizer" type="RigidBody3D" node_paths=PackedStringArray("spawn_point", "spawn_point_target", "animatable", "collision_object")]
+freeze_mode = 1
+script = ExtResource("1_bikd7")
+override_nutrient_type = 2
+particle = ExtResource("6_mwqe2")
+spawn_point = NodePath("FertilizerSpawnPoint")
+spawn_point_target = NodePath("FertilizerSpawnPointTarget")
+animatable = NodePath("CollisionShape3D/Fertilizer")
+collision_object = NodePath(".")
+
+[node name="Clickable" type="Node3D" parent="."]
+script = ExtResource("2_1bfvt")
+
+[node name="Pickable" type="Node" parent="."]
+script = ExtResource("4_1sbta")
+
+[node name="DragAgent" type="Node3D" parent="." node_paths=PackedStringArray("root")]
+script = ExtResource("3_gpg6d")
+plane_mask = 24
+root = NodePath("..")
+
+[node name="FertilizerSpawnPoint" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.71708, 0)
+
+[node name="FertilizerSpawnPointTarget" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.936555, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00439453, 0.335571, -0.00183105)
+shape = SubResource("BoxShape3D_e3edf")
+
+[node name="Fertilizer" parent="CollisionShape3D" instance=ExtResource("1_fpg6p")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.00439453, -0.335571, 0.00183105)
+
+[connection signal="clicked" from="Clickable" to="Pickable" method="on_picked"]
+[connection signal="droped" from="Pickable" to="." method="on_stop_shake"]
+[connection signal="droped" from="Pickable" to="." method="set_freeze_enabled" binds= [false]]
+[connection signal="droped" from="Pickable" to="Clickable" method="set_enabled" binds= [true]]
+[connection signal="droped" from="Pickable" to="DragAgent" method="set_enable" binds= [false]]
+[connection signal="picked" from="Pickable" to="." method="on_stop_shake"]
+[connection signal="picked" from="Pickable" to="." method="set_freeze_enabled" binds= [true]]
+[connection signal="picked" from="Pickable" to="Clickable" method="set_enabled" binds= [false]]
+[connection signal="picked" from="Pickable" to="DragAgent" method="set_enable" binds= [true]]
+[connection signal="used" from="Pickable" to="." method="_on_used"]

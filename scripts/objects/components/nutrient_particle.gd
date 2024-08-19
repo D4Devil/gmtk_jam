@@ -1,4 +1,4 @@
-class_name Droplet
+class_name NutrientParticle
 extends RigidBody3D
 
 @export var nutrient : Nutrient
@@ -6,7 +6,6 @@ extends RigidBody3D
 
 var _initial_speed : Vector3
 var _initial_flag := true
-
 
 signal landed_on_kale()
 
@@ -44,6 +43,7 @@ func _on_body_entered(body: Node):
 	if body.get_groups().has("Kale"):
 		nutrient.on_applyed()
 		landed_on_kale.emit()
-
-	AudioManager.instance.tap_at(position)
-	queue_free()
+	print(body.name)
+	if not body.get_groups().has("Particle"):
+    	AudioManager.instance.tap_at(position)
+		queue_free()
