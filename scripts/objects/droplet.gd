@@ -21,9 +21,13 @@ func configure(initial_speed: Vector3, origin: Node3D, collision_exception: Phys
 
 	_initial_speed = initial_speed
 
-	if not collision_exception:
+	if not collision_exception and origin is PhysicsBody3D:
 		collision_exception = origin
-	add_collision_exception_with(collision_exception)
+
+	if collision_exception:
+		add_collision_exception_with(collision_exception)
+
+	assert(is_inside_tree())
 	global_position = origin.global_position
 
 
