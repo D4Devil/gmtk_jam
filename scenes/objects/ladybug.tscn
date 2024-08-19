@@ -8,10 +8,10 @@ size = Vector3(0.188477, 0.0632172, 0.124268)
 
 [node name="Ladybug" type="Node3D"]
 
-[node name="Clickable" type="Node3D" parent="."]
-script = ExtResource("1_0f33e")
+[node name="ClickableObject" parent="." instance=ExtResource("1_uwyi5")]
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Clickable"]
+[node name="StaticBody3D" type="StaticBody3D" parent="ClickableObject"]
+collision_layer = 3
 
 [node name="Ladybug" parent="ClickableObject/StaticBody3D" instance=ExtResource("2_snbcr")]
 
