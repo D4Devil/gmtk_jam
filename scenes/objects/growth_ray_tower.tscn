@@ -1,12 +1,14 @@
-[gd_scene load_steps=7 format=3 uid="uid://buasq6u5cgpgk"]
+[gd_scene load_steps=8 format=3 uid="uid://buasq6u5cgpgk"]
 
 [ext_resource type="PackedScene" uid="uid://cuvm0fnbhgbbh" path="res://assets/models/growth_ray/growth_base.glb" id="1_244n8"]
 [ext_resource type="Script" path="res://scripts/objects/growth_ray_tower.gd" id="1_rh5v3"]
 [ext_resource type="PackedScene" uid="uid://c1gtfgpy0lnon" path="res://assets/models/growth_ray/growth_dish.glb" id="2_oxkfy"]
 [ext_resource type="PackedScene" uid="uid://yoaubit78jdv" path="res://scenes/objects/clickable_object.tscn" id="3_vgaqs"]
+[ext_resource type="Material" uid="uid://dsq8dwux4q38i" path="res://assets/models/growth_ray/growth_toer_ray_mat.tres" id="4_go08s"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_0qvqi"]
-size = Vector3(1, 1, 50)
+material = ExtResource("4_go08s")
+size = Vector3(0.3, 0.3, 50)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gyfjd"]
 size = Vector3(4.50012, 4.51715, 3.36279)
@@ -21,7 +23,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.05706, 0)
 
 [node name="Ray" type="MeshInstance3D" parent="growth_dish"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 28)
-visible = false
 mesh = SubResource("BoxMesh_0qvqi")
 
 [node name="ClickableObject" parent="." instance=ExtResource("3_vgaqs")]

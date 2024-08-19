@@ -1,9 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://qirjlt3lplme"]
+[gd_scene load_steps=6 format=3 uid="uid://qirjlt3lplme"]
 
 [ext_resource type="Script" path="res://scripts/objects/growth_ray_power_box.gd" id="1_3qxp8"]
 [ext_resource type="PackedScene" uid="uid://yoaubit78jdv" path="res://scenes/objects/clickable_object.tscn" id="1_x6mdw"]
+[ext_resource type="Material" uid="uid://cn47gi8iqt1do" path="res://assets/models/growth_ray/growth_tower_base_mat.tres" id="2_2mpn6"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_me7tj"]
+material = ExtResource("2_2mpn6")
+size = Vector3(1, 1, 2)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_il5dt"]
 size = Vector3(1, 1.02271, 1)
