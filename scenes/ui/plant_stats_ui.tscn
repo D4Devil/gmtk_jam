@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dt6nb73oq0wcj"]
+[gd_scene load_steps=16 format=3 uid="uid://dt6nb73oq0wcj"]
 
 [ext_resource type="Script" path="res://scripts/ui/plant_stats_ui.gd" id="1_uf0k4"]
 [ext_resource type="Texture2D" uid="uid://b54vlqk41164p" path="res://assets/sprites/ui/stat_ui.png" id="2_25066"]
@@ -17,6 +17,10 @@ region = Rect2(693, 3, 72, 309)
 [sub_resource type="AtlasTexture" id="AtlasTexture_yv04c"]
 atlas = ExtResource("2_25066")
 region = Rect2(600, 3, 15, 222)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ubbs6"]
+atlas = ExtResource("2_25066")
+region = Rect2(132, 0, 33, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_l0yv8"]
 atlas = ExtResource("2_25066")
@@ -80,6 +84,35 @@ theme_override_constants/separation = 9
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
 alignment = 2
+
+[node name="Fertilizer" type="PanelContainer" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_m52hm")
+
+[node name="FertilizerBar" type="TextureProgressBar" parent="MarginContainer/HBoxContainer/VBoxContainer/Fertilizer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+max_value = 1.0
+step = 0.001
+value = 0.5
+fill_mode = 3
+texture_under = SubResource("AtlasTexture_nsua3")
+texture_over = SubResource("AtlasTexture_pdvq0")
+texture_progress = SubResource("AtlasTexture_yv04c")
+texture_progress_offset = Vector2(12, 11)
+tint_progress = Color(0.984314, 1, 0.52549, 1)
+
+[node name="IconContainer" type="CenterContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/Fertilizer"]
+custom_minimum_size = Vector2(72, 69)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+
+[node name="Icon" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer/Fertilizer/IconContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_ubbs6")
+stretch_mode = 2
 
 [node name="Water" type="PanelContainer" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
@@ -215,3 +248,14 @@ theme_override_font_sizes/font_size = 20
 text = "500s"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="StatsTopLeft" type="VBoxContainer" parent="."]
+layout_mode = 1
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ScaleLabel" type="Label" parent="StatsTopLeft"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "Plant scale: 1.0"

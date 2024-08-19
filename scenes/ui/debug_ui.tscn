@@ -1,0 +1,89 @@
+[gd_scene load_steps=2 format=3 uid="uid://ciiat5hn8etgq"]
+
+[ext_resource type="Script" path="res://scripts/ui/debug_ui.gd" id="1_hcdie"]
+
+[node name="DebugUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_hcdie")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="WaterAdd1_0" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Water +1.00"
+
+[node name="WaterAdd0_5" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Water +0.50"
+
+[node name="WaterAdd0_1" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Water +0.1"
+
+[node name="WaterAdd0_01" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Water +0.01"
+
+[node name="FertAdd1_0" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Fertilizer +1.00"
+
+[node name="FertAdd0_5" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Fertilizer +0.50"
+
+[node name="FertAdd0_1" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Fertilizer +0.1"
+
+[node name="FertAdd0_01" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Fertilizer +0.01"
+
+[node name="HealthAdd1_0" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Health +1.00"
+
+[node name="HealthAdd0_5" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Health +0.50
+"
+
+[node name="HealthAdd0_1" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Health +0.10"
+
+[node name="HealthRem0_1" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Health -0.10"
+
+[node name="HealthRem0_25" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Health -0.25"
+
+[connection signal="pressed" from="VBoxContainer/WaterAdd1_0" to="." method="change_water" binds= [1.0]]
+[connection signal="pressed" from="VBoxContainer/WaterAdd0_5" to="." method="change_water" binds= [0.5]]
+[connection signal="pressed" from="VBoxContainer/WaterAdd0_1" to="." method="change_water" binds= [0.1]]
+[connection signal="pressed" from="VBoxContainer/WaterAdd0_01" to="." method="change_water" binds= [0.01]]
+[connection signal="pressed" from="VBoxContainer/FertAdd1_0" to="." method="change_fert" binds= [1.0]]
+[connection signal="pressed" from="VBoxContainer/FertAdd0_5" to="." method="change_fert" binds= [0.5]]
+[connection signal="pressed" from="VBoxContainer/FertAdd0_1" to="." method="change_fert" binds= [0.1]]
+[connection signal="pressed" from="VBoxContainer/FertAdd0_01" to="." method="change_fert" binds= [0.01]]
+[connection signal="pressed" from="VBoxContainer/HealthAdd1_0" to="." method="change_health" binds= [1.0]]
+[connection signal="pressed" from="VBoxContainer/HealthAdd0_5" to="." method="change_health" binds= [0.5]]
+[connection signal="pressed" from="VBoxContainer/HealthAdd0_1" to="." method="change_health" binds= [0.1]]
+[connection signal="pressed" from="VBoxContainer/HealthRem0_1" to="." method="change_health" binds= [-0.1]]
+[connection signal="pressed" from="VBoxContainer/HealthRem0_25" to="." method="change_health" binds= [-0.25]]
