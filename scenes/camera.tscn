@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://chlasqfct7os2"]
+
+[ext_resource type="Script" path="res://scenes/camera.gd" id="1_dd1sw"]
+
+[node name="Camera" type="Camera3D"]
+current = true
+fov = 60.0
+far = 6000.0
+script = ExtResource("1_dd1sw")
