@@ -47,6 +47,7 @@ shape = SubResource("WorldBoundaryShape3D_u4y0c")
 [node name="Wall" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, -1.50239)
 collision_layer = 16
+input_ray_pickable = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Wall"]
 shape = SubResource("WorldBoundaryShape3D_u4y0c")

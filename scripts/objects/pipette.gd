@@ -15,8 +15,8 @@ func on_used(using: bool) -> void:
 	if using:
 		var droplet := droplet_scene.instantiate() as Droplet
 		assert(physic_body != null)
-		droplet.configure(_velocity * magic_speed_number, physic_body)
 		physic_body.get_parent().add_child(droplet)
+		droplet.configure(_velocity * magic_speed_number, physic_body)
 
 
 func _on_draged(velocity:Vector3, _origin:Vector3) -> void:
