@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://qirjlt3lplme"]
+
+[ext_resource type="Script" path="res://scripts/objects/growth_ray_power_box.gd" id="1_3qxp8"]
+[ext_resource type="PackedScene" uid="uid://yoaubit78jdv" path="res://scenes/objects/clickable_object.tscn" id="1_x6mdw"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_me7tj"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_il5dt"]
+size = Vector3(1, 1.02271, 1)
+
+[node name="GrowthRayPowerBox" type="Node3D"]
+script = ExtResource("1_3qxp8")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.474835, 0)
+mesh = SubResource("BoxMesh_me7tj")
+
+[node name="ClickableObject" parent="." instance=ExtResource("1_x6mdw")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="ClickableObject"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ClickableObject/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.477417, 0)
+shape = SubResource("BoxShape3D_il5dt")
+
+[connection signal="clicked" from="ClickableObject" to="." method="on_click" flags=6]
