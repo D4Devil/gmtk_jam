@@ -1,6 +1,7 @@
-[gd_scene load_steps=20 format=3 uid="uid://bg7g48sbn5na8"]
+[gd_scene load_steps=22 format=3 uid="uid://bg7g48sbn5na8"]
 
 [ext_resource type="PackedScene" uid="uid://fgpto6xwiehx" path="res://scenes/characters/plant.tscn" id="1_hy1fl"]
+[ext_resource type="PackedScene" uid="uid://chlasqfct7os2" path="res://scenes/camera.tscn" id="2_dajgs"]
 [ext_resource type="PackedScene" uid="uid://doxb2jr5d8xrf" path="res://assets/models/planter/Planter.fbx" id="2_mneh1"]
 [ext_resource type="PackedScene" uid="uid://btktphuya43md" path="res://assets/models/player/Player.glb" id="3_luqft"]
 [ext_resource type="Texture2D" uid="uid://d1k1wk6onhyr2" path="res://assets/textures/grass_tex_2.png" id="3_wmrg2"]
@@ -11,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://wolhcr7alfel" path="res://scenes/objects/pipette.tscn" id="9_r1hjq"]
 [ext_resource type="PackedScene" uid="uid://cnrasbhxgwc1j" path="res://scenes/objects/watering_can.tscn" id="10_y5i48"]
 [ext_resource type="PackedScene" uid="uid://bbj17letitsyu" path="res://scenes/objects/ladybug_2.tscn" id="11_nn7mv"]
+[ext_resource type="PackedScene" uid="uid://btnpd8nq3wmio" path="res://scenes/objects/sprinkler.tscn" id="12_um554"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ngwyh"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -56,6 +58,11 @@ environment = SubResource("Environment_6fdjw")
 
 [node name="Plant" parent="." instance=ExtResource("1_hy1fl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.061172, 0)
+
+[node name="Camera" parent="." node_paths=PackedStringArray("plant_node") instance=ExtResource("2_dajgs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.611179, 4.10781)
+plant_node = NodePath("../Plant")
+camera_target_path = "CameraLocation"
 
 [node name="Decor" type="Node3D" parent="."]
 
@@ -149,3 +156,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.79712, 0.129633, 0.904169)
 
 [node name="Ladybug4" parent="." instance=ExtResource("11_nn7mv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.63949, 0.104774, 4.00672)
+
+[node name="Sprinkler" parent="." instance=ExtResource("12_um554")]
+transform = Transform3D(-0.375982, 0, -0.926627, 0, 1, 0, 0.926627, 0, -0.375982, 1.81097, 0, 0.753385)

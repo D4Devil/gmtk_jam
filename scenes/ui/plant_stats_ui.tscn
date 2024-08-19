@@ -79,20 +79,24 @@ theme_override_constants/margin_bottom = 8
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 size_flags_vertical = 8
+mouse_filter = 2
 theme_override_constants/separation = 9
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
+mouse_filter = 2
 alignment = 2
 
 [node name="Fertilizer" type="PanelContainer" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
+mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_m52hm")
 
 [node name="FertilizerBar" type="TextureProgressBar" parent="MarginContainer/HBoxContainer/VBoxContainer/Fertilizer"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 8
+mouse_filter = 2
 max_value = 1.0
 step = 0.001
 value = 0.5
@@ -108,20 +112,24 @@ custom_minimum_size = Vector2(72, 69)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 8
+mouse_filter = 2
 
 [node name="Icon" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer/Fertilizer/IconContainer"]
 layout_mode = 2
+mouse_filter = 2
 texture = SubResource("AtlasTexture_ubbs6")
 stretch_mode = 2
 
 [node name="Water" type="PanelContainer" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
+mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_m52hm")
 
 [node name="WaterBar" type="TextureProgressBar" parent="MarginContainer/HBoxContainer/VBoxContainer/Water"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 8
+mouse_filter = 2
 max_value = 1.0
 step = 0.001
 value = 0.5
@@ -137,25 +145,30 @@ custom_minimum_size = Vector2(72, 69)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 8
+mouse_filter = 2
 
 [node name="Icon" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer/Water/IconContainer"]
 layout_mode = 2
+mouse_filter = 0
 texture = SubResource("AtlasTexture_l0yv8")
 stretch_mode = 2
 
 [node name="PlayerIcon" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
+mouse_filter = 2
 texture = SubResource("AtlasTexture_32xe2")
 stretch_mode = 2
 
 [node name="GrowFactor" type="PanelContainer" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
+mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_m52hm")
 
 [node name="GrowFactorBar" type="TextureProgressBar" parent="MarginContainer/HBoxContainer/GrowFactor"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 8
+mouse_filter = 2
 max_value = 1.0
 step = 0.001
 value = 0.5
@@ -170,20 +183,24 @@ custom_minimum_size = Vector2(69, 72)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 8
+mouse_filter = 2
 
 [node name="Icon" type="TextureRect" parent="MarginContainer/HBoxContainer/GrowFactor/IconContainer"]
 layout_mode = 2
+mouse_filter = 2
 texture = SubResource("AtlasTexture_mj8e8")
 stretch_mode = 2
 
 [node name="Health" type="PanelContainer" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
+mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_m52hm")
 
 [node name="HealthBar" type="TextureProgressBar" parent="MarginContainer/HBoxContainer/Health"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 8
+mouse_filter = 2
 max_value = 1.0
 step = 0.001
 value = 0.5
@@ -198,20 +215,24 @@ custom_minimum_size = Vector2(69, 72)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 8
+mouse_filter = 2
 
 [node name="Icon" type="TextureRect" parent="MarginContainer/HBoxContainer/Health/IconContainer"]
 layout_mode = 2
+mouse_filter = 2
 texture = SubResource("AtlasTexture_sj4mp")
 stretch_mode = 2
 
 [node name="Time" type="PanelContainer" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
+mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_m52hm")
 
 [node name="TimeBar" type="TextureProgressBar" parent="MarginContainer/HBoxContainer/Time"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 8
+mouse_filter = 2
 max_value = 1.0
 step = 0.001
 value = 0.5
@@ -226,15 +247,18 @@ custom_minimum_size = Vector2(69, 72)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 8
+mouse_filter = 2
 
 [node name="Icon" type="TextureRect" parent="MarginContainer/HBoxContainer/Time/IconContainer"]
 layout_mode = 2
+mouse_filter = 2
 texture = SubResource("AtlasTexture_daa7g")
 stretch_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/Time"]
 layout_mode = 2
 size_flags_vertical = 8
+mouse_filter = 2
 theme_override_constants/margin_left = 69
 theme_override_constants/margin_right = 6
 theme_override_constants/margin_bottom = 7
@@ -253,6 +277,7 @@ vertical_alignment = 1
 layout_mode = 1
 offset_right = 40.0
 offset_bottom = 40.0
+mouse_filter = 2
 
 [node name="ScaleLabel" type="Label" parent="StatsTopLeft"]
 layout_mode = 2

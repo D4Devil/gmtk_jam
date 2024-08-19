@@ -170,9 +170,8 @@ height = 0.450881
 [node name="Plant" type="Node3D"]
 script = ExtResource("1_yijt0")
 
-[node name="Camera" type="Camera3D" parent="."]
+[node name="CameraLocation" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.899748, 0.436409, 0, -0.436409, 0.899748, 0, 1.2495, 2.2662)
-fov = 60.0
 
 [node name="KaleFull" parent="." instance=ExtResource("2_s2665")]
 transform = Transform3D(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
