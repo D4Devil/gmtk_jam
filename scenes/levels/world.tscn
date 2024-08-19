@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bg7g48sbn5na8"]
+[gd_scene load_steps=18 format=3 uid="uid://bg7g48sbn5na8"]
 
 [ext_resource type="PackedScene" uid="uid://fgpto6xwiehx" path="res://scenes/characters/plant.tscn" id="1_hy1fl"]
 [ext_resource type="PackedScene" uid="uid://doxb2jr5d8xrf" path="res://assets/models/planter/Planter.fbx" id="2_mneh1"]
@@ -8,7 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://4ekvtha4idrc" path="res://assets/models/flower/Flower Grey.glb" id="6_yg2ud"]
 [ext_resource type="PackedScene" uid="uid://bejjyy00sjqbf" path="res://assets/models/flower/Flower.glb" id="7_nhous"]
 [ext_resource type="PackedScene" uid="uid://b2svj8ij24uoa" path="res://assets/models/watering_can/Watering can.glb" id="7_wqnau"]
-[ext_resource type="PackedScene" uid="uid://cmivs4uykcqrc" path="res://scenes/objects/pipette_v2.tscn" id="9_r1hjq"]
+[ext_resource type="PackedScene" uid="uid://wolhcr7alfel" path="res://scenes/objects/pipette.tscn" id="9_r1hjq"]
+[ext_resource type="PackedScene" uid="uid://he7dvcd6eoxa" path="res://scenes/objects/ladybug.tscn" id="10_jwv5m"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ngwyh"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -119,4 +120,7 @@ collision_layer = 16
 shape = SubResource("WorldBoundaryShape3D_0qxft")
 
 [node name="PipetteV2" parent="." instance=ExtResource("9_r1hjq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.169628, -0.164855, -0.474034)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.733899, 0.198319, -0.538482)
+
+[node name="Ladybug" parent="." instance=ExtResource("10_jwv5m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00313282, 0.173619, -0.183474)
