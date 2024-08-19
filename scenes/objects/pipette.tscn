@@ -10,7 +10,6 @@
 size = Vector3(0.162476, 0.170044, 1.05627)
 
 [node name="PipetteV2" type="RigidBody3D"]
-collision_layer = 3
 freeze_mode = 1
 
 [node name="Pickable" type="Node" parent="."]

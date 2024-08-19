@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://he7dvcd6eoxa"]
 
-[ext_resource type="PackedScene" uid="uid://yoaubit78jdv" path="res://scenes/objects/clickable_object.tscn" id="1_uwyi5"]
+[ext_resource type="Script" path="res://scripts/objects/components/clickable.gd" id="1_ol1sl"]
 [ext_resource type="PackedScene" uid="uid://gbqtm8qmvtfn" path="res://assets/models/ladybug/Ladybug.glb" id="2_myma3"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7hhub"]
@@ -8,14 +8,15 @@ size = Vector3(0.188477, 0.0632172, 0.124268)
 
 [node name="Ladybug" type="Node3D"]
 
-[node name="ClickableObject" parent="." instance=ExtResource("1_uwyi5")]
+[node name="Clickable" type="Node3D" parent="."]
+script = ExtResource("1_ol1sl")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="ClickableObject"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Clickable"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="ClickableObject/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Clickable/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0309461, 0.0310513, 0)
 shape = SubResource("BoxShape3D_7hhub")
 
-[node name="Ladybug" parent="ClickableObject" instance=ExtResource("2_myma3")]
+[node name="Ladybug" parent="." instance=ExtResource("2_myma3")]
 
-[connection signal="clicked" from="ClickableObject" to="." method="queue_free"]
+[connection signal="clicked" from="Clickable" to="." method="queue_free"]

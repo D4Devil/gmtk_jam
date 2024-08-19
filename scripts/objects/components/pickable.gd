@@ -1,8 +1,8 @@
 class_name Pickable
 extends Node
 
-@export var use_action := "in_game_select"
-@export var drop_action := "in_game_drop"
+@export var use_action := "primary_click"
+@export var drop_action := "secondary_click"
 
 var enabled := false
 
@@ -11,7 +11,6 @@ signal used(using: bool)
 signal droped()
 
 func on_picked():
-	PointerSelector.enabled = false
 	enabled = true
 	picked.emit()
 
@@ -21,7 +20,6 @@ func on_used(using: bool):
 
 
 func on_droped():
-	PointerSelector.enabled = true
 	enabled = false
 	droped.emit()
 
