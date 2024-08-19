@@ -29,6 +29,15 @@ GradingManager="*res://scripts/global/grading_manager.gd"
 window/size/viewport_width=1800
 window/size/viewport_height=1000
 
+[file_customization]
+
+folder_colors={
+"res://assets/": "green",
+"res://resources/": "yellow",
+"res://scenes/": "blue",
+"res://scripts/": "pink"
+}
+
 [global_group]
 
 Kale="A simple way to check for kale"

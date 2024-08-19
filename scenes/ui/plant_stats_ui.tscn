@@ -1,7 +1,54 @@
-[gd_scene load_steps=3 format=3 uid="uid://dt6nb73oq0wcj"]
+[gd_scene load_steps=15 format=3 uid="uid://dt6nb73oq0wcj"]
 
-[ext_resource type="PackedScene" uid="uid://cp7t4w6nul8eo" path="res://scenes/ui/components/progress_bar.tscn" id="1_ivcwd"]
 [ext_resource type="Script" path="res://scripts/ui/plant_stats_ui.gd" id="1_uf0k4"]
+[ext_resource type="Texture2D" uid="uid://b54vlqk41164p" path="res://assets/sprites/ui/stat_ui.png" id="2_25066"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m52hm"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nsua3"]
+atlas = ExtResource("2_25066")
+region = Rect2(618, 3, 72, 309)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pdvq0"]
+atlas = ExtResource("2_25066")
+region = Rect2(693, 3, 72, 309)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yv04c"]
+atlas = ExtResource("2_25066")
+region = Rect2(600, 3, 15, 222)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l0yv8"]
+atlas = ExtResource("2_25066")
+region = Rect2(132, 0, 33, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_32xe2"]
+atlas = ExtResource("2_25066")
+region = Rect2(276, 0, 108, 108)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mh2m6"]
+atlas = ExtResource("2_25066")
+region = Rect2(0, 195, 309, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ywyy"]
+atlas = ExtResource("2_25066")
+region = Rect2(0, 120, 309, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ulg8"]
+atlas = ExtResource("2_25066")
+region = Rect2(3, 69, 221, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mj8e8"]
+atlas = ExtResource("2_25066")
+region = Rect2(84, 0, 45, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sj4mp"]
+atlas = ExtResource("2_25066")
+region = Rect2(36, 0, 45, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_daa7g"]
+atlas = ExtResource("2_25066")
+region = Rect2(0, 0, 33, 48)
 
 [node name="PlantStatsUi" type="Control"]
 layout_mode = 3
@@ -13,68 +60,158 @@ grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_uf0k4")
 
-[node name="HealthBar" parent="." instance=ExtResource("1_ivcwd")]
+[node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.0
-offset_left = -807.0
-offset_top = 17.0
-offset_right = -607.0
-offset_bottom = 47.0
-grow_vertical = 1
-background_color = Color(0.278057, 0.322124, 0.205929, 1)
-fill_color = Color(0.395677, 0.554103, 0.234205, 1)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
 
-[node name="HealthLabel" type="Label" parent="."]
-layout_mode = 0
-offset_left = 37.0
-offset_top = 20.0
-offset_right = 89.0
-offset_bottom = 43.0
-text = "Health"
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_constants/separation = 9
 
-[node name="GrowthBar" parent="." instance=ExtResource("1_ivcwd")]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.0
-offset_left = -498.0
-offset_top = 17.0
-offset_right = -298.0
-offset_bottom = 47.0
-grow_vertical = 1
-background_color = Color(0.435887, 0.218833, 0.335224, 1)
-fill_color = Color(0.784723, 0.292953, 0.511226, 1)
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+alignment = 2
 
-[node name="GrowthLabel" type="Label" parent="."]
-layout_mode = 0
-offset_left = 337.0
-offset_top = 19.0
-offset_right = 395.0
-offset_bottom = 42.0
-text = "Growth"
+[node name="Water" type="PanelContainer" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_m52hm")
 
-[node name="WaterBar" parent="." instance=ExtResource("1_ivcwd")]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.0
-offset_left = -186.0
-offset_top = 17.0
-offset_right = 14.0
-offset_bottom = 47.0
-grow_vertical = 1
-background_color = Color(0.210978, 0.307667, 0.437038, 1)
-fill_color = Color(0.220355, 0.48622, 0.885639, 1)
+[node name="WaterBar" type="TextureProgressBar" parent="MarginContainer/HBoxContainer/VBoxContainer/Water"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+max_value = 1.0
+step = 0.001
+value = 0.5
+fill_mode = 3
+texture_under = SubResource("AtlasTexture_nsua3")
+texture_over = SubResource("AtlasTexture_pdvq0")
+texture_progress = SubResource("AtlasTexture_yv04c")
+texture_progress_offset = Vector2(12, 11)
+tint_progress = Color(0.301961, 0.607843, 0.901961, 1)
 
-[node name="WaterLabel" type="Label" parent="."]
-layout_mode = 0
-offset_left = 658.0
-offset_top = 20.0
-offset_right = 710.0
-offset_bottom = 43.0
-text = "Water"
+[node name="IconContainer" type="CenterContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/Water"]
+custom_minimum_size = Vector2(72, 69)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+
+[node name="Icon" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer/Water/IconContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_l0yv8")
+stretch_mode = 2
+
+[node name="PlayerIcon" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_32xe2")
+stretch_mode = 2
+
+[node name="GrowFactor" type="PanelContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_m52hm")
+
+[node name="GrowFactorBar" type="TextureProgressBar" parent="MarginContainer/HBoxContainer/GrowFactor"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+max_value = 1.0
+step = 0.001
+value = 0.5
+texture_under = SubResource("AtlasTexture_mh2m6")
+texture_over = SubResource("AtlasTexture_8ywyy")
+texture_progress = SubResource("AtlasTexture_2ulg8")
+texture_progress_offset = Vector2(75, 45)
+tint_progress = Color(0.117647, 0.737255, 0.45098, 1)
+
+[node name="IconContainer" type="CenterContainer" parent="MarginContainer/HBoxContainer/GrowFactor"]
+custom_minimum_size = Vector2(69, 72)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+
+[node name="Icon" type="TextureRect" parent="MarginContainer/HBoxContainer/GrowFactor/IconContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_mj8e8")
+stretch_mode = 2
+
+[node name="Health" type="PanelContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_m52hm")
+
+[node name="HealthBar" type="TextureProgressBar" parent="MarginContainer/HBoxContainer/Health"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+max_value = 1.0
+step = 0.001
+value = 0.5
+texture_under = SubResource("AtlasTexture_mh2m6")
+texture_over = SubResource("AtlasTexture_8ywyy")
+texture_progress = SubResource("AtlasTexture_2ulg8")
+texture_progress_offset = Vector2(75, 45)
+tint_progress = Color(0.909804, 0.231373, 0.231373, 1)
+
+[node name="IconContainer" type="CenterContainer" parent="MarginContainer/HBoxContainer/Health"]
+custom_minimum_size = Vector2(69, 72)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+
+[node name="Icon" type="TextureRect" parent="MarginContainer/HBoxContainer/Health/IconContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_sj4mp")
+stretch_mode = 2
+
+[node name="Time" type="PanelContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_m52hm")
+
+[node name="TimeBar" type="TextureProgressBar" parent="MarginContainer/HBoxContainer/Time"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+max_value = 1.0
+step = 0.001
+value = 0.5
+texture_under = SubResource("AtlasTexture_mh2m6")
+texture_over = SubResource("AtlasTexture_8ywyy")
+texture_progress = SubResource("AtlasTexture_2ulg8")
+texture_progress_offset = Vector2(75, 45)
+tint_progress = Color(0.984314, 1, 0.52549, 1)
+
+[node name="IconContainer" type="CenterContainer" parent="MarginContainer/HBoxContainer/Time"]
+custom_minimum_size = Vector2(69, 72)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+
+[node name="Icon" type="TextureRect" parent="MarginContainer/HBoxContainer/Time/IconContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_daa7g")
+stretch_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/Time"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_constants/margin_left = 69
+theme_override_constants/margin_right = 6
+theme_override_constants/margin_bottom = 7
+
+[node name="CountdownLabel" type="Label" parent="MarginContainer/HBoxContainer/Time/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_colors/font_color = Color(0.909804, 0.231373, 0.231373, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "500s"
+horizontal_alignment = 1
+vertical_alignment = 1
