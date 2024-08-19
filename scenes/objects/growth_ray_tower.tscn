@@ -1,0 +1,35 @@
+[gd_scene load_steps=7 format=3 uid="uid://buasq6u5cgpgk"]
+
+[ext_resource type="PackedScene" uid="uid://cuvm0fnbhgbbh" path="res://assets/models/growth_ray/growth_base.glb" id="1_244n8"]
+[ext_resource type="Script" path="res://scripts/objects/growth_ray_tower.gd" id="1_rh5v3"]
+[ext_resource type="PackedScene" uid="uid://c1gtfgpy0lnon" path="res://assets/models/growth_ray/growth_dish.glb" id="2_oxkfy"]
+[ext_resource type="PackedScene" uid="uid://yoaubit78jdv" path="res://scenes/objects/clickable_object.tscn" id="3_vgaqs"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_0qvqi"]
+size = Vector3(1, 1, 50)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gyfjd"]
+size = Vector3(4.50012, 4.51715, 3.36279)
+
+[node name="GrowthRayTower" type="Node3D"]
+script = ExtResource("1_rh5v3")
+
+[node name="growth_base" parent="." instance=ExtResource("1_244n8")]
+
+[node name="growth_dish" parent="." instance=ExtResource("2_oxkfy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.05706, 0)
+
+[node name="Ray" type="MeshInstance3D" parent="growth_dish"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 28)
+visible = false
+mesh = SubResource("BoxMesh_0qvqi")
+
+[node name="ClickableObject" parent="." instance=ExtResource("3_vgaqs")]
+
+[node name="DishCollisionBody" type="StaticBody3D" parent="ClickableObject"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ClickableObject/DishCollisionBody"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00787354, 5.07748, 1.24341)
+shape = SubResource("BoxShape3D_gyfjd")
+
+[connection signal="clicked" from="ClickableObject" to="." method="on_dish_clicked" flags=6]
