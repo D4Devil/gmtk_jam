@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://bg7g48sbn5na8"]
+[gd_scene load_steps=23 format=3 uid="uid://bg7g48sbn5na8"]
 
 [ext_resource type="PackedScene" uid="uid://fgpto6xwiehx" path="res://scenes/characters/plant.tscn" id="1_hy1fl"]
 [ext_resource type="PackedScene" uid="uid://chlasqfct7os2" path="res://scenes/camera.tscn" id="2_dajgs"]
@@ -12,7 +12,6 @@
 [ext_resource type="PackedScene" uid="uid://wolhcr7alfel" path="res://scenes/objects/pipette.tscn" id="9_r1hjq"]
 [ext_resource type="PackedScene" uid="uid://cnrasbhxgwc1j" path="res://scenes/objects/watering_can.tscn" id="10_y5i48"]
 [ext_resource type="PackedScene" uid="uid://bbj17letitsyu" path="res://scenes/objects/ladybug_2.tscn" id="11_nn7mv"]
-[ext_resource type="PackedScene" uid="uid://btnpd8nq3wmio" path="res://scenes/objects/sprinkler.tscn" id="12_um554"]
 [ext_resource type="PackedScene" uid="uid://buasq6u5cgpgk" path="res://scenes/objects/growth_ray_tower.tscn" id="14_c6jl4"]
 [ext_resource type="PackedScene" uid="uid://qirjlt3lplme" path="res://scenes/objects/growth_ray_power_box.tscn" id="15_fuksq"]
 
@@ -121,7 +120,7 @@ shape = SubResource("WorldBoundaryShape3D_m3dr5")
 [node name="ObjectPlanes" type="Node" parent="."]
 
 [node name="Ground" type="StaticBody3D" parent="ObjectPlanes"]
-collision_layer = 25
+collision_layer = 9
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ObjectPlanes/Ground"]
 shape = SubResource("WorldBoundaryShape3D_7opij")
@@ -132,13 +131,22 @@ skeleton = NodePath("../../..")
 
 [node name="PipettePlane" type="StaticBody3D" parent="ObjectPlanes"]
 collision_layer = 16
+input_ray_pickable = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ObjectPlanes/PipettePlane"]
 shape = SubResource("WorldBoundaryShape3D_0qxft")
 
-[node name="Interactable" type="Node3D" parent="."]
+[node name="KillZone" type="StaticBody3D" parent="ObjectPlanes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.788956, 0)
+collision_layer = 128
+collision_mask = 0
 
-[node name="PipetteV2" parent="Interactable" instance=ExtResource("9_r1hjq")]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ObjectPlanes/KillZone"]
+shape = SubResource("WorldBoundaryShape3D_m3dr5")
+
+[node name="Interactable" type="Node" parent="."]
+
+[node name="Pipette" parent="Interactable" instance=ExtResource("9_r1hjq")]
 transform = Transform3D(-0.987675, 0, 0.156521, 0, 1, 0, -0.156521, 0, -0.987675, 0.581766, 0.236194, -1.1054)
 
 [node name="WateringCan" parent="Interactable" instance=ExtResource("10_y5i48")]
@@ -150,17 +158,11 @@ transform = Transform3D(-0.666129, 0, -0.745836, 0, 1, 0, 0.745836, 0, -0.666129
 [node name="Manhole" parent="Interactable" instance=ExtResource("7_cfvaw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.7519, 0.128385, 6.74314)
 
-[node name="Sprinkler" parent="Interactable" instance=ExtResource("12_um554")]
-transform = Transform3D(-0.375982, 0, -0.926627, 0, 1, 0, 0.926627, 0, -0.375982, 4.77297, 0, 1.96798)
-
 [node name="Ladybug2" parent="Interactable" instance=ExtResource("11_nn7mv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.515731, 0.209344, 0.12833)
 
 [node name="Ladybug3" parent="Interactable" instance=ExtResource("11_nn7mv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.79712, 0.129633, 0.904169)
-
-[node name="Ladybug4" parent="Interactable" instance=ExtResource("11_nn7mv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.63949, 0.104774, 4.00672)
 
 [node name="GrowthRayTower" parent="Interactable" instance=ExtResource("14_c6jl4")]
 transform = Transform3D(0.557644, 0, 0.83008, 0, 1, 0, -0.83008, 0, 0.557644, -44.1898, 0, -29.6615)

@@ -112,7 +112,7 @@ func reset_plant():
 	max_fert_volume = size * fert_cap_per_size.sample(size_sample_value)
 	current_fert_volume = 0.0
 	health = 1.0
-	size = 6.1
+	size = 0.1
 
 
 func on_plant_killed():
