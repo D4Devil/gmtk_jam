@@ -21,3 +21,7 @@ func on_used(using: bool) -> void:
 
 func _on_draged(velocity:Vector3, _origin:Vector3) -> void:
 	_velocity = velocity
+
+
+func _on_droped():
+	(physic_body as RigidBody3D).apply_central_impulse(_velocity * _velocity.length())

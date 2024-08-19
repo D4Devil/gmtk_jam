@@ -1,27 +1,43 @@
-[gd_scene load_steps=5 format=3 uid="uid://wolhcr7alfel"]
+[gd_scene load_steps=7 format=3 uid="uid://wolhcr7alfel"]
 
-[ext_resource type="Script" path="res://scripts/objects/pipette.gd" id="1_r02k7"]
-[ext_resource type="PackedScene" uid="uid://bjefaui16mvf6" path="res://assets/models/pipette/Pipette.glb" id="2_4757i"]
-[ext_resource type="Script" path="res://scripts/objects/components/drag_agent.gd" id="3_uye0m"]
+[ext_resource type="Script" path="res://scripts/objects/components/clickable.gd" id="1_4g0t8"]
+[ext_resource type="PackedScene" uid="uid://bjefaui16mvf6" path="res://assets/models/pipette/Pipette.glb" id="1_vuqkf"]
+[ext_resource type="Script" path="res://scripts/objects/components/pickable.gd" id="2_ouxmt"]
+[ext_resource type="Script" path="res://scripts/objects/pipette.gd" id="3_dx5xx"]
+[ext_resource type="Script" path="res://scripts/objects/components/drag_agent.gd" id="3_g83ei"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_ns23a"]
-size = Vector3(0.23999, 0.21875, 1.0896)
+[sub_resource type="BoxShape3D" id="BoxShape3D_mk8fx"]
+size = Vector3(0.162476, 0.170044, 1.05627)
 
-[node name="Pipette" type="RigidBody3D"]
-collision_layer = 2
-mass = 0.2
-center_of_mass_mode = 1
-center_of_mass = Vector3(0, 0, 0.5)
-script = ExtResource("1_r02k7")
-watering_power = 0.5
+[node name="PipetteV2" type="RigidBody3D"]
+collision_layer = 3
+freeze_mode = 1
 
-[node name="Pipette" parent="." instance=ExtResource("2_4757i")]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, -0.277304)
+[node name="Pickable" type="Node" parent="."]
+script = ExtResource("2_ouxmt")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00152588, 0.00012207, 0.589656)
-shape = SubResource("BoxShape3D_ns23a")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00213623, -0.00177002, 0.577942)
+shape = SubResource("BoxShape3D_mk8fx")
 
-[node name="DragAgent" type="Node3D" parent="."]
-script = ExtResource("3_uye0m")
-plane_mask = 16
+[node name="Pipette" parent="CollisionShape3D" node_paths=PackedStringArray("physic_body") instance=ExtResource("1_vuqkf")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.00213623, 0.00177002, -0.877942)
+script = ExtResource("3_dx5xx")
+physic_body = NodePath("../..")
+
+[node name="DragAgent" type="Node3D" parent="." node_paths=PackedStringArray("root")]
+script = ExtResource("3_g83ei")
+plane_mask = 24
+root = NodePath("..")
+
+[node name="Clickable" type="Node3D" parent="."]
+script = ExtResource("1_4g0t8")
+
+[connection signal="droped" from="Pickable" to="CollisionShape3D/Pipette" method="_on_droped"]
+[connection signal="droped" from="Pickable" to="." method="set_freeze_enabled" binds= [false]]
+[connection signal="droped" from="Pickable" to="DragAgent" method="set_enable" binds= [false]]
+[connection signal="picked" from="Pickable" to="." method="set_freeze_enabled" binds= [true]]
+[connection signal="picked" from="Pickable" to="DragAgent" method="set_enable" binds= [true]]
+[connection signal="used" from="Pickable" to="CollisionShape3D/Pipette" method="on_used"]
+[connection signal="draged" from="DragAgent" to="CollisionShape3D/Pipette" method="_on_draged"]
+[connection signal="clicked" from="Clickable" to="Pickable" method="on_picked"]

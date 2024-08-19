@@ -26,11 +26,11 @@ func _process(delta: float) -> void:
 		_move_to = collisions["position"]
 
 	root.look_at(Vector3.ZERO)
-	_velocity = _sqrt_interpolation(delta) * speed
+	_velocity = _sqrt_interpolation(delta)
 
 	if _velocity.length() >= draged_emition_threshold:
 		draged.emit(_velocity, root.transform.origin)
-	root.transform.origin += _velocity
+	root.transform.origin += _velocity * speed
 
 
 func _sqrt_interpolation(delta) -> Vector3:
