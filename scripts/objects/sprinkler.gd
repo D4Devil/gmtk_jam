@@ -43,7 +43,7 @@ func _process(delta):
 	dir = dir.rotated(Vector3.RIGHT, deg_to_rad(tilt_v)).rotated(Vector3.UP, deg_to_rad(arch_v)) * 1000
 	dir = dir.limit_length(force_v)
 
-	var droplet = droplet_scene.instantiate() as Droplet
+	var droplet = droplet_scene.instantiate() as NutrientParticle
 	owner.add_child(droplet)
 	droplet.configure(dir, water_origin)
 

@@ -23,6 +23,8 @@ shape = SubResource("BoxShape3D_mk8fx")
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.00213623, 0.00177002, -0.877942)
 script = ExtResource("3_dx5xx")
 physic_body = NodePath("../..")
+watering_power = null
+magic_speed_number = null
 
 [node name="DragAgent" type="Node3D" parent="." node_paths=PackedStringArray("root")]
 script = ExtResource("3_g83ei")

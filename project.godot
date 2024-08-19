@@ -44,6 +44,7 @@ import/blender/enabled=false
 [global_group]
 
 Kale="A simple way to check for kale"
+Particle="subscribe to avoid particles destroying each other"
 
 [input]
 

@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://b54q5xk3084ih"]
 
-[ext_resource type="Script" path="res://scripts/objects/droplet.gd" id="1_p2tg2"]
+[ext_resource type="Script" path="res://scripts/objects/components/nutrient_particle.gd" id="1_p2tg2"]
 [ext_resource type="Script" path="res://scripts/resources/nutrient.gd" id="2_0amo0"]
 
 [sub_resource type="Resource" id="Resource_6hp5w"]
