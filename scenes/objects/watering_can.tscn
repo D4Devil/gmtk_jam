@@ -35,7 +35,7 @@ func _process(delta: float) -> void:
 
 
 func _on_droped():
-	physics_body.apply_central_impulse(_velocity * _velocity.length() * physics_body.mass * physics_body.mass)
+	physics_body.apply_central_impulse(_velocity * _velocity.length())
 
 
 func _set_watering(value: bool) -> void:
@@ -53,6 +53,7 @@ height = 0.01
 [node name="WateringCan" type="RigidBody3D"]
 collision_layer = 3
 mass = 2.139
+freeze_mode = 1
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000648499, 0.219836, 0.286344)
