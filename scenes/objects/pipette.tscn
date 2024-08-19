@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://wolhcr7alfel"]
+[gd_scene load_steps=8 format=3 uid="uid://wolhcr7alfel"]
 
 [ext_resource type="Script" path="res://scripts/objects/components/clickable.gd" id="1_4g0t8"]
 [ext_resource type="PackedScene" uid="uid://bjefaui16mvf6" path="res://assets/models/pipette/Pipette.glb" id="1_vuqkf"]
 [ext_resource type="Script" path="res://scripts/objects/components/pickable.gd" id="2_ouxmt"]
 [ext_resource type="Script" path="res://scripts/objects/pipette.gd" id="3_dx5xx"]
 [ext_resource type="Script" path="res://scripts/objects/components/drag_agent.gd" id="3_g83ei"]
+[ext_resource type="AudioStream" uid="uid://c60towckpy6h0" path="res://resources/audio/random_droplet.tres" id="6_nxuw3"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mk8fx"]
 size = Vector3(0.162476, 0.170044, 1.05627)
@@ -25,6 +26,11 @@ script = ExtResource("3_dx5xx")
 physic_body = NodePath("../..")
 watering_power = null
 magic_speed_number = null
+
+[node name="DropletAudio" type="AudioStreamPlayer3D" parent="CollisionShape3D/Pipette"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.235809, -1.03075e-08)
+stream = ExtResource("6_nxuw3")
+volume_db = -40.0
 
 [node name="DragAgent" type="Node3D" parent="." node_paths=PackedStringArray("root")]
 script = ExtResource("3_g83ei")

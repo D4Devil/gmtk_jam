@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://c1kn418mqcv0r"]
+
+[ext_resource type="Script" path="res://scripts/global/audio_manager.gd" id="1_8qakx"]
+[ext_resource type="AudioStream" uid="uid://47o715275b7r" path="res://assets/audio/song_1/song_1_v1.ogg" id="1_om0nj"]
+[ext_resource type="PackedScene" uid="uid://dtkmr1lcclbik" path="res://scenes/audio/tap_sound.tscn" id="2_7g4md"]
+[ext_resource type="AudioStream" uid="uid://bxuf2ilx0h84s" path="res://assets/audio/sfx/wind_long.ogg" id="3_u5if5"]
+
+[sub_resource type="Curve" id="Curve_i8qfy"]
+min_value = -40.0
+max_value = -12.0
+_data = [Vector2(0, -40), 0.0, 0.0, 0, 0, Vector2(0.192671, -38.5073), 15.3282, 15.3282, 0, 0, Vector2(0.301324, -32.464), 47.1842, 47.1842, 0, 0, Vector2(1, -12), 13.8232, 0.0, 0, 0]
+point_count = 4
+
+[node name="AudioManager" type="Node3D"]
+script = ExtResource("1_8qakx")
+tap_scene = ExtResource("2_7g4md")
+wind_per_size = SubResource("Curve_i8qfy")
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_om0nj")
+volume_db = -20.0
+autoplay = true
+parameters/looping = true
+
+[node name="Wind" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_u5if5")
+volume_db = -80.0
+autoplay = true

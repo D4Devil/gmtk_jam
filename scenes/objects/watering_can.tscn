@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://cnrasbhxgwc1j"]
+[gd_scene load_steps=9 format=3 uid="uid://cnrasbhxgwc1j"]
 
 [ext_resource type="PackedScene" uid="uid://b2svj8ij24uoa" path="res://assets/models/watering_can/Watering can.glb" id="1_xnttj"]
+[ext_resource type="AudioStream" uid="uid://benj7aacxnqq7" path="res://assets/audio/sfx/water_loop.wav" id="2_4pl00"]
 [ext_resource type="Script" path="res://scripts/objects/components/clickable.gd" id="2_20kk0"]
 [ext_resource type="Script" path="res://scripts/objects/components/drag_agent.gd" id="3_ivo8g"]
 [ext_resource type="Script" path="res://scripts/objects/components/pickable.gd" id="4_5y4iw"]
@@ -12,6 +13,7 @@ size = Vector3(0.416367, 0.416077, 0.487976)
 script/source = "extends Node3D
 
 @onready var droplet_scene := preload(\"res://scenes/objects/droplet.tscn\")
+@onready var water_sound: AudioStreamPlayer3D = $WaterSound
 
 ## Dependecy
 @export var physics_body : PhysicsBody3D
@@ -39,6 +41,10 @@ func _on_droped():
 
 func _set_watering(value: bool) -> void:
 	_watering = value
+	if value:
+		water_sound.play()
+	else:
+		water_sound.stop()
 
 
 func _set_velocity(value: Vector3, _origin: Vector3) -> void:
@@ -98,6 +104,10 @@ visible = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="WateringCan/CanHole5"]
 mesh = SubResource("SphereMesh_ody2w")
+
+[node name="WaterSound" type="AudioStreamPlayer3D" parent="WateringCan"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.620137, 0.449778, -3.24976e-08)
+stream = ExtResource("2_4pl00")
 
 [node name="Clickable" type="Node3D" parent="."]
 script = ExtResource("2_20kk0")

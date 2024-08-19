@@ -45,4 +45,5 @@ func _on_body_entered(body: Node):
 		landed_on_kale.emit()
 	print(body.name)
 	if not body.get_groups().has("Particle"):
+		AudioManager.instance.tap_at(position)
 		queue_free()

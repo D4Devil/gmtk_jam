@@ -3,6 +3,7 @@ extends Node3D
 
 @onready var dish: Node3D = $growth_dish
 @onready var ray: MeshInstance3D = $growth_dish/Ray
+@onready var ray_sound: AudioStreamPlayer3D = $RaySound
 
 var is_pointing_at_plant := false
 var is_power_on = false
@@ -19,9 +20,12 @@ func _process(delta):
 
 func on_dish_clicked():
 	is_pointing_at_plant = true
-	PlantStats.is_growth_ray_enabled = is_pointing_at_plant and is_power_on
+	ray_sound.play()
 
 func on_power_on():
 	ray.visible = true
 	is_power_on = true
+
+func set_ray():
+	ray_sound.play()
 	PlantStats.is_growth_ray_enabled = is_pointing_at_plant and is_power_on
