@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://cnrasbhxgwc1j"]
+
+[ext_resource type="PackedScene" uid="uid://b2svj8ij24uoa" path="res://assets/models/watering_can/Watering can.glb" id="1_xnttj"]
+[ext_resource type="Script" path="res://scripts/objects/components/clickable.gd" id="2_20kk0"]
+[ext_resource type="Script" path="res://scripts/objects/components/drag_agent.gd" id="3_ivo8g"]
+[ext_resource type="Script" path="res://scripts/objects/components/pickable.gd" id="4_5y4iw"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_swr2n"]
+size = Vector3(0.416367, 0.416077, 0.487976)
+
+[sub_resource type="GDScript" id="GDScript_pe44m"]
+script/source = "extends Node3D
+
+
+func _on_pickable_used(using: bool) -> void:
+	pass # Replace with function body.
+"
+
+[node name="WateringCan" type="RigidBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000648499, 0.219836, 0.286344)
+shape = SubResource("BoxShape3D_swr2n")
+
+[node name="WateringCan" parent="." instance=ExtResource("1_xnttj")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0.25)
+script = SubResource("GDScript_pe44m")
+
+[node name="Clickable" type="Node3D" parent="."]
+script = ExtResource("2_20kk0")
+
+[node name="DragAgent" type="Node3D" parent="."]
+script = ExtResource("3_ivo8g")
+
+[node name="Pickable" type="Node" parent="."]
+script = ExtResource("4_5y4iw")
+
+[connection signal="clicked" from="Clickable" to="Pickable" method="on_picked"]
+[connection signal="droped" from="Pickable" to="." method="set_freeze_enabled" binds= [false]]
+[connection signal="droped" from="Pickable" to="DragAgent" method="set_enable" binds= [false]]
+[connection signal="picked" from="Pickable" to="." method="set_freeze_enabled" binds= [true]]
+[connection signal="picked" from="Pickable" to="DragAgent" method="set_enable" binds= [true]]
+[connection signal="used" from="Pickable" to="WateringCan" method="_on_pickable_used"]
