@@ -137,14 +137,6 @@ collision_mask = 0
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ObjectPlanes/KillZone"]
 shape = SubResource("WorldBoundaryShape3D_m3dr5")
 
-[node name="Killzone" type="StaticBody3D" parent="ObjectPlanes"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.788956, 0)
-collision_layer = 128
-collision_mask = 0
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="ObjectPlanes/Killzone"]
-shape = SubResource("WorldBoundaryShape3D_m3dr5")
-
 [node name="Interactable" type="Node" parent="."]
 
 [node name="Pipette" parent="Interactable" instance=ExtResource("9_r1hjq")]
@@ -173,4 +165,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.8284, -9.53674e-07, -36.3
 ray_tower = NodePath("../GrowthRayTower")
 
 [node name="Fertilizer" parent="Interactable" instance=ExtResource("15_gugyc")]
-transform = Transform3D(-0.332013, 0, -0.943275, 0, 1, 0, 0.943275, 0, -0.332013, -2.57628, 0.264382, -1.34546)
+transform = Transform3D(-0.560176, 0, -0.828373, 0, 1, 0, 0.828373, 0, -0.560176, -0.833586, 0, -1.17428)

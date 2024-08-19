@@ -12,11 +12,11 @@ extends Node3D
 @export var particle : PackedScene
 @export var spawn_point : Node3D
 @export var spawn_point_target : Node3D
-@export var particle_force : float
+@export var particle_force : float = 2
 
 @export_subgroup("Animation")
 @export var animatable : Node3D
-@export var shake_axis := Vector3.UP
+@export var shake_axis := Vector3.RIGHT
 @export var speed := .25
 
 @export_category("Dependencies")
@@ -47,9 +47,9 @@ func _process(delta: float) -> void:
 
 func _use() -> void:
 	var nutrient = particle.instantiate() as NutrientParticle
-	var dir := spawn_point.global_position.direction_to(spawn_point_target.global_position)
+	var dir := spawn_point.position.direction_to(spawn_point_target.position)
 	owner.add_child(nutrient)
-	nutrient.configure(dir, spawn_point, collision_object, override_nutrient_value, override_nutrient_type)
+	nutrient.configure(dir * particle_force, spawn_point, collision_object, override_nutrient_value, override_nutrient_type)
 
 
 func _shake_animatable(delta: float):
@@ -58,7 +58,7 @@ func _shake_animatable(delta: float):
 	if abs(_delta_animation) > shake_axis.length():
 		_anim_dir *= -1
 	
-	animatable.global_position += shake_axis.normalized() * delta * _shaking * _anim_dir * speed
+	animatable.position += shake_axis.normalized() * delta * _shaking * _anim_dir * speed
 
 
 func on_stop_shake() -> void:
