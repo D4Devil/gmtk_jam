@@ -7,6 +7,7 @@ extends Node3D
 @export var watering_power: float = 1
 @export var magic_speed_number := 10.0
 @onready var droplet_scene := preload("res://scenes/objects/droplet.tscn")
+@onready var droplet_audio: AudioStreamPlayer3D = $DropletAudio
 
 var _velocity := Vector3.ZERO
 
@@ -17,6 +18,7 @@ func on_used(using: bool) -> void:
 		assert(physic_body != null)
 		physic_body.get_parent().add_child(droplet)
 		droplet.configure(_velocity * magic_speed_number, physic_body)
+		droplet_audio.play()
 
 
 func _on_draged(velocity:Vector3, _origin:Vector3) -> void:
