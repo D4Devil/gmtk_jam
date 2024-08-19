@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cmivs4uykcqrc"]
+[gd_scene load_steps=7 format=3 uid="uid://wolhcr7alfel"]
 
 [ext_resource type="Script" path="res://scripts/objects/components/clickable.gd" id="1_4g0t8"]
 [ext_resource type="PackedScene" uid="uid://bjefaui16mvf6" path="res://assets/models/pipette/Pipette.glb" id="1_vuqkf"]
@@ -33,6 +33,7 @@ root = NodePath("..")
 [node name="Clickable" type="Node3D" parent="."]
 script = ExtResource("1_4g0t8")
 
+[connection signal="droped" from="Pickable" to="CollisionShape3D/Pipette" method="_on_droped"]
 [connection signal="droped" from="Pickable" to="." method="set_freeze_enabled" binds= [false]]
 [connection signal="droped" from="Pickable" to="DragAgent" method="set_enable" binds= [false]]
 [connection signal="picked" from="Pickable" to="." method="set_freeze_enabled" binds= [true]]

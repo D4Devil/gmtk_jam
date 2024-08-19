@@ -41,8 +41,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.791357, 2.36725)
 [node name="WateringCan" parent="." instance=ExtResource("1_v8w0o")]
 transform = Transform3D(-0.808884, 0, -0.587969, 0, 1, 0, 0.587969, 0, -0.808884, 0.65769, 0.395489, 0.45009)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
+[node name="Floor" type="StaticBody3D" parent="."]
 collision_layer = 9
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
+shape = SubResource("WorldBoundaryShape3D_u4y0c")
+
+[node name="Wall" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, -1.50239)
+collision_layer = 16
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall"]
 shape = SubResource("WorldBoundaryShape3D_u4y0c")
