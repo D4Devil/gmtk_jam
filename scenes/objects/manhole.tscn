@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://c1icuiig1k6xn"]
+
+[ext_resource type="PackedScene" uid="uid://yoaubit78jdv" path="res://scenes/objects/clickable_object.tscn" id="1_7mg8k"]
+[ext_resource type="Script" path="res://scripts/objects/manhole.gd" id="1_eet7d"]
+[ext_resource type="PackedScene" uid="uid://bmyidg0rpcb4d" path="res://assets/models/sewer/Manhole.glb" id="2_0pdp8"]
+[ext_resource type="PackedScene" uid="uid://c1mw82iu1ebpv" path="res://assets/models/sewer/Sewer entrance.glb" id="2_6eja0"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dolpo"]
+size = Vector3(0.909058, 0.178543, 0.911316)
+
+[node name="Manhole" type="Node3D"]
+script = ExtResource("1_eet7d")
+
+[node name="ClickableObject" parent="." instance=ExtResource("1_7mg8k")]
+
+[node name="ManholeCollision" type="StaticBody3D" parent="ClickableObject"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ClickableObject/ManholeCollision"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00482178, 0.0834732, 0.000457764)
+shape = SubResource("BoxShape3D_dolpo")
+
+[node name="OpenModel" parent="." instance=ExtResource("2_0pdp8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.628578, 0)
+visible = false
+
+[node name="ClosedModel" parent="." instance=ExtResource("2_6eja0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.00284022, 0)
+
+[connection signal="clicked" from="ClickableObject" to="." method="on_click" flags=6]
