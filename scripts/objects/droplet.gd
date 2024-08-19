@@ -15,12 +15,15 @@ func _init() -> void:
 	max_contacts_reported = 1
 
 
-func configure(initial_speed: Vector3, origin: Node3D, nutrient_value = 0.2, nutrient_type := Nutrient.Nutrients.Water):
+func configure(initial_speed: Vector3, origin: Node3D, collision_exception: PhysicsBody3D = null, nutrient_value = 0.2, nutrient_type := Nutrient.Nutrients.Water):
 	if not nutrient:
 		nutrient = nut_source.new(nutrient_type, nutrient_value)
 
 	_initial_speed = initial_speed
-	add_collision_exception_with(origin)
+
+	if not collision_exception:
+		collision_exception = origin
+	add_collision_exception_with(collision_exception)
 	global_position = origin.global_position
 
 

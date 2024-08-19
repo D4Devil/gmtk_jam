@@ -1,0 +1,121 @@
+[gd_scene load_steps=8 format=3 uid="uid://cnrasbhxgwc1j"]
+
+[ext_resource type="PackedScene" uid="uid://b2svj8ij24uoa" path="res://assets/models/watering_can/Watering can.glb" id="1_xnttj"]
+[ext_resource type="Script" path="res://scripts/objects/components/clickable.gd" id="2_20kk0"]
+[ext_resource type="Script" path="res://scripts/objects/components/drag_agent.gd" id="3_ivo8g"]
+[ext_resource type="Script" path="res://scripts/objects/components/pickable.gd" id="4_5y4iw"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_swr2n"]
+size = Vector3(0.416367, 0.416077, 0.487976)
+
+[sub_resource type="GDScript" id="GDScript_pe44m"]
+script/source = "extends Node3D
+
+@onready var droplet_scene := preload(\"res://scenes/objects/droplet.tscn\")
+
+## Dependecy
+@export var physics_body : PhysicsBody3D
+@export var _holes : Array[Node]
+
+@export var drops_per_second := 6
+@export var another_magic_number := 10
+var _cooldown := 0.0
+var _velocity = Vector3.ZERO
+var _watering = false: set = _set_watering
+
+
+func _process(delta: float) -> void:
+	if not _watering:
+		return
+	
+	var hole = _holes[randi_range(0, _holes.size()-1)]
+	var droplet = droplet_scene.instantiate() as Droplet
+	droplet.configure(_velocity * another_magic_number, hole, physics_body, 6)
+	physics_body.get_parent().add_child(droplet)
+
+
+func _on_droped():
+	physics_body.apply_central_impulse(_velocity * _velocity.length())
+
+
+func _set_watering(value: bool) -> void:
+	_watering = value
+
+
+func _set_velocity(value: Vector3, _origin: Vector3) -> void:
+	_velocity = value
+"
+
+[sub_resource type="SphereMesh" id="SphereMesh_ody2w"]
+radius = 0.01
+height = 0.01
+
+[node name="WateringCan" type="RigidBody3D"]
+collision_layer = 3
+mass = 2.139
+freeze_mode = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000648499, 0.219836, 0.286344)
+shape = SubResource("BoxShape3D_swr2n")
+
+[node name="WateringCan" parent="." node_paths=PackedStringArray("physics_body", "_holes") instance=ExtResource("1_xnttj")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0.25)
+script = SubResource("GDScript_pe44m")
+physics_body = NodePath("..")
+_holes = [NodePath("CanHole"), NodePath("CanHole2"), NodePath("CanHole3"), NodePath("CanHole4"), NodePath("CanHole5")]
+
+[node name="CanHole" type="Node3D" parent="WateringCan"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.500037, 0.46332, 0.0586642)
+visible = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="WateringCan/CanHole"]
+mesh = SubResource("SphereMesh_ody2w")
+
+[node name="CanHole2" type="Node3D" parent="WateringCan"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.500037, 0.462516, -0.0602715)
+visible = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="WateringCan/CanHole2"]
+mesh = SubResource("SphereMesh_ody2w")
+
+[node name="CanHole3" type="Node3D" parent="WateringCan"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.524949, 0.408673, 2.29463e-08)
+visible = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="WateringCan/CanHole3"]
+mesh = SubResource("SphereMesh_ody2w")
+
+[node name="CanHole4" type="Node3D" parent="WateringCan"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.554683, 0.348402, 0.0618787)
+visible = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="WateringCan/CanHole4"]
+mesh = SubResource("SphereMesh_ody2w")
+
+[node name="CanHole5" type="Node3D" parent="WateringCan"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.545843, 0.351617, -0.0594679)
+visible = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="WateringCan/CanHole5"]
+mesh = SubResource("SphereMesh_ody2w")
+
+[node name="Clickable" type="Node3D" parent="."]
+script = ExtResource("2_20kk0")
+
+[node name="DragAgent" type="Node3D" parent="." node_paths=PackedStringArray("root")]
+script = ExtResource("3_ivo8g")
+plane_mask = 24
+root = NodePath("..")
+
+[node name="Pickable" type="Node" parent="."]
+script = ExtResource("4_5y4iw")
+
+[connection signal="clicked" from="Clickable" to="Pickable" method="on_picked"]
+[connection signal="draged" from="DragAgent" to="WateringCan" method="_set_velocity"]
+[connection signal="droped" from="Pickable" to="WateringCan" method="_on_droped"]
+[connection signal="droped" from="Pickable" to="." method="set_freeze_enabled" binds= [false]]
+[connection signal="droped" from="Pickable" to="DragAgent" method="set_enable" binds= [false]]
+[connection signal="picked" from="Pickable" to="." method="set_freeze_enabled" binds= [true]]
+[connection signal="picked" from="Pickable" to="DragAgent" method="set_enable" binds= [true]]
+[connection signal="used" from="Pickable" to="WateringCan" method="_set_watering"]
