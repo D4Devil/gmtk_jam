@@ -44,6 +44,7 @@ import/blender/enabled=false
 [global_group]
 
 Kale="A simple way to check for kale"
+Particle="subscribe to avoid particles destroying each other"
 
 [input]
 
@@ -68,6 +69,7 @@ secondary_click={
 3d_physics/layer_5="closest limits"
 3d_physics/layer_6="watering can limits"
 3d_physics/layer_8="killzone"
+3d_physics/layer_9="particles"
 
 [rendering]
 

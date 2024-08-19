@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://bg7g48sbn5na8"]
+[gd_scene load_steps=24 format=3 uid="uid://bg7g48sbn5na8"]
 
 [ext_resource type="PackedScene" uid="uid://fgpto6xwiehx" path="res://scenes/characters/plant.tscn" id="1_hy1fl"]
 [ext_resource type="PackedScene" uid="uid://chlasqfct7os2" path="res://scenes/camera.tscn" id="2_dajgs"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://bbj17letitsyu" path="res://scenes/objects/ladybug_2.tscn" id="11_nn7mv"]
 [ext_resource type="PackedScene" uid="uid://buasq6u5cgpgk" path="res://scenes/objects/growth_ray_tower.tscn" id="14_c6jl4"]
 [ext_resource type="PackedScene" uid="uid://qirjlt3lplme" path="res://scenes/objects/growth_ray_power_box.tscn" id="15_fuksq"]
+[ext_resource type="PackedScene" uid="uid://dg4tr1ty2e8f4" path="res://scenes/objects/fertilizer.tscn" id="15_gugyc"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ngwyh"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -27,8 +28,6 @@ background_mode = 2
 sky = SubResource("Sky_ibb7l")
 tonemap_mode = 2
 glow_enabled = true
-
-[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_m3dr5"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_7opij"]
 resource_local_to_scene = true
@@ -47,6 +46,8 @@ subdivide_depth = 10
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_0qxft"]
 resource_local_to_scene = true
 plane = Plane(0, 0, 1, 0)
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_m3dr5"]
 
 [node name="World" type="Node3D"]
 
@@ -109,14 +110,6 @@ transform = Transform3D(1.19615, 0, 0.506924, 0, 1.29914, 0, -0.506924, 0, 1.196
 [node name="blockbench_export8" parent="Decor" instance=ExtResource("6_toguh")]
 transform = Transform3D(1.22666, 0, 0.427842, 0, 1.29914, 0, -0.427842, 0, 1.22666, 7.4947, 0.73288, -1.57022)
 
-[node name="Killzone" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.788956, 0)
-collision_layer = 128
-collision_mask = 0
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Killzone"]
-shape = SubResource("WorldBoundaryShape3D_m3dr5")
-
 [node name="ObjectPlanes" type="Node" parent="."]
 
 [node name="Ground" type="StaticBody3D" parent="ObjectPlanes"]
@@ -170,3 +163,6 @@ transform = Transform3D(0.557644, 0, 0.83008, 0, 1, 0, -0.83008, 0, 0.557644, -4
 [node name="GrowthRayPowerBox" parent="Interactable" node_paths=PackedStringArray("ray_tower") instance=ExtResource("15_fuksq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.8284, -9.53674e-07, -36.3656)
 ray_tower = NodePath("../GrowthRayTower")
+
+[node name="Fertilizer" parent="Interactable" instance=ExtResource("15_gugyc")]
+transform = Transform3D(-0.560176, 0, -0.828373, 0, 1, 0, 0.828373, 0, -0.560176, -0.833586, 0, -1.17428)
