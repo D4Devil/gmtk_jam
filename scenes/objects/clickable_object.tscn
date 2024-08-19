@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://yoaubit78jdv"]
+
+[ext_resource type="Script" path="res://scripts/objects/components/clickable.gd" id="1_bq8yb"]
+
+[node name="ClickableObject" type="Node3D"]
+script = ExtResource("1_bq8yb")

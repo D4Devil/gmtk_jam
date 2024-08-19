@@ -29,8 +29,10 @@ script = SubResource("GDScript_pe44m")
 [node name="Clickable" type="Node3D" parent="."]
 script = ExtResource("2_20kk0")
 
-[node name="DragAgent" type="Node3D" parent="."]
+[node name="DragAgent" type="Node3D" parent="." node_paths=PackedStringArray("root")]
 script = ExtResource("3_ivo8g")
+plane_mask = 8
+root = NodePath("..")
 
 [node name="Pickable" type="Node" parent="."]
 script = ExtResource("4_5y4iw")
