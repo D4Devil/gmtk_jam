@@ -58,6 +58,7 @@ extends Node
 @onready var fert_perc_loss_per_size: Curve = ResourceLoader.load("resources/balance/fert_perc_loss_per_size.tres")
 
 var is_growth_ray_enabled = false
+var size_sample_value: float
 
 func _ready():
 	print("In plant_stats _ready")
@@ -70,7 +71,7 @@ func _process(delta):
 	if not GameStateMachine.state == GameStateMachine.GameState.GROWTH:
 		return
 
-	var size_sample_value = remap(size, 0, max_size_expected, 0, 1)
+	size_sample_value = remap(size, 0, max_size_expected, 0, 1)
 
 	# Apply fertilizer changes
 	max_fert_volume = size * water_cap_per_size.sample(size_sample_value)
