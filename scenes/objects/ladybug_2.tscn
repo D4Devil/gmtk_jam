@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://bbj17letitsyu"]
+
+[ext_resource type="PackedScene" uid="uid://yoaubit78jdv" path="res://scenes/objects/clickable_object.tscn" id="1_i61qe"]
+[ext_resource type="Script" path="res://scripts/objects/ladybug_2.gd" id="1_t016c"]
+[ext_resource type="PackedScene" uid="uid://gbqtm8qmvtfn" path="res://assets/models/ladybug/Ladybug.glb" id="2_nkn75"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_548pj"]
+
+[node name="Ladybug2" type="Node3D"]
+script = ExtResource("1_t016c")
+
+[node name="ClickableObject" parent="." instance=ExtResource("1_i61qe")]
+
+[node name="Ladybug" parent="ClickableObject" instance=ExtResource("2_nkn75")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="ClickableObject"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ClickableObject/StaticBody3D"]
+shape = SubResource("BoxShape3D_548pj")
+
+[connection signal="clicked" from="ClickableObject" to="." method="on_click"]

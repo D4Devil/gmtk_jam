@@ -9,8 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://c1icuiig1k6xn" path="res://scenes/objects/manhole.tscn" id="7_cfvaw"]
 [ext_resource type="PackedScene" uid="uid://bejjyy00sjqbf" path="res://assets/models/flower/Flower.glb" id="7_nhous"]
 [ext_resource type="PackedScene" uid="uid://wolhcr7alfel" path="res://scenes/objects/pipette.tscn" id="9_r1hjq"]
-[ext_resource type="PackedScene" uid="uid://he7dvcd6eoxa" path="res://scenes/objects/ladybug.tscn" id="10_jwv5m"]
 [ext_resource type="PackedScene" uid="uid://cnrasbhxgwc1j" path="res://scenes/objects/watering_can.tscn" id="10_y5i48"]
+[ext_resource type="PackedScene" uid="uid://bbj17letitsyu" path="res://scenes/objects/ladybug_2.tscn" id="11_nn7mv"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ngwyh"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -130,9 +130,6 @@ transform = Transform3D(-0.751966, 0, 0.659201, 0, 1, 0, -0.659201, 0, -0.751966
 [node name="WateringCan2" parent="Interactable" instance=ExtResource("10_y5i48")]
 transform = Transform3D(-0.666129, 0, -0.745836, 0, 1, 0, 0.745836, 0, -0.666129, -2.29801, 0.224026, -2.40271)
 
-[node name="Ladybug" parent="Interactable" instance=ExtResource("10_jwv5m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.860268, 0.173619, -0.134364)
-
 [node name="Manhole" parent="Interactable" instance=ExtResource("7_cfvaw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.7519, 0.128385, 6.74314)
 
@@ -143,3 +140,12 @@ collision_mask = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 shape = SubResource("WorldBoundaryShape3D_m3dr5")
+
+[node name="Ladybug2" parent="." instance=ExtResource("11_nn7mv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.515731, 0.209344, 0.12833)
+
+[node name="Ladybug3" parent="." instance=ExtResource("11_nn7mv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.79712, 0.129633, 0.904169)
+
+[node name="Ladybug4" parent="." instance=ExtResource("11_nn7mv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.63949, 0.104774, 4.00672)
