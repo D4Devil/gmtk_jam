@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bg7g48sbn5na8"]
+[gd_scene load_steps=21 format=3 uid="uid://bg7g48sbn5na8"]
 
 [ext_resource type="PackedScene" uid="uid://fgpto6xwiehx" path="res://scenes/characters/plant.tscn" id="1_hy1fl"]
 [ext_resource type="PackedScene" uid="uid://doxb2jr5d8xrf" path="res://assets/models/planter/Planter.fbx" id="2_mneh1"]
@@ -24,6 +24,16 @@ background_mode = 2
 sky = SubResource("Sky_ibb7l")
 tonemap_mode = 2
 glow_enabled = true
+
+[sub_resource type="GDScript" id="GDScript_dixx3"]
+resource_name = "CamaraAnchor"
+script/source = "extends Node3D
+
+@export var camera : Node3D
+
+func _process(delta: float) -> void:
+	camera.global_position = global_position + global_position * PlantStats.size
+"
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_7opij"]
 resource_local_to_scene = true
@@ -54,8 +64,16 @@ shadow_enabled = true
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_6fdjw")
 
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 1.13438, 1.41611)
+
 [node name="Plant" parent="." instance=ExtResource("1_hy1fl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.061172, 0)
+
+[node name="CamaraAnchor" type="Node3D" parent="Plant" node_paths=PackedStringArray("camera")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2495, 2.2662)
+script = SubResource("GDScript_dixx3")
+camera = NodePath("../../Camera3D")
 
 [node name="Interactable" type="Node" parent="."]
 
