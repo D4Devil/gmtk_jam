@@ -12,6 +12,8 @@ script = ExtResource("1_t016c")
 
 [node name="ClickableObject" parent="." instance=ExtResource("1_i61qe")]
 
+[node name="Ladybug" parent="ClickableObject" instance=ExtResource("2_nkn75")]
+
 [node name="StaticBody3D" type="StaticBody3D" parent="ClickableObject"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ClickableObject/StaticBody3D"]
