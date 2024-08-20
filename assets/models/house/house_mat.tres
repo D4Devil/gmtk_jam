@@ -1,0 +1,12 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dibi2p3h17rjt"]
+
+[ext_resource type="Texture2D" uid="uid://b8r06fae80c3h" path="res://assets/models/house/house_0.png" id="1_a45rl"]
+
+[resource]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+albedo_color = Color(1.3, 1.3, 1.3, 1)
+albedo_texture = ExtResource("1_a45rl")
+roughness = 0.75
+texture_filter = 0
