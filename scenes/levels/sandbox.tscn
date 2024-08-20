@@ -1,8 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://cw5exb5acr2g8"]
+[gd_scene load_steps=12 format=3 uid="uid://cw5exb5acr2g8"]
 
 [ext_resource type="PackedScene" uid="uid://wolhcr7alfel" path="res://scenes/objects/pipette.tscn" id="1_sx1id"]
 [ext_resource type="PackedScene" uid="uid://cnrasbhxgwc1j" path="res://scenes/objects/watering_can.tscn" id="2_8i4hr"]
 [ext_resource type="PackedScene" uid="uid://dg4tr1ty2e8f4" path="res://scenes/objects/fertilizer.tscn" id="3_538kw"]
+[ext_resource type="PackedScene" uid="uid://jjuv6k4ofkmw" path="res://scenes/objects/shovel.tscn" id="4_tda7l"]
+[ext_resource type="PackedScene" uid="uid://bn6ahprue2v3c" path="res://scenes/manure.tscn" id="5_v5glx"]
 
 [sub_resource type="GDScript" id="GDScript_d65r6"]
 script/source = "extends Node3D
@@ -27,14 +29,24 @@ glow_enabled = true
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_u4y0c"]
 
+[sub_resource type="PlaneMesh" id="PlaneMesh_1xot7"]
+size = Vector2(100, 100)
+
 [node name="Sandbox" type="Node3D"]
 script = SubResource("GDScript_d65r6")
 
 [node name="PipetteV2" parent="." instance=ExtResource("1_sx1id")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.61293, 0.290948, -1.1817)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.14728, 0.290948, 0.603801)
 
 [node name="WateringCan" parent="." instance=ExtResource("2_8i4hr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.50447, 0.101947, -1.01724)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.25845, 0.101947, 0.29148)
+
+[node name="Fertilizer" parent="." instance=ExtResource("3_538kw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.46412, -1.19209e-07, -1.00362)
+shake_axis = Vector3(0.2, 0, 0)
+
+[node name="Shovel" parent="." instance=ExtResource("4_tda7l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.77368, 0)
 
 [node name="World" type="Node" parent="."]
 
@@ -46,12 +58,24 @@ transform = Transform3D(0.377534, 0.801936, -0.462998, -9.83849e-09, 0.5, 0.8660
 shadow_enabled = true
 
 [node name="Camera3D" type="Camera3D" parent="World"]
-transform = Transform3D(0.999048, 0.00437078, -0.0434065, 0, 0.994969, 0.100187, 0.043626, -0.100092, 0.994021, -0.100661, 0.397145, 1.10567)
+transform = Transform3D(0.99999, -0.00326233, 0.00291174, 0, 0.665883, 0.746057, -0.00437276, -0.746049, 0.665876, -0.150833, 4.57958, 3.97823)
 
 [node name="Floor" type="StaticBody3D" parent="World"]
-collision_layer = 9
+collision_layer = 4105
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/Floor"]
+shape = SubResource("WorldBoundaryShape3D_u4y0c")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="World/Floor"]
+mesh = SubResource("PlaneMesh_1xot7")
+
+[node name="ShovelFloor" type="StaticBody3D" parent="World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.618466, 0)
+collision_layer = 4096
+collision_mask = 0
+input_ray_pickable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/ShovelFloor"]
 shape = SubResource("WorldBoundaryShape3D_u4y0c")
 
 [node name="Wall" type="StaticBody3D" parent="World"]
@@ -62,6 +86,5 @@ input_ray_pickable = false
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/Wall"]
 shape = SubResource("WorldBoundaryShape3D_u4y0c")
 
-[node name="Fertilizer" parent="." instance=ExtResource("3_538kw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0987327, -1.19209e-07, -1.2276)
-shake_axis = Vector3(0.2, 0, 0)
+[node name="Manure" parent="." instance=ExtResource("5_v5glx")]
+transform = Transform3D(2.185, 0, 0, 0, 2.185, 0, 0, 0, 2.185, -0.392545, 0, -6.8494)

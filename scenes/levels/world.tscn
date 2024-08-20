@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://bg7g48sbn5na8"]
+[gd_scene load_steps=27 format=3 uid="uid://bg7g48sbn5na8"]
 
 [ext_resource type="PackedScene" uid="uid://fgpto6xwiehx" path="res://scenes/characters/plant.tscn" id="1_hy1fl"]
 [ext_resource type="PackedScene" uid="uid://chlasqfct7os2" path="res://scenes/camera.tscn" id="2_dajgs"]
@@ -15,6 +15,8 @@
 [ext_resource type="PackedScene" uid="uid://buasq6u5cgpgk" path="res://scenes/objects/growth_ray_tower.tscn" id="14_c6jl4"]
 [ext_resource type="PackedScene" uid="uid://qirjlt3lplme" path="res://scenes/objects/growth_ray_power_box.tscn" id="15_fuksq"]
 [ext_resource type="PackedScene" uid="uid://dg4tr1ty2e8f4" path="res://scenes/objects/fertilizer.tscn" id="15_gugyc"]
+[ext_resource type="PackedScene" uid="uid://jjuv6k4ofkmw" path="res://scenes/objects/shovel.tscn" id="16_fplqv"]
+[ext_resource type="PackedScene" uid="uid://bn6ahprue2v3c" path="res://scenes/manure.tscn" id="17_u5a54"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ngwyh"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -48,6 +50,8 @@ resource_local_to_scene = true
 plane = Plane(0, 0, 1, 0)
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_m3dr5"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_yygm8"]
 
 [node name="World" type="Node3D"]
 
@@ -137,6 +141,14 @@ collision_mask = 0
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ObjectPlanes/KillZone"]
 shape = SubResource("WorldBoundaryShape3D_m3dr5")
 
+[node name="ShovelPlane" type="StaticBody3D" parent="ObjectPlanes"]
+collision_layer = 4096
+collision_mask = 0
+input_ray_pickable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ObjectPlanes/ShovelPlane"]
+shape = SubResource("WorldBoundaryShape3D_yygm8")
+
 [node name="Interactable" type="Node" parent="."]
 
 [node name="Pipette" parent="Interactable" instance=ExtResource("9_r1hjq")]
@@ -146,7 +158,7 @@ transform = Transform3D(-0.987675, 0, 0.156521, 0, 1, 0, -0.156521, 0, -0.987675
 transform = Transform3D(-0.751966, 0, 0.659201, 0, 1, 0, -0.659201, 0, -0.751966, 1.79877, 0.118958, -0.286781)
 
 [node name="WateringCan2" parent="Interactable" instance=ExtResource("10_y5i48")]
-transform = Transform3D(-0.666129, 0, -0.745836, 0, 1, 0, 0.745836, 0, -0.666129, -2.29801, 0.224026, -2.40271)
+transform = Transform3D(-0.965826, 0, 0.25919, 0, 1, 0, -0.25919, 0, -0.965826, 0.580254, 0.224026, -5.61367)
 
 [node name="Manhole" parent="Interactable" instance=ExtResource("7_cfvaw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.7519, 0.128385, 6.74314)
@@ -165,4 +177,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.8284, -9.53674e-07, -36.3
 ray_tower = NodePath("../GrowthRayTower")
 
 [node name="Fertilizer" parent="Interactable" instance=ExtResource("15_gugyc")]
-transform = Transform3D(-0.560176, 0, -0.828373, 0, 1, 0, 0.828373, 0, -0.560176, -0.833586, 0, -1.17428)
+transform = Transform3D(-0.560176, 0, -0.828373, 0, 1, 0, 0.828373, 0, -0.560176, -3.19761, 0.285659, -0.652502)
+
+[node name="Shovel" parent="Interactable" instance=ExtResource("16_fplqv")]
+transform = Transform3D(-0.582776, 0, -0.812633, 0, 1, 0, 0.812633, 0, -0.582776, -7.28922, 0.211267, -4.8626)
+
+[node name="Manure" parent="Interactable" instance=ExtResource("17_u5a54")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.61134, 9.53674e-07, -5.31622)
