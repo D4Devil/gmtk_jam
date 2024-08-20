@@ -115,85 +115,87 @@ transform = Transform3D(-0.509415, 0, 2.24147, 0, 2.29863, 0, -2.24147, 0, -0.50
 [node name="Flowers" parent="Decor/Podium" instance=ExtResource("18_0mibq")]
 transform = Transform3D(-0.880882, 0, 0.473334, 0, 1, 0, -0.473334, 0, -0.880882, 0.00858068, -4.76837e-07, -2.11939)
 
-[node name="FenceStraight" parent="Decor" instance=ExtResource("11_v2arq")]
+[node name="Fences" type="Node3D" parent="Decor"]
+
+[node name="FenceStraight" parent="Decor/Fences" instance=ExtResource("11_v2arq")]
 transform = Transform3D(-8.74228e-08, 0, -2, 0, 2, 0, 2, 0, -8.74228e-08, -4.96325, 0, 11.546)
 
-[node name="FenceStraight2" parent="Decor" instance=ExtResource("11_v2arq")]
+[node name="FenceStraight2" parent="Decor/Fences" instance=ExtResource("11_v2arq")]
 transform = Transform3D(-8.74228e-08, 0, -2, 0, 2, 0, 2, 0, -8.74228e-08, -6.96975, 0, 11.546)
 
-[node name="FenceStraight3" parent="Decor" instance=ExtResource("11_v2arq")]
+[node name="FenceStraight3" parent="Decor/Fences" instance=ExtResource("11_v2arq")]
 transform = Transform3D(-8.74228e-08, 0, -2, 0, 2, 0, 2, 0, -8.74228e-08, -8.87152, 0, 11.546)
 
-[node name="FenceStraight4" parent="Decor" instance=ExtResource("11_v2arq")]
+[node name="FenceStraight4" parent="Decor/Fences" instance=ExtResource("11_v2arq")]
 transform = Transform3D(-8.74228e-08, 0, -2, 0, 2, 0, 2, 0, -8.74228e-08, 0.776917, 0, 11.546)
 
-[node name="FenceStraight5" parent="Decor" instance=ExtResource("11_v2arq")]
+[node name="FenceStraight5" parent="Decor/Fences" instance=ExtResource("11_v2arq")]
 transform = Transform3D(-8.74228e-08, 0, -2, 0, 2, 0, 2, 0, -8.74228e-08, -1.22959, 0, 11.546)
 
-[node name="FenceStraight6" parent="Decor" instance=ExtResource("11_v2arq")]
+[node name="FenceStraight6" parent="Decor/Fences" instance=ExtResource("11_v2arq")]
 transform = Transform3D(-8.74228e-08, 0, -2, 0, 2, 0, 2, 0, -8.74228e-08, -3.13136, 0, 11.546)
 
-[node name="FenceStraight7" parent="Decor" instance=ExtResource("11_v2arq")]
+[node name="FenceStraight7" parent="Decor/Fences" instance=ExtResource("11_v2arq")]
 transform = Transform3D(-8.74228e-08, 0, -2, 0, 2, 0, 2, 0, -8.74228e-08, -10.8051, 0, 11.546)
 
-[node name="FenceStraight8" parent="Decor" instance=ExtResource("11_v2arq")]
+[node name="FenceStraight8" parent="Decor/Fences" instance=ExtResource("11_v2arq")]
 transform = Transform3D(-8.74228e-08, 0, -2, 0, 2, 0, 2, 0, -8.74228e-08, -12.8116, 0, 11.546)
 
-[node name="FenceStraight9" parent="Decor" instance=ExtResource("11_v2arq")]
+[node name="FenceStraight9" parent="Decor/Fences" instance=ExtResource("11_v2arq")]
 transform = Transform3D(-8.74228e-08, 0, -2, 0, 2, 0, 2, 0, -8.74228e-08, -14.7134, 0, 11.546)
 
-[node name="FenceStraight10" parent="Decor" instance=ExtResource("11_v2arq")]
+[node name="FenceStraight10" parent="Decor/Fences" instance=ExtResource("11_v2arq")]
 transform = Transform3D(-8.74228e-08, 0, -2, 0, 2, 0, 2, 0, -8.74228e-08, -16.6728, 0, 11.546)
 
-[node name="FenceStraight11" parent="Decor" instance=ExtResource("11_v2arq")]
+[node name="FenceStraight11" parent="Decor/Fences" instance=ExtResource("11_v2arq")]
 transform = Transform3D(-8.74228e-08, 0, -2, 0, 2, 0, 2, 0, -8.74228e-08, -18.6793, 0, 11.546)
 
-[node name="FenceStraight12" parent="Decor" instance=ExtResource("11_v2arq")]
+[node name="FenceStraight12" parent="Decor/Fences" instance=ExtResource("11_v2arq")]
 transform = Transform3D(-8.74228e-08, 0, -2, 0, 2, 0, 2, 0, -8.74228e-08, -20.5811, 0, 11.546)
 
-[node name="FenceStraight16" parent="Decor" instance=ExtResource("11_v2arq")]
+[node name="FenceStraight16" parent="Decor/Fences" instance=ExtResource("11_v2arq")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -21.3727, 0, 0.672231)
 
-[node name="FenceStraight17" parent="Decor" instance=ExtResource("11_v2arq")]
+[node name="FenceStraight17" parent="Decor/Fences" instance=ExtResource("11_v2arq")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -21.3727, 0, 2.67874)
 
-[node name="FenceStraight18" parent="Decor" instance=ExtResource("11_v2arq")]
+[node name="FenceStraight18" parent="Decor/Fences" instance=ExtResource("11_v2arq")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -21.3727, 0, 4.58051)
 
-[node name="FenceStraight19" parent="Decor" instance=ExtResource("11_v2arq")]
+[node name="FenceStraight19" parent="Decor/Fences" instance=ExtResource("11_v2arq")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -21.3727, 0, 6.53997)
 
-[node name="FenceStraight20" parent="Decor" instance=ExtResource("11_v2arq")]
+[node name="FenceStraight20" parent="Decor/Fences" instance=ExtResource("11_v2arq")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -21.3727, 0, 8.54647)
 
-[node name="FenceStraight21" parent="Decor" instance=ExtResource("11_v2arq")]
+[node name="FenceStraight21" parent="Decor/Fences" instance=ExtResource("11_v2arq")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -21.3727, 0, 10.4482)
 
-[node name="FenceStraight22" parent="Decor" instance=ExtResource("11_v2arq")]
+[node name="FenceStraight22" parent="Decor/Fences" instance=ExtResource("11_v2arq")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -21.3727, 0, -11.0642)
 
-[node name="FenceStraight23" parent="Decor" instance=ExtResource("11_v2arq")]
+[node name="FenceStraight23" parent="Decor/Fences" instance=ExtResource("11_v2arq")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -21.3727, 0, -9.05774)
 
-[node name="FenceStraight24" parent="Decor" instance=ExtResource("11_v2arq")]
+[node name="FenceStraight24" parent="Decor/Fences" instance=ExtResource("11_v2arq")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -21.3727, 0, -7.15596)
 
-[node name="FenceStraight25" parent="Decor" instance=ExtResource("11_v2arq")]
+[node name="FenceStraight25" parent="Decor/Fences" instance=ExtResource("11_v2arq")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -21.3727, 0, -5.19651)
 
-[node name="FenceStraight26" parent="Decor" instance=ExtResource("11_v2arq")]
+[node name="FenceStraight26" parent="Decor/Fences" instance=ExtResource("11_v2arq")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -21.3727, 0, -3.19)
 
-[node name="FenceStraight27" parent="Decor" instance=ExtResource("11_v2arq")]
+[node name="FenceStraight27" parent="Decor/Fences" instance=ExtResource("11_v2arq")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -21.3727, 0, -1.28823)
 
-[node name="FenceStraight13" parent="Decor" instance=ExtResource("11_v2arq")]
+[node name="FenceStraight13" parent="Decor/Fences" instance=ExtResource("11_v2arq")]
 transform = Transform3D(-8.74228e-08, 0, -2, 0, 2, 0, 2, 0, -8.74228e-08, 6.68034, 0, 11.546)
 
-[node name="FenceStraight14" parent="Decor" instance=ExtResource("11_v2arq")]
+[node name="FenceStraight14" parent="Decor/Fences" instance=ExtResource("11_v2arq")]
 transform = Transform3D(-8.74228e-08, 0, -2, 0, 2, 0, 2, 0, -8.74228e-08, 4.67383, 0, 11.546)
 
-[node name="FenceStraight15" parent="Decor" instance=ExtResource("11_v2arq")]
+[node name="FenceStraight15" parent="Decor/Fences" instance=ExtResource("11_v2arq")]
 transform = Transform3D(-8.74228e-08, 0, -2, 0, 2, 0, 2, 0, -8.74228e-08, 2.77206, 0, 11.546)
 
 [node name="ParticipantSlots" type="Node3D" parent="."]
@@ -306,3 +308,6 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5.734
 
 [node name="Large2" type="Marker3D" parent="KaleSlots"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -6.26884, 0.00747585, 26.8436)
+
+[node name="Podium1Slot" type="Marker3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.71159, 0.748929, 2.16415)

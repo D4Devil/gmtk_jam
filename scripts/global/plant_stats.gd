@@ -107,7 +107,7 @@ func _process(delta):
 
 
 func reset_plant():
-	var size_sample_value = remap(size, 0, max_size_expected, 0, 1)
+	size_sample_value = remap(size, 0, max_size_expected, 0, 1)
 	max_water_volume = size * water_cap_per_size.sample(size_sample_value)
 	current_water_volume = max_water_volume / 2
 	max_fert_volume = size * fert_cap_per_size.sample(size_sample_value)
