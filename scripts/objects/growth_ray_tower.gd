@@ -20,12 +20,15 @@ func _process(delta):
 
 func on_dish_clicked():
 	is_pointing_at_plant = true
-	ray_sound.play()
+	set_ray()
 
 func on_power_on():
 	ray.visible = true
 	is_power_on = true
+	set_ray()
 
 func set_ray():
-	ray_sound.play()
-	PlantStats.is_growth_ray_enabled = is_pointing_at_plant and is_power_on
+	var is_enabled = is_pointing_at_plant and is_power_on
+	if is_enabled:
+		ray_sound.play()
+		PlantStats.is_growth_ray_enabled = true

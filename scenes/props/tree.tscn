@@ -2,8 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://g5pdwvrjawjf" path="res://assets/models/trees/tree.png" id="1_ddoff"]
 
-[node name="FlatHouse" type="Sprite3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.57067, 0)
+[node name="FlatTree" type="Sprite3D"]
+offset = Vector2(0, 30)
 modulate = Color(0.812406, 0.812406, 0.812406, 1)
 pixel_size = 0.15
 billboard = 2

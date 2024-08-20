@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://bg7g48sbn5na8"]
+[gd_scene load_steps=35 format=3 uid="uid://bg7g48sbn5na8"]
 
 [ext_resource type="PackedScene" uid="uid://fgpto6xwiehx" path="res://scenes/characters/plant.tscn" id="1_hy1fl"]
 [ext_resource type="PackedScene" uid="uid://ethfqolg7tpy" path="res://assets/models/world/world_sphere.glb" id="1_w6odn"]
@@ -24,6 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://4sjcjhj5roj3" path="res://scenes/objects/fertilizer.tscn" id="15_gugyc"]
 [ext_resource type="PackedScene" uid="uid://touox4x6ip7l" path="res://assets/models/city/city.glb" id="17_rp11v"]
 [ext_resource type="PackedScene" uid="uid://v8lyw1086lh2" path="res://scenes/props/tree.tscn" id="22_dqnln"]
+[ext_resource type="PackedScene" uid="uid://dqxhamrsiplmr" path="res://assets/models/barrel/Empty Barrel.glb" id="25_rrnhn"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ngwyh"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -279,51 +280,51 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -46.1697, -0.177822, 30.4948)
 radius = 30.0
 
 [node name="HouseSpawner2" parent="Decor/Trees" instance=ExtResource("9_3he64")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -88.5296, -0.177826, -16.0035)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -88.5296, -0.355993, -16.0035)
 radius = 30.0
 
 [node name="HouseSpawner3" parent="Decor/Trees" instance=ExtResource("9_3he64")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -89.7323, -0.177826, -81.3992)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -89.7323, -0.729627, -81.3992)
 radius = 30.0
 
 [node name="HouseSpawner4" parent="Decor/Trees" instance=ExtResource("9_3he64")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -92.8499, -0.177826, -138.235)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -92.8499, -1.34635, -138.235)
 radius = 30.0
 
 [node name="HouseSpawner5" parent="Decor/Trees" instance=ExtResource("9_3he64")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.93647, -0.177826, 91.9092)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.93647, -0.37193, 91.9092)
 radius = 30.0
 
 [node name="HouseSpawner6" parent="Decor/Trees" instance=ExtResource("9_3he64")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 71.2875, -0.177826, 67.2619)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 71.2875, -0.377837, 67.2619)
 radius = 30.0
 
 [node name="HouseSpawner7" parent="Decor/Trees" instance=ExtResource("9_3he64")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100.238, -0.177822, 12.7516)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100.238, -0.471394, 12.7516)
 radius = 30.0
 
 [node name="HouseSpawner8" parent="Decor/Trees" instance=ExtResource("9_3he64")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.362, 1.22157, -56.5784)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.362, -0.554588, -56.5784)
 radius = 50.0
 trees_count = 40
 
 [node name="HouseSpawner9" parent="Decor/Trees" instance=ExtResource("9_3he64")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49.0469, 1.22156, -221.743)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49.0469, -2.37802, -221.743)
 radius = 50.0
 trees_count = 40
 
 [node name="HouseSpawner10" parent="Decor/Trees" instance=ExtResource("9_3he64")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -177.439, 1.22156, -58.3031)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -177.439, -1.70933, -58.3031)
 radius = 120.0
 trees_count = 100
 
 [node name="HouseSpawner13" parent="Decor/Trees" instance=ExtResource("9_3he64")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 185.367, 1.22156, -35.6838)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 185.367, -1.79392, -35.6838)
 radius = 120.0
 trees_count = 100
 
 [node name="HouseSpawner14" parent="Decor/Trees" instance=ExtResource("9_3he64")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 178.097, 1.22156, 119.269)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 178.097, -2.04051, 119.269)
 radius = 120.0
 trees_count = 100
 
@@ -333,12 +334,12 @@ radius = 120.0
 trees_count = 100
 
 [node name="HouseSpawner11" parent="Decor/Trees" instance=ExtResource("9_3he64")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -141.958, 1.22156, 60.7172)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -141.958, -1.10429, 60.7172)
 radius = 120.0
 trees_count = 140
 
 [node name="HouseSpawner12" parent="Decor/Trees" instance=ExtResource("9_3he64")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -59.8784, 1.22156, 143.286)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -59.8784, -1.11197, 143.286)
 radius = 100.0
 trees_count = 80
 
@@ -465,5 +466,7 @@ transform = Transform3D(-0.560176, 0, -0.828373, 0, 1, 0, 0.828373, 0, -0.560176
 
 [node name="FlatHouse" parent="Interactable" instance=ExtResource("22_dqnln")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.67826, 0, 0)
-offset = Vector2(0, 30)
 pixel_size = 0.08
+
+[node name="BarrelEmpty" parent="Interactable" instance=ExtResource("25_rrnhn")]
+transform = Transform3D(6.47824, -0.00842768, 6.70653, -6.11579e-10, 9.32444, 0.0117174, -6.70654, -0.00814079, 6.47823, -90.0538, -0.735255, -61.1986)
