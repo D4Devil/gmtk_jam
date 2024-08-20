@@ -15,7 +15,6 @@ extends Control
 @onready var category_b: TextureRect = $MarginContainer/GradingDisplay/CategoryB
 @onready var category_a: TextureRect = $MarginContainer/GradingDisplay/CategoryA
 @onready var category_s: TextureRect = $MarginContainer/GradingDisplay/CategoryS
-@onready var place_label: Label = $MarginContainer/GradingDisplay/PlaceLabel
 @onready var failure_label: Label = $MarginContainer/GradingDisplay/FailureLabel
 @onready var plant_size_label: Label = $MarginContainer/GradingDisplay/PlantSizeLabel
 
@@ -42,15 +41,14 @@ func refresh_grading():
 	category_b.visible = not disqualified and cat_label == "B"
 	category_a.visible = not disqualified and cat_label == "A"
 	category_s.visible = not disqualified and cat_label == "S"
-	place_label.visible = not disqualified
 	failure_label.visible = disqualified
 	plant_size_label.text = "  Kale scale: %.4fx" % PlantStats.size
 
 	if not disqualified:
-		place_label.text = \
-				"Place: %d" % GradingManager.place_in_category \
+		category_label.text = \
+				"Place: %d in category " % GradingManager.place_in_category \
 				if cat_label != "S" \
-				else "New record! You grew category S kale!"
+				else "New record! A new S kale category extablished:"
 	else:
 		failure_label.text = \
 				"You have been disqualified: your kale died." \

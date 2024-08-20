@@ -99,12 +99,6 @@ layout_mode = 2
 texture = SubResource("AtlasTexture_skwl6")
 stretch_mode = 2
 
-[node name="PlaceLabel" type="Label" parent="MarginContainer/GradingDisplay"]
-layout_mode = 2
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 40
-text = "Place: 1st"
-
 [node name="FailureLabel" type="Label" parent="MarginContainer/GradingDisplay"]
 layout_mode = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
