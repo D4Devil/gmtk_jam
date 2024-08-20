@@ -20,6 +20,7 @@ script/source = "extends Node3D
 @export var _holes : Array[Node]
 
 #@export var drops_per_second := 6
+@export var watering_power: float
 @export var another_magic_number := 10
 var _velocity = Vector3.ZERO
 var _watering = false: set = _set_watering
@@ -32,7 +33,7 @@ func _process(_delta: float) -> void:
 	var hole = _holes[randi_range(0, _holes.size()-1)]
 	var droplet = droplet_scene.instantiate() as NutrientParticle
 	physics_body.get_parent().add_child(droplet)
-	droplet.configure(_velocity * another_magic_number, hole, physics_body, 6)
+	droplet.configure(_velocity * another_magic_number, hole, physics_body, watering_power, Nutrient.Nutrients.Water)
 
 
 func _on_droped():
@@ -69,6 +70,8 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 
 script = SubResource("GDScript_pe44m")
 physics_body = NodePath("..")
 _holes = [NodePath("CanHole"), NodePath("CanHole2"), NodePath("CanHole3"), NodePath("CanHole4"), NodePath("CanHole5")]
+watering_power = 0.04
+another_magic_number = 100
 
 [node name="CanHole" type="Node3D" parent="WateringCan"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.500037, 0.46332, 0.0586642)
