@@ -476,7 +476,7 @@ ray_tower = NodePath("../GrowthRayTower")
 transform = Transform3D(-0.560176, 0, -0.828373, 0, 1, 0, 0.828373, 0, -0.560176, -2.31501, 0, -0.096647)
 
 [node name="Fertilizer2" parent="Interactable" instance=ExtResource("15_gugyc")]
-transform = Transform3D(-0.740073, 0.25656, 0.621045, -1.48954e-08, 0.923883, -0.381665, -0.671952, -0.282569, -0.684005, 6.74473, 0.103924, -0.258117)
+transform = Transform3D(-0.740073, 0.25656, 0.621045, -1.48954e-08, 0.923883, -0.381665, -0.671952, -0.282569, -0.684005, 6.58506, 0.103924, 1.94944)
 
 [node name="FlatHouse" parent="Interactable" instance=ExtResource("22_dqnln")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.67826, 0, 0)
