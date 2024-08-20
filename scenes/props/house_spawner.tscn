@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://c1amoih12j22b"]
+
+[ext_resource type="Script" path="res://scripts/objects/flat_house_spawner.gd" id="1_lk5fh"]
+
+[node name="HouseSpawner" type="Node3D"]
+script = ExtResource("1_lk5fh")
+
+[node name="Marker3D" type="Marker3D" parent="."]
+gizmo_extents = 1.0

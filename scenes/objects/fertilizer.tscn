@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://scripts/objects/components/clickable.gd" id="2_1bfvt"]
 [ext_resource type="Script" path="res://scripts/objects/components/drag_agent.gd" id="3_gpg6d"]
 [ext_resource type="Script" path="res://scripts/objects/components/pickable.gd" id="4_1sbta"]
-[ext_resource type="PackedScene" path="res://scenes/objects/fertilizer_particle.tscn" id="6_mwqe2"]
+[ext_resource type="PackedScene" uid="uid://djgadgaoeoss8" path="res://scenes/objects/fertilizer_particle.tscn" id="6_mwqe2"]
 [ext_resource type="AudioStream" uid="uid://mfecsvusi26y" path="res://assets/audio/sfx/sand_loop.wav" id="7_5eoso"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_e3edf"]

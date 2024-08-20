@@ -6,22 +6,27 @@ extends Node3D
 @export var kale_spots: Array[KaleResultSpawnPoint]
 
 @onready var participant_slots: Node3D = $ParticipantSlots
+@onready var podium_1_slot: Marker3D = $Podium1Slot
 @onready var crowd_slots: Node3D = $CrowdSlots
 @onready var kale_slots: Node3D = $KaleSlots
 
 func _ready():
 	GradingManager.grade_size() # Calculate all the grades
 
-	# Spawn participants
-	var slot_nodes = participant_slots.get_children()
-	var place := 1
-	var player_place = -1 if GradingManager.is_disqualified else GradingManager.place_in_category
-	for slot_node in slot_nodes:
-		spawn_character(slot_node, place == player_place)
-		place += 1
+	if not GradingManager.is_disqualified and GradingManager.assigned_category.label == "S":
+		# Spawn only the player for S category
+		spawn_character(podium_1_slot, true)
+	else:
+		# Spawn participants
+		var part_slot_nodes = participant_slots.get_children()
+		var place := 1
+		var player_place = -1 if GradingManager.is_disqualified else GradingManager.place_in_category
+		for slot_node in part_slot_nodes:
+			spawn_character(slot_node, place == player_place)
+			place += 1
 
 	# Spawn crowd
-	slot_nodes = crowd_slots.get_children()
+	var slot_nodes = crowd_slots.get_children()
 	var player_spot =  randi_range(0, slot_nodes.size() - 1) if GradingManager.is_disqualified else -1
 	var current_spot = 0
 	for slot_node in slot_nodes:
