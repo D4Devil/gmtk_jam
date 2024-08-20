@@ -44,7 +44,7 @@ func refresh_grading():
 	category_s.visible = not disqualified and cat_label == "S"
 	place_label.visible = not disqualified
 	failure_label.visible = disqualified
-	plant_size_label.text = "Kale scale: %.4fx" % PlantStats.size
+	plant_size_label.text = "  Kale scale: %.4fx" % PlantStats.size
 
 	if not disqualified:
 		place_label.text = \
@@ -53,9 +53,9 @@ func refresh_grading():
 				else "New record! You grew category S kale!"
 	else:
 		failure_label.text = \
-				"You have been disqualified: your kale died" \
+				"You have been disqualified: your kale died." \
 				if GradingManager.did_plant_die \
-				else "You have been disqualified: your kale was too small"
+				else "You have been disqualified: your kale was too small."
 
 	# Remember to display it
 	grading_display.visible = true
