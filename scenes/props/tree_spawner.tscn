@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://darnom1j0yx1i"]
+
+[ext_resource type="Script" path="res://scripts/objects/tree_spawner.gd" id="1_yr6xc"]
+
+[node name="HouseSpawner" type="Node3D"]
+script = ExtResource("1_yr6xc")
+radius = 20.0
+trees_count = 20
+
+[node name="Marker3D" type="Marker3D" parent="."]
+gizmo_extents = 1.0

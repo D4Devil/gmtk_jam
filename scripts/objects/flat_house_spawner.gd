@@ -9,6 +9,6 @@ extends Node3D
 func _ready():
 	for i in houses_count:
 		var house = house_scene.instantiate() as Sprite3D
-		house.position = Vector3(randf_range(-radius, radius), 2.5, randf_range(-radius, radius))
+		house.position = Vector3(randf_range(-radius, radius), 0.0, randf_range(-radius, radius))
 		house.modulate = Color8(randi_range(190, 240), randi_range(190, 240), randi_range(190, 240))
 		add_child(house)
