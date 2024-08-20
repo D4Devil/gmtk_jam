@@ -6,7 +6,7 @@ extends Resource
 
 enum Nutrients {Water, Minerals, Fertilizer}
 
-func _init(nt := Nutrients.Water, vol := 0.2) -> void:
+func _init(nt: Nutrients, vol: float) -> void:
     nutrient_type = nt
     volume = vol
 

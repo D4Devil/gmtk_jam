@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://bg7g48sbn5na8"]
+[gd_scene load_steps=36 format=3 uid="uid://bg7g48sbn5na8"]
 
 [ext_resource type="PackedScene" uid="uid://fgpto6xwiehx" path="res://scenes/characters/plant.tscn" id="1_hy1fl"]
 [ext_resource type="PackedScene" uid="uid://ethfqolg7tpy" path="res://assets/models/world/world_sphere.glb" id="1_w6odn"]
@@ -25,6 +25,7 @@
 [ext_resource type="PackedScene" uid="uid://touox4x6ip7l" path="res://assets/models/city/city.glb" id="17_rp11v"]
 [ext_resource type="PackedScene" path="res://scenes/props/tree.tscn" id="22_dqnln"]
 [ext_resource type="PackedScene" uid="uid://dqxhamrsiplmr" path="res://assets/models/barrel/Empty Barrel.glb" id="25_rrnhn"]
+[ext_resource type="PackedScene" uid="uid://btnpd8nq3wmio" path="res://scenes/objects/sprinkler.tscn" id="26_scyh7"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ngwyh"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -446,7 +447,10 @@ transform = Transform3D(-0.751966, 0, 0.659201, 0, 1, 0, -0.659201, 0, -0.751966
 transform = Transform3D(-0.666129, 0, -0.745836, 0, 1, 0, 0.745836, 0, -0.666129, -2.29801, 0.224026, -2.40271)
 
 [node name="Manhole" parent="Interactable" instance=ExtResource("7_cfvaw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.7519, 0.128385, 6.74314)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.4659, -0.046853, 6.10257)
+direction = Vector3(-1, 1, -0.5)
+force = 12.0
+interval = 0.25
 
 [node name="Ladybug2" parent="Interactable" instance=ExtResource("11_nn7mv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.515731, 0.209344, 0.12833)
@@ -470,3 +474,8 @@ pixel_size = 0.08
 
 [node name="BarrelEmpty" parent="Interactable" instance=ExtResource("25_rrnhn")]
 transform = Transform3D(6.47824, -0.00842768, 6.70653, -6.11579e-10, 9.32444, 0.0117174, -6.70654, -0.00814079, 6.47823, -90.0538, -0.735255, -61.1986)
+
+[node name="Sprinkler" parent="Interactable" instance=ExtResource("26_scyh7")]
+transform = Transform3D(-0.840784, 0, -0.541371, 0, 1, 0, 0.541371, 0, -0.840784, 2.68783, 0, 3.91572)
+nutrient_volume = 0.002
+launch_force = Vector2(7, 6)

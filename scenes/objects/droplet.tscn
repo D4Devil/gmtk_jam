@@ -9,14 +9,14 @@ nutrient_type = 0
 volume = 0.2
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_o7exb"]
-size = Vector3(0.02, 0.02, 0.02)
+size = Vector3(0.04, 0.04, 0.04)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a5py2"]
 albedo_color = Color(0.364706, 0.631373, 1, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_mtjpa"]
 material = SubResource("StandardMaterial3D_a5py2")
-size = Vector3(0.02, 0.02, 0.02)
+size = Vector3(0.04, 0.04, 0.04)
 
 [node name="Droplet" type="RigidBody3D"]
 collision_layer = 0
