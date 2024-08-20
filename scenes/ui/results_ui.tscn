@@ -1,6 +1,35 @@
-[gd_scene load_steps=2 format=3 uid="uid://dnei8a1w75lap"]
+[gd_scene load_steps=10 format=3 uid="uid://dnei8a1w75lap"]
 
 [ext_resource type="Script" path="res://scripts/ui/results_ui.gd" id="1_54tcd"]
+[ext_resource type="Texture2D" uid="uid://b81d83lu7lrpx" path="res://assets/sprites/ui/results_ui.png" id="2_v48q4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e2hps"]
+atlas = ExtResource("2_v48q4")
+region = Rect2(3, 3, 69, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b8k2l"]
+atlas = ExtResource("2_v48q4")
+region = Rect2(75, 3, 69, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e0kyd"]
+atlas = ExtResource("2_v48q4")
+region = Rect2(147, 3, 69, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2yi1n"]
+atlas = ExtResource("2_v48q4")
+region = Rect2(219, 3, 69, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_44if0"]
+atlas = ExtResource("2_v48q4")
+region = Rect2(291, 3, 69, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xq4ri"]
+atlas = ExtResource("2_v48q4")
+region = Rect2(3, 78, 69, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_skwl6"]
+atlas = ExtResource("2_v48q4")
+region = Rect2(75, 78, 69, 72)
 
 [node name="ResultsUI" type="Control"]
 layout_mode = 3
@@ -23,5 +52,83 @@ offset_bottom = 85.0
 grow_horizontal = 0
 theme_override_font_sizes/font_size = 40
 text = "Try again!"
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 18
+theme_override_constants/margin_top = 18
+theme_override_constants/margin_right = 18
+theme_override_constants/margin_bottom = 18
+
+[node name="GradingDisplay" type="HBoxContainer" parent="MarginContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_constants/separation = 9
+
+[node name="CategoryLabel" type="Label" parent="MarginContainer/GradingDisplay"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "Category:"
+
+[node name="CategoryF" type="TextureRect" parent="MarginContainer/GradingDisplay"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_e2hps")
+stretch_mode = 2
+
+[node name="CategoryE" type="TextureRect" parent="MarginContainer/GradingDisplay"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_b8k2l")
+stretch_mode = 2
+
+[node name="CategoryD" type="TextureRect" parent="MarginContainer/GradingDisplay"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_e0kyd")
+stretch_mode = 2
+
+[node name="CategoryC" type="TextureRect" parent="MarginContainer/GradingDisplay"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_2yi1n")
+stretch_mode = 2
+
+[node name="CategoryB" type="TextureRect" parent="MarginContainer/GradingDisplay"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_44if0")
+stretch_mode = 2
+
+[node name="CategoryA" type="TextureRect" parent="MarginContainer/GradingDisplay"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_xq4ri")
+stretch_mode = 2
+
+[node name="CategoryS" type="TextureRect" parent="MarginContainer/GradingDisplay"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_skwl6")
+stretch_mode = 2
+
+[node name="PlaceLabel" type="Label" parent="MarginContainer/GradingDisplay"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "Place: 1st"
+
+[node name="FailureLabel" type="Label" parent="MarginContainer/GradingDisplay"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "Disqualified: Your kale died"
+
+[node name="PlantSizeLabel" type="Label" parent="MarginContainer/GradingDisplay"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "  Kale scale: 3.1415x"
 
 [connection signal="pressed" from="RestartButton" to="." method="_on_restart_button_pressed"]
