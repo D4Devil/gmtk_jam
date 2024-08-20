@@ -2,19 +2,19 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b8r06fae80c3h"
-path="res://.godot/imported/house_0.png-c5ec2c278560d8b443129e7c3920ce02.ctex"
+uid="uid://dgf50i7l27071"
+path="res://.godot/imported/barn_0.png-c8860728342e82ce11644f79ca03d0c3.ctex"
 metadata={
 "vram_texture": false
 }
 generator_parameters={
-"md5": "efbec9c5b12de0204fc86ad3c5d1dd3e"
+"md5": "c782a7752c6163273d96b38d7fbf02c6"
 }
 
 [deps]
 
-source_file="res://assets/models/house/house_0.png"
-dest_files=["res://.godot/imported/house_0.png-c5ec2c278560d8b443129e7c3920ce02.ctex"]
+source_file="res://assets/models/barn/barn_0.png"
+dest_files=["res://.godot/imported/barn_0.png-c8860728342e82ce11644f79ca03d0c3.ctex"]
 
 [params]
 
