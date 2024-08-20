@@ -16,17 +16,17 @@ min_size = 1.0
 [sub_resource type="Resource" id="Resource_m1hlf"]
 script = ExtResource("7_jnb54")
 label = "B"
-min_size = 8.0
+min_size = 6.0
 
 [sub_resource type="Resource" id="Resource_pe6w5"]
 script = ExtResource("7_jnb54")
 label = "A"
-min_size = 40.0
+min_size = 13.0
 
 [sub_resource type="Resource" id="Resource_bg2wo"]
 script = ExtResource("7_jnb54")
 label = "S"
-min_size = 100.0
+min_size = 20.0
 
 [node name="UI" type="CanvasLayer"]
 script = ExtResource("1_nv2cv")

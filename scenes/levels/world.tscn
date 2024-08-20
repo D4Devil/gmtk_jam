@@ -5,16 +5,16 @@
 [ext_resource type="PackedScene" uid="uid://chlasqfct7os2" path="res://scenes/camera.tscn" id="2_dajgs"]
 [ext_resource type="PackedScene" uid="uid://doxb2jr5d8xrf" path="res://assets/models/planter/Planter.fbx" id="2_mneh1"]
 [ext_resource type="PackedScene" uid="uid://btktphuya43md" path="res://assets/models/player/Player.glb" id="3_luqft"]
-[ext_resource type="PackedScene" path="res://scenes/props/large_house_1.tscn" id="3_u20mf"]
+[ext_resource type="PackedScene" uid="uid://be4kh6lji28jp" path="res://scenes/props/large_house_1.tscn" id="3_u20mf"]
 [ext_resource type="Texture2D" uid="uid://d1k1wk6onhyr2" path="res://assets/textures/grass_tex_2.png" id="3_wmrg2"]
-[ext_resource type="PackedScene" path="res://scenes/props/large_house_2.tscn" id="6_6pjjt"]
+[ext_resource type="PackedScene" uid="uid://brkclw877swp" path="res://scenes/props/large_house_2.tscn" id="6_6pjjt"]
 [ext_resource type="PackedScene" uid="uid://dd4yukw5u334c" path="res://assets/models/haybale/Haybale.glb" id="6_toguh"]
 [ext_resource type="PackedScene" uid="uid://4ekvtha4idrc" path="res://assets/models/flower/Flower Grey.glb" id="6_yg2ud"]
 [ext_resource type="PackedScene" uid="uid://dt2680qqabwy6" path="res://assets/models/house/house.glb" id="7_5gbmu"]
 [ext_resource type="PackedScene" uid="uid://c1icuiig1k6xn" path="res://scenes/objects/manhole.tscn" id="7_cfvaw"]
 [ext_resource type="PackedScene" uid="uid://bejjyy00sjqbf" path="res://assets/models/flower/Flower.glb" id="7_nhous"]
-[ext_resource type="PackedScene" path="res://scenes/props/house_spawner.tscn" id="8_38e3e"]
-[ext_resource type="PackedScene" path="res://scenes/props/tree_spawner.tscn" id="9_3he64"]
+[ext_resource type="PackedScene" uid="uid://c1amoih12j22b" path="res://scenes/props/house_spawner.tscn" id="8_38e3e"]
+[ext_resource type="PackedScene" uid="uid://darnom1j0yx1i" path="res://scenes/props/tree_spawner.tscn" id="9_3he64"]
 [ext_resource type="PackedScene" uid="uid://wolhcr7alfel" path="res://scenes/objects/pipette.tscn" id="9_r1hjq"]
 [ext_resource type="PackedScene" uid="uid://bvltewhg4hxgt" path="res://assets/models/barn/barn.glb" id="10_b1s8n"]
 [ext_resource type="PackedScene" uid="uid://cnrasbhxgwc1j" path="res://scenes/objects/watering_can.tscn" id="10_y5i48"]
@@ -23,11 +23,11 @@
 [ext_resource type="PackedScene" uid="uid://qirjlt3lplme" path="res://scenes/objects/growth_ray_power_box.tscn" id="15_fuksq"]
 [ext_resource type="PackedScene" uid="uid://4sjcjhj5roj3" path="res://scenes/objects/fertilizer.tscn" id="15_gugyc"]
 [ext_resource type="PackedScene" uid="uid://touox4x6ip7l" path="res://assets/models/city/city.glb" id="17_rp11v"]
-[ext_resource type="PackedScene" path="res://scenes/props/tree.tscn" id="22_dqnln"]
+[ext_resource type="PackedScene" uid="uid://v8lyw1086lh2" path="res://scenes/props/tree.tscn" id="22_dqnln"]
 [ext_resource type="PackedScene" uid="uid://dqxhamrsiplmr" path="res://assets/models/barrel/Empty Barrel.glb" id="25_rrnhn"]
 [ext_resource type="PackedScene" uid="uid://btnpd8nq3wmio" path="res://scenes/objects/sprinkler.tscn" id="26_scyh7"]
-[ext_resource type="PackedScene" uid="uid://dtq401eqrs2xm" path="res://scenes/objects/shovel.tscn" id="26_y47rk"]
-[ext_resource type="PackedScene" uid="uid://bn6ahprue2v3c" path="res://scenes/manure.tscn" id="27_4j008"]
+[ext_resource type="PackedScene" path="res://scenes/objects/shovel.tscn" id="26_y47rk"]
+[ext_resource type="PackedScene" path="res://scenes/manure.tscn" id="27_4j008"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ngwyh"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -333,11 +333,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 178.097, -2.04051, 119.269)
 radius = 120.0
 trees_count = 100
 
-[node name="HouseSpawner15" parent="Decor/Trees" instance=ExtResource("9_3he64")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 178.097, 76.8441, 34.5953)
-radius = 120.0
-trees_count = 100
-
 [node name="HouseSpawner11" parent="Decor/Trees" instance=ExtResource("9_3he64")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -141.958, -1.10429, 60.7172)
 radius = 120.0
@@ -481,7 +476,7 @@ ray_tower = NodePath("../GrowthRayTower")
 transform = Transform3D(-0.560176, 0, -0.828373, 0, 1, 0, 0.828373, 0, -0.560176, -2.31501, 0, -0.096647)
 
 [node name="Fertilizer2" parent="Interactable" instance=ExtResource("15_gugyc")]
-transform = Transform3D(-0.740073, 0.25656, 0.621045, -1.48954e-08, 0.923883, -0.381665, -0.671952, -0.282569, -0.684005, 6.74473, 0.103924, -0.258117)
+transform = Transform3D(-0.740073, 0.25656, 0.621045, -1.48954e-08, 0.923883, -0.381665, -0.671952, -0.282569, -0.684005, 6.58506, 0.103924, 1.94944)
 
 [node name="FlatHouse" parent="Interactable" instance=ExtResource("22_dqnln")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.67826, 0, 0)

@@ -13,7 +13,7 @@ config_version=5
 config/name="Epikale"
 config/description="As part of one of the longest (and cutest) lineage of kale farmers, it's your time to prove yourself as a legendary giant-kale caretaker, but how big is too big? only you and your tiny tools can show the world the true size of...
 ...an EPIC... a MEGA... an S-KALE!"
-config/version="0.2.1"
+config/version="0.2.2"
 run/main_scene="res://scenes/main.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 run/max_fps=60

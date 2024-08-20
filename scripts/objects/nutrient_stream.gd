@@ -24,8 +24,6 @@ func toggle():
 		shoot_timer.stop()
 
 func shoot():
-	print("Shoooot!")
-	#var dir = dir_marker.get_global_transform().basis.z
 	var force = launch_force + (Utils.rand_pos_in_sphere()*launch_force*force_variation_mult)
 	var droplet = nutrient_scene.instantiate() as NutrientParticle
 	get_tree().root.add_child(droplet)

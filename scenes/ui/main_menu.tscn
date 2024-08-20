@@ -27,7 +27,7 @@ region = Rect2(4, 220, 248, 104)
 font_size = 30
 font_color = Color(0.298039, 0.243137, 0.141176, 1)
 
-[node name="MainMenu" type="Control"]
+[node name="MainMenu" type="Control" node_paths=PackedStringArray("names_labels")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -35,6 +35,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_dm2b5")
+names_labels = [NodePath("MarginContainer/Credits/RandomNames1"), NodePath("MarginContainer/Credits/RandomNames2"), NodePath("MarginContainer/Credits/RandomNames3")]
 
 [node name="ColorRect" type="TextureRect" parent="."]
 layout_direction = 2
@@ -97,10 +98,25 @@ size_flags_vertical = 0
 
 [node name="CreditsText" type="Label" parent="MarginContainer/Credits"]
 layout_mode = 2
-text = "Made for GMTK Game Jam 2024 by:
-Carme
-Beniamin \"Xkonti\" Dudek
-Damian \"D4Devil\" Moreno"
+text = "Made for GMTK Game Jam 2024 by:"
+label_settings = SubResource("LabelSettings_63ilv")
+horizontal_alignment = 2
+
+[node name="RandomNames1" type="Label" parent="MarginContainer/Credits"]
+layout_mode = 2
+text = "Damian \"D4Devil\" Moreno"
+label_settings = SubResource("LabelSettings_63ilv")
+horizontal_alignment = 1
+
+[node name="RandomNames2" type="Label" parent="MarginContainer/Credits"]
+layout_mode = 2
+text = "Beniamin \"Xkonti\" Dudek"
+label_settings = SubResource("LabelSettings_63ilv")
+horizontal_alignment = 1
+
+[node name="RandomNames3" type="Label" parent="MarginContainer/Credits"]
+layout_mode = 2
+text = "sipzio (x.com/sipzio)"
 label_settings = SubResource("LabelSettings_63ilv")
 horizontal_alignment = 1
 

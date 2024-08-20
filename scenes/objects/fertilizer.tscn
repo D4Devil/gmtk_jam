@@ -14,7 +14,7 @@ size = Vector3(0.469727, 0.662354, 0.243408)
 [node name="Fertilizer" type="RigidBody3D" node_paths=PackedStringArray("spawn_point", "spawn_point_target", "animatable", "collision_object")]
 freeze_mode = 1
 script = ExtResource("1_bikd7")
-override_nutrient_value = 0.001
+override_nutrient_value = 0.002
 override_nutrient_type = 2
 shake_factor = 1.8
 particle = ExtResource("6_mwqe2")
