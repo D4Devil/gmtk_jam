@@ -16,7 +16,7 @@ func on_applyed():
         PlantStats.add_water_volume(volume)
 
     elif nutrient_type == Nutrients.Fertilizer:
-        pass
+        PlantStats.add_fert_volume(volume)
 
     elif nutrient_type == Nutrients.Minerals:
         pass

@@ -43,6 +43,6 @@ func _on_body_entered(body: Node):
 	if body.get_groups().has("Kale"):
 		nutrient.on_applyed()
 		landed_on_kale.emit()
-	print(body.name)
+
 	if not body.get_groups().has("Particle"):
 		queue_free()
