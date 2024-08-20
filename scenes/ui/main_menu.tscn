@@ -23,7 +23,7 @@ atlas = ExtResource("2_6cthj")
 region = Rect2(4, 220, 248, 104)
 
 [sub_resource type="LabelSettings" id="LabelSettings_63ilv"]
-font_size = 40
+font_size = 30
 font_color = Color(0.298039, 0.243137, 0.141176, 1)
 
 [node name="MainMenu" type="Control"]
@@ -78,11 +78,12 @@ texture_hover = SubResource("AtlasTexture_il8ht")
 [node name="Credits" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 8
-size_flags_vertical = 8
+size_flags_vertical = 0
 
 [node name="CreditsText" type="Label" parent="MarginContainer/Credits"]
 layout_mode = 2
-text = "Beniamin Dudek (Xkonti)
+text = "Made for GMTK Game Jam 2024 by:
+Beniamin Dudek (Xkonti)
 Carme
 D4Devil (Damian Moreno)"
 label_settings = SubResource("LabelSettings_63ilv")
