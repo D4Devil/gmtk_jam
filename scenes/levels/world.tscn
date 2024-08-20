@@ -25,9 +25,9 @@
 [ext_resource type="PackedScene" uid="uid://touox4x6ip7l" path="res://assets/models/city/city.glb" id="17_rp11v"]
 [ext_resource type="PackedScene" path="res://scenes/props/tree.tscn" id="22_dqnln"]
 [ext_resource type="PackedScene" uid="uid://dqxhamrsiplmr" path="res://assets/models/barrel/Empty Barrel.glb" id="25_rrnhn"]
-[ext_resource type="PackedScene" uid="uid://dtq401eqrs2xm" path="res://scenes/objects/shovel.tscn" id="26_y47rk"]
-[ext_resource type="PackedScene" path="res://scenes/manure.tscn" id="27_4j008"]
 [ext_resource type="PackedScene" uid="uid://btnpd8nq3wmio" path="res://scenes/objects/sprinkler.tscn" id="26_scyh7"]
+[ext_resource type="PackedScene" uid="uid://dtq401eqrs2xm" path="res://scenes/objects/shovel.tscn" id="26_y47rk"]
+[ext_resource type="PackedScene" uid="uid://bn6ahprue2v3c" path="res://scenes/manure.tscn" id="27_4j008"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ngwyh"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -440,7 +440,7 @@ collision_mask = 0
 shape = SubResource("WorldBoundaryShape3D_m3dr5")
 
 [node name="ShovelPlane" type="StaticBody3D" parent="ObjectPlanes"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.12729, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.572123, 0)
 collision_layer = 4096
 input_ray_pickable = false
 
@@ -450,13 +450,13 @@ shape = SubResource("WorldBoundaryShape3D_uwc1y")
 [node name="Interactable" type="Node" parent="."]
 
 [node name="Pipette" parent="Interactable" instance=ExtResource("9_r1hjq")]
-transform = Transform3D(-0.987675, 0, 0.156521, 0, 1, 0, -0.156521, 0, -0.987675, 0.581766, 0.236194, -1.1054)
+transform = Transform3D(-0.778408, 0, -0.627759, 0, 1, 0, 0.627759, 0, -0.778408, -0.205276, 0.236194, -0.373292)
 
 [node name="WateringCan" parent="Interactable" instance=ExtResource("10_y5i48")]
-transform = Transform3D(-0.751966, 0, 0.659201, 0, 1, 0, -0.659201, 0, -0.751966, 1.79877, 0.118958, -0.286781)
+transform = Transform3D(-0.751966, 0, 0.659201, 0, 1, 0, -0.659201, 0, -0.751966, 1.20239, 0.118958, -2.96514)
 
 [node name="WateringCan2" parent="Interactable" instance=ExtResource("10_y5i48")]
-transform = Transform3D(-0.666129, 0, -0.745836, 0, 1, 0, 0.745836, 0, -0.666129, -2.29801, 0.224026, -2.40271)
+transform = Transform3D(-0.748261, 0, 0.663404, 0, 1, 0, -0.663404, 0, -0.748261, 5.9987, 0.224026, -1.91923)
 
 [node name="Manhole" parent="Interactable" instance=ExtResource("7_cfvaw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.4659, -0.046853, 6.10257)
@@ -465,10 +465,10 @@ force = 12.0
 interval = 0.25
 
 [node name="Ladybug2" parent="Interactable" instance=ExtResource("11_nn7mv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.515731, 0.209344, 0.12833)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.26068, 0.0554067, -2.21788)
 
 [node name="Ladybug3" parent="Interactable" instance=ExtResource("11_nn7mv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.79712, 0.129633, 0.904169)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.84947, 0.0153904, 0.17115)
 
 [node name="GrowthRayTower" parent="Interactable" instance=ExtResource("14_c6jl4")]
 transform = Transform3D(0.557644, 0, 0.83008, 0, 1, 0, -0.83008, 0, 0.557644, -44.1898, -0.233345, -29.6615)
@@ -478,7 +478,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -46.292, -0.21523, -21.3979)
 ray_tower = NodePath("../GrowthRayTower")
 
 [node name="Fertilizer" parent="Interactable" instance=ExtResource("15_gugyc")]
-transform = Transform3D(-0.560176, 0, -0.828373, 0, 1, 0, 0.828373, 0, -0.560176, -0.833586, 0, -1.17428)
+transform = Transform3D(-0.560176, 0, -0.828373, 0, 1, 0, 0.828373, 0, -0.560176, -2.31501, 0, -0.096647)
+
+[node name="Fertilizer2" parent="Interactable" instance=ExtResource("15_gugyc")]
+transform = Transform3D(-0.740073, 0.25656, 0.621045, -1.48954e-08, 0.923883, -0.381665, -0.671952, -0.282569, -0.684005, 6.74473, 0.103924, -0.258117)
 
 [node name="FlatHouse" parent="Interactable" instance=ExtResource("22_dqnln")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.67826, 0, 0)
@@ -488,10 +491,17 @@ pixel_size = 0.08
 transform = Transform3D(6.47824, -0.00842768, 6.70653, -6.11579e-10, 9.32444, 0.0117174, -6.70654, -0.00814079, 6.47823, -90.0538, -0.735255, -61.1986)
 
 [node name="Shovel_RigidBody" parent="Interactable" instance=ExtResource("26_y47rk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.43683, 0.447091, -5.41675)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.58024, 0.447091, -2.11409)
+
+[node name="Shovel_RigidBody2" parent="Interactable" instance=ExtResource("26_y47rk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.32689, 0.447091, 3.81455)
 
 [node name="Manure" parent="Interactable" instance=ExtResource("27_4j008")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.53843, 0, -10.0521)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.27845, 2.38419e-07, -3.18291)
+
+[node name="Manure2" parent="Interactable" instance=ExtResource("27_4j008")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.89795, 4.76837e-07, 5.45547)
+
 [node name="Sprinkler" parent="Interactable" instance=ExtResource("26_scyh7")]
 transform = Transform3D(-0.840784, 0, -0.541371, 0, 1, 0, 0.541371, 0, -0.840784, 2.68783, 0, 3.91572)
 nutrient_volume = 0.002

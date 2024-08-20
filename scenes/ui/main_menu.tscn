@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://la0lgyyjggxx"]
+[gd_scene load_steps=9 format=3 uid="uid://la0lgyyjggxx"]
 
 [ext_resource type="Script" path="res://scripts/ui/main_menu.gd" id="1_dm2b5"]
 [ext_resource type="Texture2D" uid="uid://bn8e4y04ra4f1" path="res://assets/sprites/ui/buttons_ui.png" id="2_6cthj"]
+[ext_resource type="Texture2D" uid="uid://del3nrkuq0s44" path="res://assets/textures/grass_tex_1.png" id="2_vlxcu"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_70pm1"]
 font_size = 120
@@ -35,14 +36,28 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_dm2b5")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="TextureRect" parent="."]
+layout_direction = 2
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = -1
+anchor_right = 0.555
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("2_vlxcu")
+stretch_mode = 5
+
+[node name="ColorRect2" type="TextureRect" parent="."]
+layout_direction = 2
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.441
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.635294, 0.662745, 0.278431, 1)
+grow_vertical = 0
+texture = ExtResource("2_vlxcu")
+stretch_mode = 5
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -83,10 +98,10 @@ size_flags_vertical = 0
 [node name="CreditsText" type="Label" parent="MarginContainer/Credits"]
 layout_mode = 2
 text = "Made for GMTK Game Jam 2024 by:
-Beniamin Dudek (Xkonti)
 Carme
-D4Devil (Damian Moreno)"
+Beniamin \"Xkonti\" Dudek
+Damian \"D4Devil\" Moreno"
 label_settings = SubResource("LabelSettings_63ilv")
-horizontal_alignment = 2
+horizontal_alignment = 1
 
 [connection signal="button_up" from="MarginContainer/CenterContainer/VBoxContainer/TextureButton" to="." method="_on_start_button_pressed"]

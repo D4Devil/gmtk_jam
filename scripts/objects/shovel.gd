@@ -1,6 +1,7 @@
 class_name Shovel
 extends RigidBody3D
 
+@export var fertilization_value : float = 2
 
 @onready var poo_scene = preload("res://scenes/objects/poo_scoop.tscn")
 @onready var anchor = $PooAnchor
@@ -19,7 +20,9 @@ func _init():
 
 func on_used(use: bool) -> void:
 	if use and _current_poo:
+		_current_poo.reparent(get_parent())
 		_current_poo.freeze = false
+		_current_poo.linear_velocity = linear_velocity
 		_current_poo = null
 
 	if not _in_manure or not use:
@@ -30,15 +33,15 @@ func on_used(use: bool) -> void:
 
 	## this line throws errors, but, if i remove it then the _current_poo
 	## is freed befor checks and that throws exeption, ergo brakes the game
-	poo.global_position = global_position
-
-	get_tree().root.add_child(poo)
+	add_child(poo)
+	poo.configure(Vector3.ZERO, self, self, fertilization_value, Nutrient.Nutrients.Fertilizer)
 	poo.freeze = true
 	_current_poo = poo
 
 
 func _process(_delta) -> void:
 	if _current_poo and not _current_poo.is_queued_for_deletion():
+		print(linear_velocity)
 		_current_poo.global_basis = anchor.global_basis
 		_current_poo.global_position = global_position
 
