@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://wolhcr7alfel" path="res://scenes/objects/pipette.tscn" id="1_sx1id"]
 [ext_resource type="PackedScene" uid="uid://cnrasbhxgwc1j" path="res://scenes/objects/watering_can.tscn" id="2_8i4hr"]
-[ext_resource type="PackedScene" uid="uid://dg4tr1ty2e8f4" path="res://scenes/objects/fertilizer.tscn" id="3_538kw"]
+[ext_resource type="PackedScene" uid="uid://4sjcjhj5roj3" path="res://scenes/objects/fertilizer.tscn" id="3_538kw"]
 
 [sub_resource type="GDScript" id="GDScript_d65r6"]
 script/source = "extends Node3D
