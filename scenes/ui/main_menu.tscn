@@ -1,6 +1,30 @@
-[gd_scene load_steps=2 format=3 uid="uid://la0lgyyjggxx"]
+[gd_scene load_steps=8 format=3 uid="uid://la0lgyyjggxx"]
 
 [ext_resource type="Script" path="res://scripts/ui/main_menu.gd" id="1_dm2b5"]
+[ext_resource type="Texture2D" uid="uid://bn8e4y04ra4f1" path="res://assets/sprites/ui/buttons_ui.png" id="2_6cthj"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_70pm1"]
+font_size = 120
+font_color = Color(0.984314, 1, 0.52549, 1)
+shadow_size = 2
+shadow_color = Color(0.478431, 0.188235, 0.270588, 1)
+shadow_offset = Vector2(5, 5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4yc08"]
+atlas = ExtResource("2_6cthj")
+region = Rect2(4, 4, 248, 104)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ikpa"]
+atlas = ExtResource("2_6cthj")
+region = Rect2(4, 112, 248, 104)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_il8ht"]
+atlas = ExtResource("2_6cthj")
+region = Rect2(4, 220, 248, 104)
+
+[sub_resource type="LabelSettings" id="LabelSettings_63ilv"]
+font_size = 30
+font_color = Color(0.298039, 0.243137, 0.141176, 1)
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -11,27 +35,58 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_dm2b5")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -65.0
-offset_top = -33.0
-offset_right = 65.0
-offset_bottom = 33.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+color = Color(0.635294, 0.662745, 0.278431, 1)
 
-[node name="StartButton" type="Button" parent="VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer"]
 layout_mode = 2
-text = "Start new game"
 
-[node name="QuitButton" type="Button" parent="VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/CenterContainer"]
 layout_mode = 2
-text = "Quit game"
 
-[connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed" flags=3]
+[node name="Title" type="Label" parent="MarginContainer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Epikale"
+label_settings = SubResource("LabelSettings_70pm1")
+
+[node name="TextureButton" type="TextureButton" parent="MarginContainer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = SubResource("AtlasTexture_4yc08")
+texture_pressed = SubResource("AtlasTexture_3ikpa")
+texture_hover = SubResource("AtlasTexture_il8ht")
+
+[node name="Credits" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+
+[node name="CreditsText" type="Label" parent="MarginContainer/Credits"]
+layout_mode = 2
+text = "Made for GMTK Game Jam 2024 by:
+Beniamin Dudek (Xkonti)
+Carme
+D4Devil (Damian Moreno)"
+label_settings = SubResource("LabelSettings_63ilv")
+horizontal_alignment = 2
+
+[connection signal="button_up" from="MarginContainer/CenterContainer/VBoxContainer/TextureButton" to="." method="_on_start_button_pressed"]
