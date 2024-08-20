@@ -25,6 +25,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.05706, 0)
 
 [node name="Ray" type="MeshInstance3D" parent="growth_dish"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 28)
+visible = false
 mesh = SubResource("BoxMesh_0qvqi")
 
 [node name="ClickableObject" parent="." instance=ExtResource("3_vgaqs")]

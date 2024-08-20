@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://breqvlr0feate"]
+
+[ext_resource type="Texture2D" uid="uid://cjgwfwhl2yoku" path="res://assets/models/house/house_flat_front.png" id="1_c5s1v"]
+
+[node name="FlatHouse" type="Sprite3D"]
+offset = Vector2(0, 30)
+modulate = Color(0.812406, 0.812406, 0.812406, 1)
+pixel_size = 0.08
+billboard = 2
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("1_c5s1v")
