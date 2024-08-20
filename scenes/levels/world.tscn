@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://bg7g48sbn5na8"]
+[gd_scene load_steps=34 format=3 uid="uid://bg7g48sbn5na8"]
 
 [ext_resource type="PackedScene" uid="uid://fgpto6xwiehx" path="res://scenes/characters/plant.tscn" id="1_hy1fl"]
 [ext_resource type="PackedScene" uid="uid://ethfqolg7tpy" path="res://assets/models/world/world_sphere.glb" id="1_w6odn"]
@@ -14,13 +14,16 @@
 [ext_resource type="PackedScene" uid="uid://c1icuiig1k6xn" path="res://scenes/objects/manhole.tscn" id="7_cfvaw"]
 [ext_resource type="PackedScene" uid="uid://bejjyy00sjqbf" path="res://assets/models/flower/Flower.glb" id="7_nhous"]
 [ext_resource type="PackedScene" uid="uid://c1amoih12j22b" path="res://scenes/props/house_spawner.tscn" id="8_38e3e"]
+[ext_resource type="PackedScene" uid="uid://darnom1j0yx1i" path="res://scenes/props/tree_spawner.tscn" id="9_3he64"]
 [ext_resource type="PackedScene" uid="uid://wolhcr7alfel" path="res://scenes/objects/pipette.tscn" id="9_r1hjq"]
+[ext_resource type="PackedScene" uid="uid://bvltewhg4hxgt" path="res://assets/models/barn/barn.glb" id="10_b1s8n"]
 [ext_resource type="PackedScene" uid="uid://cnrasbhxgwc1j" path="res://scenes/objects/watering_can.tscn" id="10_y5i48"]
 [ext_resource type="PackedScene" uid="uid://bbj17letitsyu" path="res://scenes/objects/ladybug_2.tscn" id="11_nn7mv"]
 [ext_resource type="PackedScene" uid="uid://buasq6u5cgpgk" path="res://scenes/objects/growth_ray_tower.tscn" id="14_c6jl4"]
 [ext_resource type="PackedScene" uid="uid://qirjlt3lplme" path="res://scenes/objects/growth_ray_power_box.tscn" id="15_fuksq"]
 [ext_resource type="PackedScene" uid="uid://4sjcjhj5roj3" path="res://scenes/objects/fertilizer.tscn" id="15_gugyc"]
 [ext_resource type="PackedScene" uid="uid://touox4x6ip7l" path="res://assets/models/city/city.glb" id="17_rp11v"]
+[ext_resource type="PackedScene" uid="uid://v8lyw1086lh2" path="res://scenes/props/tree.tscn" id="22_dqnln"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ngwyh"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -269,6 +272,108 @@ path_joined = false
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26, 0, 0)
 curve = SubResource("Curve3D_odkca")
 
+[node name="Trees" type="Node3D" parent="Decor"]
+
+[node name="HouseSpawner" parent="Decor/Trees" instance=ExtResource("9_3he64")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -46.1697, -0.177822, 30.4948)
+radius = 30.0
+
+[node name="HouseSpawner2" parent="Decor/Trees" instance=ExtResource("9_3he64")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -88.5296, -0.177826, -16.0035)
+radius = 30.0
+
+[node name="HouseSpawner3" parent="Decor/Trees" instance=ExtResource("9_3he64")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -89.7323, -0.177826, -81.3992)
+radius = 30.0
+
+[node name="HouseSpawner4" parent="Decor/Trees" instance=ExtResource("9_3he64")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -92.8499, -0.177826, -138.235)
+radius = 30.0
+
+[node name="HouseSpawner5" parent="Decor/Trees" instance=ExtResource("9_3he64")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.93647, -0.177826, 91.9092)
+radius = 30.0
+
+[node name="HouseSpawner6" parent="Decor/Trees" instance=ExtResource("9_3he64")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 71.2875, -0.177826, 67.2619)
+radius = 30.0
+
+[node name="HouseSpawner7" parent="Decor/Trees" instance=ExtResource("9_3he64")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100.238, -0.177822, 12.7516)
+radius = 30.0
+
+[node name="HouseSpawner8" parent="Decor/Trees" instance=ExtResource("9_3he64")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.362, 1.22157, -56.5784)
+radius = 50.0
+trees_count = 40
+
+[node name="HouseSpawner9" parent="Decor/Trees" instance=ExtResource("9_3he64")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49.0469, 1.22156, -221.743)
+radius = 50.0
+trees_count = 40
+
+[node name="HouseSpawner10" parent="Decor/Trees" instance=ExtResource("9_3he64")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -177.439, 1.22156, -58.3031)
+radius = 120.0
+trees_count = 100
+
+[node name="HouseSpawner13" parent="Decor/Trees" instance=ExtResource("9_3he64")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 185.367, 1.22156, -35.6838)
+radius = 120.0
+trees_count = 100
+
+[node name="HouseSpawner14" parent="Decor/Trees" instance=ExtResource("9_3he64")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 178.097, 1.22156, 119.269)
+radius = 120.0
+trees_count = 100
+
+[node name="HouseSpawner15" parent="Decor/Trees" instance=ExtResource("9_3he64")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 178.097, 76.8441, 34.5953)
+radius = 120.0
+trees_count = 100
+
+[node name="HouseSpawner11" parent="Decor/Trees" instance=ExtResource("9_3he64")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -141.958, 1.22156, 60.7172)
+radius = 120.0
+trees_count = 140
+
+[node name="HouseSpawner12" parent="Decor/Trees" instance=ExtResource("9_3he64")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -59.8784, 1.22156, 143.286)
+radius = 100.0
+trees_count = 80
+
+[node name="Barns" type="Node3D" parent="Decor"]
+
+[node name="Barn" parent="Decor/Barns" instance=ExtResource("10_b1s8n")]
+transform = Transform3D(-0.585655, 0, -1.56641, 0, 1.67231, 0, 1.56641, 0, -0.585655, -40.3219, -0.260168, -36.5828)
+
+[node name="Barn9" parent="Decor/Barns" instance=ExtResource("10_b1s8n")]
+transform = Transform3D(1.67, 0, 0.0878719, 0, 1.67231, 0, -0.0878719, 0, 1.67, -54.3991, -0.785499, -102.233)
+
+[node name="Barn10" parent="Decor/Barns" instance=ExtResource("10_b1s8n")]
+transform = Transform3D(1.67, 0, 0.0878719, 0, 1.67231, 0, -0.0878719, 0, 1.67, -61.8165, -0.785499, -98.4194)
+
+[node name="Barn2" parent="Decor/Barns" instance=ExtResource("10_b1s8n")]
+transform = Transform3D(-1.67151, 0, 0.0517406, 0, 1.67231, 0, -0.0517406, 0, -1.67151, -9.93896, -0.108214, 16.2711)
+
+[node name="Barn3" parent="Decor/Barns" instance=ExtResource("10_b1s8n")]
+transform = Transform3D(0.00329791, 0, 1.67231, 0, 1.67231, 0, -1.67231, 0, 0.00329791, 60.2237, -0.150506, -4.59923)
+
+[node name="Barn4" parent="Decor/Barns" instance=ExtResource("10_b1s8n")]
+transform = Transform3D(0.00329791, 0, 1.67231, 0, 1.67231, 0, -1.67231, 0, 0.00329791, 60.2404, -0.150506, -13.084)
+
+[node name="Barn5" parent="Decor/Barns" instance=ExtResource("10_b1s8n")]
+transform = Transform3D(-0.572128, 0, -1.5714, 0, 1.67231, 0, 1.5714, 0, -0.572128, 12.1073, -0.150506, -101.507)
+
+[node name="Barn6" parent="Decor/Barns" instance=ExtResource("10_b1s8n")]
+transform = Transform3D(-0.572128, 0, -1.5714, 0, 1.67231, 0, 1.5714, 0, -0.572128, 9.46213, -0.150506, -94.2416)
+
+[node name="Barn7" parent="Decor/Barns" instance=ExtResource("10_b1s8n")]
+transform = Transform3D(-1.18436, -0.0675369, -1.1787, -0.0388808, 1.6709, -0.0566709, 1.18, -0.0127309, -1.18493, -164.978, -2.96075, -170.307)
+
+[node name="Barn8" parent="Decor/Barns" instance=ExtResource("10_b1s8n")]
+transform = Transform3D(-1.18436, -0.0675369, -1.1787, -0.0388808, 1.6709, -0.0566709, 1.18, -0.0127309, -1.18493, -171.608, -3.02687, -163.709)
+
 [node name="Planter" parent="Decor" instance=ExtResource("2_mneh1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.19209e-07, 0)
 
@@ -357,3 +462,8 @@ ray_tower = NodePath("../GrowthRayTower")
 
 [node name="Fertilizer" parent="Interactable" instance=ExtResource("15_gugyc")]
 transform = Transform3D(-0.560176, 0, -0.828373, 0, 1, 0, 0.828373, 0, -0.560176, -0.833586, 0, -1.17428)
+
+[node name="FlatHouse" parent="Interactable" instance=ExtResource("22_dqnln")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.67826, 0, 0)
+offset = Vector2(0, 30)
+pixel_size = 0.08
