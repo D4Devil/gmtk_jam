@@ -40,19 +40,6 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_54tcd")
 
-[node name="RestartButton" type="Button" parent="."]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -215.0
-offset_top = 22.0
-offset_right = -19.0
-offset_bottom = 85.0
-grow_horizontal = 0
-theme_override_font_sizes/font_size = 40
-text = "Try again!"
-
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
@@ -66,7 +53,6 @@ theme_override_constants/margin_right = 18
 theme_override_constants/margin_bottom = 18
 
 [node name="GradingDisplay" type="HBoxContainer" parent="MarginContainer"]
-visible = false
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
@@ -131,4 +117,11 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 40
 text = "  Kale scale: 3.1415x"
 
-[connection signal="pressed" from="RestartButton" to="." method="_on_restart_button_pressed"]
+[node name="RestartButton" type="Button" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 40
+text = "Try again!"
+
+[connection signal="pressed" from="MarginContainer/RestartButton" to="." method="_on_restart_button_pressed"]
