@@ -45,3 +45,4 @@ categories = Array[ExtResource("7_jnb54")]([SubResource("Resource_l7dn0"), SubRe
 participants_per_category = 6
 
 [node name="DebugUI" parent="." instance=ExtResource("7_g877c")]
+visible = false

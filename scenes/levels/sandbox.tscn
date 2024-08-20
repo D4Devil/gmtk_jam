@@ -1,7 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://vw37xvmq31p2"]
+[gd_scene load_steps=10 format=3 uid="uid://vw37xvmq31p2"]
 
 [ext_resource type="PackedScene" uid="uid://dtq401eqrs2xm" path="res://scenes/objects/shovel.tscn" id="1_bkrsc"]
-[ext_resource type="PackedScene" path="res://scenes/manure.tscn" id="1_jtr7i"]
+[ext_resource type="PackedScene" uid="uid://bn6ahprue2v3c" path="res://scenes/manure.tscn" id="1_jtr7i"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_j8a0q"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -20,6 +20,11 @@ glow_enabled = true
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_ipmml"]
 size = Vector2(100, 100)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_h4xer"]
+size = Vector3(2.8927, 1.6084, 2.50195)
+
+[sub_resource type="BoxMesh" id="BoxMesh_o6vjn"]
 
 [node name="Sandbox" type="Node3D"]
 
@@ -59,3 +64,13 @@ input_ray_pickable = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/ShovelPlane"]
 shape = SubResource("WorldBoundaryShape3D_iwqth")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." groups=["Kale"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" groups=["Kale"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.118726, 0, -1.91531)
+shape = SubResource("BoxShape3D_h4xer")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.196501, 0, -1.36716)
+mesh = SubResource("BoxMesh_o6vjn")
