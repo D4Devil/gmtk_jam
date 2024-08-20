@@ -20,22 +20,27 @@ func _init():
 func on_used(use: bool) -> void:
 	if use and _current_poo:
 		_current_poo.freeze = false
-		_current_poo.reparent(owner)
 		_current_poo = null
 
 	if not _in_manure or not use:
 		return
 
-	## Scoop some poo
 	var poo = poo_scene.instantiate() as NutrientParticle
-	add_child(poo)
+	poo.add_collision_exception_with(self)
+
+	## this line throws errors, but, if i remove it then the _current_poo
+	## is freed befor checks and that throws exeption, ergo brakes the game
+	poo.global_position = global_position
+
+	get_tree().root.add_child(poo)
 	poo.freeze = true
 	_current_poo = poo
 
 
-func _physics_process(delta: float) -> void:
-	if _current_poo:
-		_current_poo.transform = anchor.transform
+func _process(_delta) -> void:
+	if _current_poo and not _current_poo.is_queued_for_deletion():
+		_current_poo.global_basis = anchor.global_basis
+		_current_poo.global_position = global_position
 
 
 func on_body_entered(body: Node) -> void:

@@ -189,11 +189,11 @@ libraries = {
 }
 autoplay = "start"
 
-[node name="StaticBody3D" type="StaticBody3D" parent="." groups=["Kale"]]
+[node name="PlantStaticBody" type="StaticBody3D" parent="." groups=["Kale"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0110452, 0)
 collision_layer = 5
 input_ray_pickable = false
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlantStaticBody"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.227664, 0)
 shape = SubResource("CylinderShape3D_h4exj")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://f6pbctc8lmx5"]
+[gd_scene load_steps=7 format=3 uid="uid://bhohjtuoosxm6"]
 
 [ext_resource type="Script" path="res://scripts/objects/components/nutrient_particle.gd" id="1_ts4vc"]
 [ext_resource type="Script" path="res://scripts/resources/nutrient.gd" id="2_fg5i6"]

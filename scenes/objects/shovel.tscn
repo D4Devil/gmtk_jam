@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://jjuv6k4ofkmw"]
+[gd_scene load_steps=7 format=3 uid="uid://dtq401eqrs2xm"]
 
 [ext_resource type="Script" path="res://scripts/objects/shovel.gd" id="1_3820v"]
 [ext_resource type="Script" path="res://scripts/objects/components/pickable.gd" id="1_bi86i"]
@@ -9,7 +9,7 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_g0fjq"]
 size = Vector3(0.375916, 0.15472, 1.23521)
 
-[node name="Shovel" type="RigidBody3D"]
+[node name="Shovel_RigidBody" type="RigidBody3D"]
 collision_mask = 9
 freeze_mode = 1
 script = ExtResource("1_3820v")
@@ -17,7 +17,7 @@ script = ExtResource("1_3820v")
 [node name="Pickable" type="Node" parent="."]
 script = ExtResource("1_bi86i")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="ShovelCollisionShape" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.505793, 0.862655, 0, -0.862655, 0.505793, -0.00231153, 0.53901, 0.312786)
 shape = SubResource("BoxShape3D_g0fjq")
 
@@ -32,8 +32,8 @@ script = ExtResource("6_d5txl")
 [node name="Body" parent="." instance=ExtResource("4_us7lt")]
 transform = Transform3D(-4.37114e-08, 4.37114e-08, -1, -0.5, 0.866025, 5.97109e-08, 0.866025, 0.5, -1.59995e-08, 0, 0, 0)
 
-[node name="PooAnchor" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 0, 0.249205, 0.0606169)
+[node name="PooAnchor" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.26354, 0.0746443)
 
 [connection signal="manure_area" from="." to="DragAgent" method="set_target"]
 [connection signal="droped" from="Pickable" to="." method="set_freeze_enabled" binds= [false]]

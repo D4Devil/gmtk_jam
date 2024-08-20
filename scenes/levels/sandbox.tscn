@@ -1,78 +1,61 @@
-[gd_scene load_steps=9 format=3 uid="uid://cw5exb5acr2g8"]
+[gd_scene load_steps=8 format=3 uid="uid://vw37xvmq31p2"]
 
-[ext_resource type="PackedScene" uid="uid://wolhcr7alfel" path="res://scenes/objects/pipette.tscn" id="1_sx1id"]
-[ext_resource type="PackedScene" uid="uid://cnrasbhxgwc1j" path="res://scenes/objects/watering_can.tscn" id="2_8i4hr"]
-[ext_resource type="PackedScene" uid="uid://4sjcjhj5roj3" path="res://scenes/objects/fertilizer.tscn" id="3_538kw"]
+[ext_resource type="PackedScene" uid="uid://dtq401eqrs2xm" path="res://scenes/objects/shovel.tscn" id="1_bkrsc"]
+[ext_resource type="PackedScene" path="res://scenes/manure.tscn" id="1_jtr7i"]
 
-[sub_resource type="GDScript" id="GDScript_d65r6"]
-script/source = "extends Node3D
-
-
-func _on_ready():
-	GameStateMachine.on_new_game_started()
-"
-
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_pw76e"]
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_j8a0q"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
 ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
 
-[sub_resource type="Sky" id="Sky_knro2"]
-sky_material = SubResource("ProceduralSkyMaterial_pw76e")
+[sub_resource type="Sky" id="Sky_7l111"]
+sky_material = SubResource("ProceduralSkyMaterial_j8a0q")
 
-[sub_resource type="Environment" id="Environment_kajjd"]
+[sub_resource type="Environment" id="Environment_jh8xe"]
 background_mode = 2
-sky = SubResource("Sky_knro2")
+sky = SubResource("Sky_7l111")
 tonemap_mode = 2
 glow_enabled = true
 
-[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_u4y0c"]
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_iwqth"]
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_1xot7"]
+[sub_resource type="PlaneMesh" id="PlaneMesh_ipmml"]
 size = Vector2(100, 100)
 
 [node name="Sandbox" type="Node3D"]
-script = SubResource("GDScript_d65r6")
 
-[node name="Shovel" parent="." instance=ExtResource("4_tda7l")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.77368, 0)
+[node name="Manure" parent="." instance=ExtResource("1_jtr7i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.70761, 0, 0.383677)
+
+[node name="Shovel" parent="." instance=ExtResource("1_bkrsc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.586574, 0)
 
 [node name="World" type="Node" parent="."]
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="World"]
-environment = SubResource("Environment_kajjd")
-
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="World"]
-transform = Transform3D(0.377534, 0.801936, -0.462998, -9.83849e-09, 0.5, 0.866026, 0.925996, -0.326954, 0.188767, -0.748584, 0, 0)
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+light_color = Color(0.82462, 0.797398, 0, 1)
 shadow_enabled = true
 
+[node name="WorldEnvironment" type="WorldEnvironment" parent="World"]
+environment = SubResource("Environment_jh8xe")
+
 [node name="Camera3D" type="Camera3D" parent="World"]
-transform = Transform3D(0.99999, -0.00326233, 0.00291174, 0, 0.665883, 0.746057, -0.00437276, -0.746049, 0.665876, -0.150833, 4.57958, 3.97823)
+transform = Transform3D(0.741415, -0.359544, 0.566597, 0, 0.844348, 0.535796, -0.671047, -0.397247, 0.626012, 3.08501, 2.9173, 3.40851)
 
 [node name="Floor" type="StaticBody3D" parent="World"]
 collision_layer = 4105
+input_ray_pickable = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/Floor"]
-shape = SubResource("WorldBoundaryShape3D_u4y0c")
+shape = SubResource("WorldBoundaryShape3D_iwqth")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="World/Floor"]
-mesh = SubResource("PlaneMesh_1xot7")
+mesh = SubResource("PlaneMesh_ipmml")
 
-[node name="ShovelFloor" type="StaticBody3D" parent="World"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.47835, 0)
+[node name="ShovelPlane" type="StaticBody3D" parent="World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.87561, 0)
 collision_layer = 4096
-collision_mask = 0
 input_ray_pickable = false
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="World/ShovelFloor"]
-shape = SubResource("WorldBoundaryShape3D_u4y0c")
-
-[node name="Wall" type="StaticBody3D" parent="World"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, -1.50239)
-collision_layer = 16
-input_ray_pickable = false
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Wall"]
-shape = SubResource("WorldBoundaryShape3D_u4y0c")
-
-[node name="Manure" parent="." instance=ExtResource("5_v5glx")]
-transform = Transform3D(2.185, 0, 0, 0, 2.185, 0, 0, 0, 2.185, -0.392545, 0, -6.8494)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/ShovelPlane"]
+shape = SubResource("WorldBoundaryShape3D_iwqth")
