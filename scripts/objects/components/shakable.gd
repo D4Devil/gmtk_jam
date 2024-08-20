@@ -3,7 +3,7 @@ extends Node3D
 
 @export_category("Tuning")
 @export_subgroup("Nutrient")
-@export var override_nutrient_value := 10
+@export var override_nutrient_value: float = 0.04
 @export var override_nutrient_type := Nutrient.Nutrients.Water
 
 @export_subgroup("Gameplay")
@@ -36,7 +36,7 @@ func _process(delta: float) -> void:
 	if _shaking <= 0:
 		return
 	
-	_shaking = clampf(_shaking - delta, 0, 10)
+	_shaking = clampf(_shaking - (delta * 4), 0, 10)
 
 	# Call for do some animation considering _shaking as anim speed
 	_shake_animatable(delta)

@@ -15,10 +15,12 @@ size = Vector3(0.469727, 0.662354, 0.243408)
 freeze_mode = 1
 script = ExtResource("1_bikd7")
 override_nutrient_type = 2
+shake_factor = 1.8
 particle = ExtResource("6_mwqe2")
 spawn_point = NodePath("FertilizerSpawnPoint")
 spawn_point_target = NodePath("FertilizerSpawnPointTarget")
 animatable = NodePath("CollisionShape3D/Fertilizer")
+speed = 0.15
 collision_object = NodePath(".")
 
 [node name="Clickable" type="Node3D" parent="."]
