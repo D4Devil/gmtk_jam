@@ -1,0 +1,44 @@
+[gd_scene load_steps=7 format=3 uid="uid://dtq401eqrs2xm"]
+
+[ext_resource type="Script" path="res://scripts/objects/shovel.gd" id="1_3820v"]
+[ext_resource type="Script" path="res://scripts/objects/components/pickable.gd" id="1_bi86i"]
+[ext_resource type="PackedScene" uid="uid://bvkin2vsv8sue" path="res://assets/models/shovel/Shovel.glb" id="4_us7lt"]
+[ext_resource type="Script" path="res://scripts/objects/components/drag_agent.gd" id="5_eepwr"]
+[ext_resource type="Script" path="res://scripts/objects/components/clickable.gd" id="6_d5txl"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g0fjq"]
+size = Vector3(0.375916, 0.15472, 1.23521)
+
+[node name="Shovel_RigidBody" type="RigidBody3D"]
+collision_mask = 9
+freeze_mode = 1
+script = ExtResource("1_3820v")
+
+[node name="Pickable" type="Node" parent="."]
+script = ExtResource("1_bi86i")
+
+[node name="ShovelCollisionShape" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.505793, 0.862655, 0, -0.862655, 0.505793, -0.00231153, 0.53901, 0.312786)
+shape = SubResource("BoxShape3D_g0fjq")
+
+[node name="DragAgent" type="Node3D" parent="." node_paths=PackedStringArray("root")]
+script = ExtResource("5_eepwr")
+plane_mask = 4096
+root = NodePath("..")
+
+[node name="Clickable" type="Node3D" parent="."]
+script = ExtResource("6_d5txl")
+
+[node name="Body" parent="." instance=ExtResource("4_us7lt")]
+transform = Transform3D(-4.37114e-08, 4.37114e-08, -1, -0.5, 0.866025, 5.97109e-08, 0.866025, 0.5, -1.59995e-08, 0, 0, 0)
+
+[node name="PooAnchor" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.26354, 0.0746443)
+
+[connection signal="manure_area" from="." to="DragAgent" method="set_target"]
+[connection signal="droped" from="Pickable" to="." method="set_freeze_enabled" binds= [false]]
+[connection signal="droped" from="Pickable" to="DragAgent" method="set_enable" binds= [false]]
+[connection signal="picked" from="Pickable" to="." method="set_freeze_enabled" binds= [true]]
+[connection signal="picked" from="Pickable" to="DragAgent" method="set_enable" binds= [true]]
+[connection signal="used" from="Pickable" to="." method="on_used"]
+[connection signal="clicked" from="Clickable" to="Pickable" method="on_picked"]

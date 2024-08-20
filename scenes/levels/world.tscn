@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://bg7g48sbn5na8"]
+[gd_scene load_steps=39 format=3 uid="uid://bg7g48sbn5na8"]
 
 [ext_resource type="PackedScene" uid="uid://fgpto6xwiehx" path="res://scenes/characters/plant.tscn" id="1_hy1fl"]
 [ext_resource type="PackedScene" uid="uid://ethfqolg7tpy" path="res://assets/models/world/world_sphere.glb" id="1_w6odn"]
@@ -25,6 +25,8 @@
 [ext_resource type="PackedScene" uid="uid://touox4x6ip7l" path="res://assets/models/city/city.glb" id="17_rp11v"]
 [ext_resource type="PackedScene" path="res://scenes/props/tree.tscn" id="22_dqnln"]
 [ext_resource type="PackedScene" uid="uid://dqxhamrsiplmr" path="res://assets/models/barrel/Empty Barrel.glb" id="25_rrnhn"]
+[ext_resource type="PackedScene" uid="uid://dtq401eqrs2xm" path="res://scenes/objects/shovel.tscn" id="26_y47rk"]
+[ext_resource type="PackedScene" path="res://scenes/manure.tscn" id="27_4j008"]
 [ext_resource type="PackedScene" uid="uid://btnpd8nq3wmio" path="res://scenes/objects/sprinkler.tscn" id="26_scyh7"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ngwyh"]
@@ -66,6 +68,8 @@ resource_local_to_scene = true
 plane = Plane(0, 0, 1, 0)
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_m3dr5"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_uwc1y"]
 
 [node name="World" type="Node3D"]
 
@@ -435,6 +439,14 @@ collision_mask = 0
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ObjectPlanes/KillZone"]
 shape = SubResource("WorldBoundaryShape3D_m3dr5")
 
+[node name="ShovelPlane" type="StaticBody3D" parent="ObjectPlanes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.12729, 0)
+collision_layer = 4096
+input_ray_pickable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ObjectPlanes/ShovelPlane"]
+shape = SubResource("WorldBoundaryShape3D_uwc1y")
+
 [node name="Interactable" type="Node" parent="."]
 
 [node name="Pipette" parent="Interactable" instance=ExtResource("9_r1hjq")]
@@ -475,6 +487,11 @@ pixel_size = 0.08
 [node name="BarrelEmpty" parent="Interactable" instance=ExtResource("25_rrnhn")]
 transform = Transform3D(6.47824, -0.00842768, 6.70653, -6.11579e-10, 9.32444, 0.0117174, -6.70654, -0.00814079, 6.47823, -90.0538, -0.735255, -61.1986)
 
+[node name="Shovel_RigidBody" parent="Interactable" instance=ExtResource("26_y47rk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.43683, 0.447091, -5.41675)
+
+[node name="Manure" parent="Interactable" instance=ExtResource("27_4j008")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.53843, 0, -10.0521)
 [node name="Sprinkler" parent="Interactable" instance=ExtResource("26_scyh7")]
 transform = Transform3D(-0.840784, 0, -0.541371, 0, 1, 0, 0.541371, 0, -0.840784, 2.68783, 0, 3.91572)
 nutrient_volume = 0.002

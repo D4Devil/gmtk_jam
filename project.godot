@@ -45,6 +45,8 @@ import/blender/enabled=false
 
 Kale="A simple way to check for kale"
 Particle="subscribe to avoid particles destroying each other"
+Manure=""
+Near_Manure=""
 
 [input]
 

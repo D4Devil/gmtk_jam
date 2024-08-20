@@ -1,0 +1,37 @@
+[gd_scene load_steps=7 format=3 uid="uid://bhohjtuoosxm6"]
+
+[ext_resource type="Script" path="res://scripts/objects/components/nutrient_particle.gd" id="1_ts4vc"]
+[ext_resource type="Script" path="res://scripts/resources/nutrient.gd" id="2_fg5i6"]
+
+[sub_resource type="Resource" id="Resource_dcl5d"]
+script = ExtResource("2_fg5i6")
+nutrient_type = 2
+volume = 50.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w3ybe"]
+albedo_color = Color(0.481625, 0.245126, 0.0955891, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_codte"]
+material = SubResource("StandardMaterial3D_w3ybe")
+size = Vector3(0.3, 0.3, 0.3)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yhlcp"]
+size = Vector3(0.292725, 0.288879, 0.292725)
+
+[node name="PooScoop" type="RigidBody3D"]
+collision_layer = 256
+input_ray_pickable = false
+freeze_mode = 1
+script = ExtResource("1_ts4vc")
+nutrient = SubResource("Resource_dcl5d")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, 0)
+mesh = SubResource("BoxMesh_codte")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, 0)
+shape = SubResource("BoxShape3D_yhlcp")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
