@@ -2,8 +2,11 @@ class_name Shovel
 extends RigidBody3D
 
 
-var _in_manure := false
+@onready var poo_scene = preload("res://scenes/objects/poo_scoop.tscn")
+@onready var anchor = $PooAnchor
 
+var _in_manure := false
+var _current_poo : NutrientParticle = null
 
 signal manure_area(entered: bool, position: Vector3)
 signal manure(entered: bool)
@@ -15,12 +18,24 @@ func _init():
 
 
 func on_used(use: bool) -> void:
-	print("in manure: %s" %_in_manure)
+	if use and _current_poo:
+		_current_poo.freeze = false
+		_current_poo.reparent(owner)
+		_current_poo = null
+
 	if not _in_manure or not use:
 		return
-	
+
 	## Scoop some poo
-	print('Used in manure')
+	var poo = poo_scene.instantiate() as NutrientParticle
+	add_child(poo)
+	poo.freeze = true
+	_current_poo = poo
+
+
+func _physics_process(delta: float) -> void:
+	if _current_poo:
+		_current_poo.transform = anchor.transform
 
 
 func on_body_entered(body: Node) -> void:

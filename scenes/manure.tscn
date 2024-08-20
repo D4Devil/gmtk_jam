@@ -22,8 +22,10 @@ height = 3.26599
 radius = 1.35291
 
 [node name="Manure" type="StaticBody3D"]
+collision_layer = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.12604, 0)
 shape = SubResource("SphereShape3D_d0p24")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]

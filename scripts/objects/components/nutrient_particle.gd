@@ -43,7 +43,7 @@ func _on_body_entered(body: Node):
 	if body.get_groups().has("Kale"):
 		nutrient.on_applyed()
 		landed_on_kale.emit()
-	print(body.name)
+
 	if not body.get_groups().has("Particle"):
-		AudioManager.instance.tap_at(position)
+		# await AudioManager.instance.tap_at(position)
 		queue_free()

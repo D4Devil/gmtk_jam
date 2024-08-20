@@ -32,6 +32,9 @@ script = ExtResource("6_d5txl")
 [node name="Body" parent="." instance=ExtResource("4_us7lt")]
 transform = Transform3D(-4.37114e-08, 4.37114e-08, -1, -0.5, 0.866025, 5.97109e-08, 0.866025, 0.5, -1.59995e-08, 0, 0, 0)
 
+[node name="PooAnchor" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 0, 0.249205, 0.0606169)
+
 [connection signal="manure_area" from="." to="DragAgent" method="set_target"]
 [connection signal="droped" from="Pickable" to="." method="set_freeze_enabled" binds= [false]]
 [connection signal="droped" from="Pickable" to="DragAgent" method="set_enable" binds= [false]]
