@@ -5,12 +5,17 @@ extends Node
 @export var drop_action := "secondary_click"
 
 var enabled := false
+static var _occupied := false
 
 signal picked()
 signal used(using: bool)
 signal droped()
 
 func on_picked():
+	if _occupied:
+		return 
+	
+	_occupied = true
 	enabled = true
 	picked.emit()
 
@@ -20,6 +25,7 @@ func on_used(using: bool):
 
 
 func on_droped():
+	_occupied = false
 	enabled = false
 	droped.emit()
 

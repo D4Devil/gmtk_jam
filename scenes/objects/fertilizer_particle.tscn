@@ -6,7 +6,7 @@
 [sub_resource type="Resource" id="Resource_36ut0"]
 script = ExtResource("2_6d4nn")
 nutrient_type = 2
-volume = 0.2
+volume = 0.02
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_d0fx2"]
 size = Vector3(0.06, 0.06, 0.06)
@@ -20,7 +20,7 @@ size = Vector3(0.06, 0.06, 0.06)
 
 [node name="FertilizerParticle" type="RigidBody3D" groups=["Particle"]]
 collision_layer = 256
-collision_mask = 397
+collision_mask = 388
 script = ExtResource("1_510ek")
 nutrient = SubResource("Resource_36ut0")
 

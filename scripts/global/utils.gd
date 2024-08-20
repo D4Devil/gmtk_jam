@@ -11,3 +11,7 @@ static func screen_to_3d_object(node: Node3D, collision_mask: int = 4294967295) 
 	
 	## Query the 3d direct space state, retrives a dictionary with collision
 	return node.get_world_3d().direct_space_state.intersect_ray(query)
+
+static func rand_pos_in_sphere():
+	var rand_vector = Vector3(randf_range(-1.0, 1.0), randf_range(-1.0, 1.0), randf_range(-1.0, 1.0))
+	return rand_vector * (1.0 / rand_vector.length())
