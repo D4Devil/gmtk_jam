@@ -1,0 +1,71 @@
+[gd_scene load_steps=7 format=3 uid="uid://bn6ahprue2v3c"]
+
+[ext_resource type="Script" path="res://scripts/objects/components/manure_area.gd" id="1_6wdg1"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_d0p24"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0k20i"]
+albedo_color = Color(0.46119, 0.235364, 0.013829, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_futkm"]
+material = SubResource("StandardMaterial3D_0k20i")
+radius = 0.4
+height = 0.3
+is_hemisphere = true
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_uftl3"]
+height = 3.07776
+radius = 2.49839
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_2iwbx"]
+height = 3.26599
+radius = 1.35291
+
+[node name="Manure" type="StaticBody3D"]
+collision_layer = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.12604, 0)
+shape = SubResource("SphereShape3D_d0p24")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.68, 0, 0, 0, 1.68, 0, 0, 0, 1.68, 0.195244, 0.162443, -0.314451)
+mesh = SubResource("SphereMesh_futkm")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.68, 0, 0, 0, 1.68, 0, 0, 0, 1.68, 0.465393, 0.00993574, 0.249388)
+mesh = SubResource("SphereMesh_futkm")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.68, 0, 0, 0, 1.68, 0, 0, 0, 1.68, -0.610732, 0, 0)
+mesh = SubResource("SphereMesh_futkm")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.68, 0, 0, 0, 1.68, 0, 0, 0, 1.68, 0, 0, 0.622342)
+mesh = SubResource("SphereMesh_futkm")
+
+[node name="Area3D2" type="Area3D" parent="." groups=["Near_Manure"]]
+collision_layer = 0
+input_ray_pickable = false
+script = ExtResource("1_6wdg1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.893792, 0)
+shape = SubResource("CylinderShape3D_uftl3")
+
+[node name="Area3D" type="Area3D" parent="." groups=["Manure"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.476593, 0)
+collision_layer = 0
+input_ray_pickable = false
+script = ExtResource("1_6wdg1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.52857, 0)
+shape = SubResource("CylinderShape3D_2iwbx")
+
+[connection signal="body_entered" from="Area3D2" to="Area3D" method="on_body_entered"]
+[connection signal="body_entered" from="Area3D2" to="Area3D2" method="on_body_entered"]
+[connection signal="body_exited" from="Area3D2" to="Area3D" method="on_body_exited"]
+[connection signal="body_exited" from="Area3D2" to="Area3D2" method="on_body_exited"]
+[connection signal="body_entered" from="Area3D" to="Area3D" method="on_body_entered"]
+[connection signal="body_exited" from="Area3D" to="Area3D" method="on_body_exited"]
