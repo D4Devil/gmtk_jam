@@ -1,6 +1,19 @@
-[gd_scene load_steps=2 format=3 uid="uid://la0lgyyjggxx"]
+[gd_scene load_steps=6 format=3 uid="uid://la0lgyyjggxx"]
 
 [ext_resource type="Script" path="res://scripts/ui/main_menu.gd" id="1_dm2b5"]
+[ext_resource type="Texture2D" uid="uid://bn8e4y04ra4f1" path="res://assets/sprites/ui/buttons_ui.png" id="2_6cthj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4yc08"]
+atlas = ExtResource("2_6cthj")
+region = Rect2(4, 4, 248, 104)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ikpa"]
+atlas = ExtResource("2_6cthj")
+region = Rect2(4, 112, 248, 104)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_il8ht"]
+atlas = ExtResource("2_6cthj")
+region = Rect2(4, 220, 248, 104)
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -25,13 +38,10 @@ offset_bottom = 33.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="StartButton" type="Button" parent="VBoxContainer"]
+[node name="TextureButton" type="TextureButton" parent="VBoxContainer"]
 layout_mode = 2
-text = "Start new game"
+texture_normal = SubResource("AtlasTexture_4yc08")
+texture_pressed = SubResource("AtlasTexture_3ikpa")
+texture_hover = SubResource("AtlasTexture_il8ht")
 
-[node name="QuitButton" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-text = "Quit game"
-
-[connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed" flags=3]
+[connection signal="button_up" from="VBoxContainer/TextureButton" to="." method="_on_start_button_pressed"]
