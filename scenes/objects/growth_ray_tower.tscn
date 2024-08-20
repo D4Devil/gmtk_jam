@@ -1,10 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://buasq6u5cgpgk"]
+[gd_scene load_steps=10 format=3 uid="uid://buasq6u5cgpgk"]
 
 [ext_resource type="PackedScene" uid="uid://cuvm0fnbhgbbh" path="res://assets/models/growth_ray/growth_base.glb" id="1_244n8"]
 [ext_resource type="Script" path="res://scripts/objects/growth_ray_tower.gd" id="1_rh5v3"]
 [ext_resource type="PackedScene" uid="uid://c1gtfgpy0lnon" path="res://assets/models/growth_ray/growth_dish.glb" id="2_oxkfy"]
 [ext_resource type="PackedScene" uid="uid://yoaubit78jdv" path="res://scenes/objects/clickable_object.tscn" id="3_vgaqs"]
 [ext_resource type="Material" uid="uid://dsq8dwux4q38i" path="res://assets/models/growth_ray/growth_toer_ray_mat.tres" id="4_go08s"]
+[ext_resource type="AudioStream" uid="uid://bbfkfun4kesjj" path="res://assets/audio/sfx/kick_1.wav" id="6_tr1ay"]
+[ext_resource type="AudioStream" uid="uid://bo3vt6oy7xwhp" path="res://assets/audio/sfx/ray_loop.wav" id="7_6fh3i"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_0qvqi"]
 material = ExtResource("4_go08s")
@@ -33,4 +35,14 @@ mesh = SubResource("BoxMesh_0qvqi")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00787354, 5.07748, 1.24341)
 shape = SubResource("BoxShape3D_gyfjd")
 
+[node name="FlipSound" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("6_tr1ay")
+unit_size = 30.0
+
+[node name="RaySound" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("7_6fh3i")
+unit_size = 30.0
+
 [connection signal="clicked" from="ClickableObject" to="." method="on_dish_clicked" flags=6]
+[connection signal="clicked" from="ClickableObject" to="FlipSound" method="play"]
+[connection signal="finished" from="FlipSound" to="FlipSound" method="queue_free"]

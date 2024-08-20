@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://qirjlt3lplme"]
+[gd_scene load_steps=7 format=3 uid="uid://qirjlt3lplme"]
 
 [ext_resource type="Script" path="res://scripts/objects/growth_ray_power_box.gd" id="1_3qxp8"]
 [ext_resource type="PackedScene" uid="uid://yoaubit78jdv" path="res://scenes/objects/clickable_object.tscn" id="1_x6mdw"]
 [ext_resource type="Material" uid="uid://cn47gi8iqt1do" path="res://assets/models/growth_ray/growth_tower_base_mat.tres" id="2_2mpn6"]
+[ext_resource type="AudioStream" uid="uid://bbfkfun4kesjj" path="res://assets/audio/sfx/kick_1.wav" id="4_kp5kh"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_me7tj"]
 material = ExtResource("2_2mpn6")
@@ -26,4 +27,10 @@ mesh = SubResource("BoxMesh_me7tj")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.477417, 0)
 shape = SubResource("BoxShape3D_il5dt")
 
+[node name="ClickSound" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.20589, 0)
+stream = ExtResource("4_kp5kh")
+unit_size = 30.0
+
 [connection signal="clicked" from="ClickableObject" to="." method="on_click" flags=6]
+[connection signal="finished" from="ClickSound" to="ClickSound" method="queue_free" flags=6]

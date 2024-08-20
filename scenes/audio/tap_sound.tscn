@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://dtkmr1lcclbik"]
+
+[ext_resource type="AudioStream" uid="uid://cpkf2mrgt1d67" path="res://assets/audio/sfx/tap.wav" id="1_ru1g5"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_hti36"]
+playback_mode = 1
+random_pitch = 2.0
+random_volume_offset_db = 2.12
+streams_count = 1
+stream_0/stream = ExtResource("1_ru1g5")
+
+[node name="TapSound" type="AudioStreamPlayer3D"]
+stream = SubResource("AudioStreamRandomizer_hti36")
+volume_db = 6.0
+autoplay = true
+
+[connection signal="finished" from="." to="." method="queue_free" flags=7]
