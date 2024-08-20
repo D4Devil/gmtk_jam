@@ -2,21 +2,23 @@ class_name Sprinkler
 extends Node3D
 
 #Dependency
-@export var stream_target : Node3D
+@export var stream_target: Node3D
+@export var nutrient: Nutrient
+
 
 @export_category("Tuning")
 ## Not very elegant, but min and max for the force applied to the water
 @export var launch_force := Vector2.ZERO
 @export_range(5.0, 90.0) var arch_in_degrees := 20.0
-@export var arch_speed : float = 2
-@export var arch_deviation : float
-@export var tilt_deviation : float
-@export var firing_rate : float
-@export var firing_deviation : float
+@export var arch_speed: float = 2
+@export var arch_deviation: float
+@export var tilt_deviation: float
+@export var firing_rate: float
+@export var firing_deviation: float
 
 @onready var droplet_scene := preload("res://scenes/objects/droplet.tscn")
 
-var _enabled := true
+var _enabled := false
 var _current_arch: float = 0
 var _fired_delta: float = 0
 var _arch_direction = 1
@@ -38,7 +40,7 @@ func _process(delta):
 	_fired_delta = 0
 
 	## Get all the variations
-	var force_v = randf_range(launch_force.x, launch_force.y) 
+	var force_v = randf_range(launch_force.x, launch_force.y)
 	var arch_v = randf_range(-arch_deviation, arch_deviation) + _current_arch
 	var tilt_v = randf_range(-tilt_deviation, tilt_deviation)
 
@@ -48,7 +50,7 @@ func _process(delta):
 
 	var droplet = droplet_scene.instantiate() as NutrientParticle
 	owner.add_child(droplet)
-	droplet.configure(dir, self)
+	droplet.configure(dir, self, null, nutrient.volume, nutrient.nutrient_type)
 
 
 func _on_enabled() -> void:

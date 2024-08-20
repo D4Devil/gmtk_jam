@@ -73,7 +73,7 @@ script = SubResource("GDScript_pe44m")
 physics_body = NodePath("..")
 _holes = [NodePath("CanHole"), NodePath("CanHole2"), NodePath("CanHole3"), NodePath("CanHole4"), NodePath("CanHole5")]
 water_hole = NodePath("Hole")
-watering_power = 0.04
+watering_power = 0.008
 another_magic_number = 1.6
 
 [node name="CanHole" type="Node3D" parent="WateringCan"]

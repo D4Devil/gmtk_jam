@@ -1,15 +1,19 @@
-[gd_scene load_steps=6 format=3 uid="uid://c1icuiig1k6xn"]
+[gd_scene load_steps=9 format=3 uid="uid://c1icuiig1k6xn"]
 
 [ext_resource type="PackedScene" uid="uid://yoaubit78jdv" path="res://scenes/objects/clickable_object.tscn" id="1_7mg8k"]
 [ext_resource type="Script" path="res://scripts/objects/manhole.gd" id="1_eet7d"]
 [ext_resource type="PackedScene" uid="uid://bmyidg0rpcb4d" path="res://assets/models/sewer/Manhole.glb" id="2_0pdp8"]
 [ext_resource type="PackedScene" uid="uid://c1mw82iu1ebpv" path="res://assets/models/sewer/Sewer entrance.glb" id="2_6eja0"]
+[ext_resource type="PackedScene" uid="uid://bakw5x6pqj6pd" path="res://scenes/objects/nutrient_stream.tscn" id="5_avv6x"]
+[ext_resource type="PackedScene" uid="uid://b54q5xk3084ih" path="res://scenes/objects/droplet.tscn" id="6_q1m56"]
+[ext_resource type="PackedScene" uid="uid://djgadgaoeoss8" path="res://scenes/objects/fertilizer_particle.tscn" id="6_rf04n"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_dolpo"]
 size = Vector3(0.909058, 0.178543, 0.911316)
 
 [node name="Manhole" type="Node3D"]
 script = ExtResource("1_eet7d")
+interval = 0.5
 
 [node name="ClickableObject" parent="." instance=ExtResource("1_7mg8k")]
 
@@ -25,5 +29,16 @@ visible = false
 
 [node name="ClosedModel" parent="." instance=ExtResource("2_6eja0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.00284022, 0)
+
+[node name="FertStream" parent="." instance=ExtResource("5_avv6x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.132999, 0.269987, -0.190831)
+nutrient_volume = 0.03
+nutrient_type = 2
+nutrient_scene = ExtResource("6_rf04n")
+
+[node name="WaterStream" parent="." instance=ExtResource("5_avv6x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.181884, 0.269987, -0.190831)
+nutrient_volume = 0.015
+nutrient_scene = ExtResource("6_q1m56")
 
 [connection signal="clicked" from="ClickableObject" to="." method="on_click" flags=6]

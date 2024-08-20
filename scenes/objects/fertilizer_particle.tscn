@@ -20,7 +20,7 @@ size = Vector3(0.06, 0.06, 0.06)
 
 [node name="FertilizerParticle" type="RigidBody3D" groups=["Particle"]]
 collision_layer = 256
-collision_mask = 397
+collision_mask = 388
 script = ExtResource("1_510ek")
 nutrient = SubResource("Resource_36ut0")
 
