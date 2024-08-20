@@ -14,7 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://bbj17letitsyu" path="res://scenes/objects/ladybug_2.tscn" id="11_nn7mv"]
 [ext_resource type="PackedScene" uid="uid://buasq6u5cgpgk" path="res://scenes/objects/growth_ray_tower.tscn" id="14_c6jl4"]
 [ext_resource type="PackedScene" uid="uid://qirjlt3lplme" path="res://scenes/objects/growth_ray_power_box.tscn" id="15_fuksq"]
-[ext_resource type="PackedScene" uid="uid://dg4tr1ty2e8f4" path="res://scenes/objects/fertilizer.tscn" id="15_gugyc"]
+[ext_resource type="PackedScene" uid="uid://4sjcjhj5roj3" path="res://scenes/objects/fertilizer.tscn" id="15_gugyc"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ngwyh"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
