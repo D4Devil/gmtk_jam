@@ -8,11 +8,13 @@ TBD: How to play the game.
 
 ## Authors
 
-- [NAME](https://social-link-here)
+- Sipzio
+- Xkonti
+- D4Devil
 
 ## Tech stack
 
-- Godot Engine 4.2.2
+- Godot Engine 4.3.0
 - GDScript
 
 ## Licensing
